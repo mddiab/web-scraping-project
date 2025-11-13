@@ -3,6 +3,7 @@ import random
 import re
 from urllib.parse import urljoin
 from datetime import datetime, timezone
+from pathlib import Path
 
 import pandas as pd
 from fake_useragent import UserAgent
@@ -77,7 +78,7 @@ TITLE_KEYWORDS_RE = re.compile(
 )
 
 PRICE_RE = re.compile(
-    r"^[^\d]*\d[\d,]*\.\d{2}\s*[A-Za-z$€£]*$"   # something like: $34.99, 34.99 USD, €34.99
+    r"^[^\d]*\d[\d,]*\.\d{2}\s*[A-Za-z$€£]*$"   # e.g. $34.99, 34.99 USD, €34.99
 )
 
 
@@ -91,7 +92,7 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
       2. For each title link, walk forward in the DOM and pick the first
          text that looks like a price (e.g. 34.99, $34.99) before we hit:
             - another title-like <a>, or
-            - the "Add"/"Buy"/"Notify" button.
+            - an "Add"/"Buy"/"Notify" button.
     """
     soup = BeautifulSoup(html, "html.parser")
 
@@ -119,14 +120,13 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
         # Walk forward after this title to find price
         price_text = None
 
-        # We limit how far we scan to avoid going into the next big section
         steps = 0
         for node in a.next_elements:
-            if steps > 150:  # safety cap so we don't scan the whole page for one item
+            if steps > 150:  # safety cap
                 break
             steps += 1
 
-            # If we see another title-like link, stop (we've probably reached the next product)
+            # If we see another title-like link, stop (probably next product)
             if isinstance(node, Tag) and node.name == "a":
                 other_text = node.get_text(strip=True)
                 if other_text and TITLE_KEYWORDS_RE.search(other_text) and other_text != title:
@@ -136,7 +136,6 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
             if isinstance(node, Tag) and node.name in ("button", "a"):
                 btn_txt = node.get_text(strip=True)
                 if any(x in btn_txt for x in ("Add", "Buy", "Notify", "Pre-order", "Pre-Order")):
-                    # If we didn't catch a price before an action button, there's likely no valid price here
                     break
 
             # Look for a price-looking text node
@@ -149,7 +148,6 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
                     break
 
         if not price_text:
-            # If no price found near this title, skip it
             continue
 
         key = (title, full_url)
@@ -231,7 +229,13 @@ def scrape_cdkeys(max_items=50):
         )
 
         df = pd.DataFrame(scraped_items)
-        filename = "cdkeys_latest_games.csv"
+
+        # -------- Save to data/raw/ --------
+        BASE_DIR = Path(__file__).resolve().parent.parent  # project root
+        raw_dir = BASE_DIR / "data" / "raw"
+        raw_dir.mkdir(parents=True, exist_ok=True)
+
+        filename = raw_dir / "cdkeys_latest_games.csv"
         df.to_csv(filename, index=False)
 
         print("\n🧹 Done. Closing browser...")
@@ -250,4 +254,4 @@ def scrape_cdkeys(max_items=50):
 
 
 if __name__ == "__main__":
-    scrape_cdkeys(max_items=50)
+    scrape_cdkeys(max_items=500)

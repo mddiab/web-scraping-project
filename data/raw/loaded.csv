@@ -1,131 +1,209 @@
-title,price_raw,product_url,scraped_at
-ARC Raiders PC,£26.99,https://www.loaded.com/arc-raiders-pc-steam,2025-11-13T20:24:52.506509+00:00
-ARC Raiders Deluxe Edition PC,£39.99,https://www.loaded.com/arc-raiders-deluxe-edition-pc-steam,2025-11-13T20:24:52.506509+00:00
-Europa Universalis V PC,£39.99,https://www.loaded.com/europa-universalis-v-pc-steam,2025-11-13T20:24:52.506509+00:00
-Battlefield 6 Xbox Series X|S,£49.99,https://www.loaded.com/battlefield-6-xbox-series-x-s,2025-11-13T20:24:52.506509+00:00
-Europa Universalis V: Premium Edition PC,£56.99,https://www.loaded.com/europa-universalis-v-premium-edition-pc-steam,2025-11-13T20:24:52.506509+00:00
-Battlefield 6 PC (EA App),£51.99,https://www.loaded.com/battlefield-6-pc-eaapp,2025-11-13T20:24:52.506509+00:00
-The Sims 4 Adventure Awaits Expansion Pack PC - DLC,£19.99,https://www.loaded.com/the-sims-4-adventure-awaits-expansion-pack-pc-dlc-ea-app,2025-11-13T20:24:52.506509+00:00
-BALL x PIT PC,£9.29,https://www.loaded.com/ball-x-pit-pc-steam,2025-11-13T20:24:52.506509+00:00
-Call of Duty: Black Ops 7 Xbox One/Xbox Series X|S/PC,£49.99,https://www.loaded.com/call-of-duty-black-ops-7-xbox-one-xbox-series-x-s-pc,2025-11-13T20:24:52.506509+00:00
-Farming Simulator 25: Highlands Fishing Expansion PC - DLC,£15.99,https://www.loaded.com/farming-simulator-25-highlands-fishing-expansion-pc-dlc-steam,2025-11-13T20:24:52.506509+00:00
-Fellowship PC,£12.49,https://www.loaded.com/fellowship-2025-pc-steam,2025-11-13T20:24:52.506509+00:00
-Digimon Story Time Stranger PC,£42.99,https://www.loaded.com/digimon-story-time-stranger-pc-steam,2025-11-13T20:24:52.506509+00:00
-Call of Duty: Black Ops 7 - Vault Edition Xbox One/Xbox Series X|S/PC,£67.99,https://www.loaded.com/call-of-duty-black-ops-7-vault-edition-xbox-one-xbox-series-x-s-pc,2025-11-13T20:24:52.506509+00:00
-Escape the Backrooms PC,£5.49,https://www.loaded.com/escape-the-backrooms-pc-steam,2025-11-13T20:24:52.506509+00:00
-Battlefield 6 Phantom Edition Xbox Series X|S,£66.99,https://www.loaded.com/battlefield-6-phantom-edition-xbox-series-x-s,2025-11-13T20:24:52.506509+00:00
-Jurassic World Evolution 3: Deluxe Edition PC,£47.49,https://www.loaded.com/jurassic-world-evolution-3-deluxe-edition-pc-steam,2025-11-13T20:24:52.506509+00:00
-Age of Empires IV: Dynasties of the East PC - DLC,£12.49,https://www.loaded.com/age-of-empires-iv-dynasties-of-the-east-pc-dlc-steam,2025-11-13T20:24:52.506509+00:00
-Football Manager 26 Steam / Epic,£32.99,https://www.loaded.com/football-manager-26-pc-steam-epic-ww,2025-11-13T20:24:52.506509+00:00
-Jurassic World Evolution 3 PC,£37.99,https://www.loaded.com/jurassic-world-evolution-3-pc-steam,2025-11-13T20:24:52.506509+00:00
-Crusader Kings III: All Under Heaven PC - DLC,£18.99,https://www.loaded.com/crusader-kings-iii-all-under-heaven-pc-dlc-steam,2025-11-13T20:24:52.506509+00:00
-Whiskerwood PC,£13.99,https://www.loaded.com/whiskerwood-pc-steam,2025-11-13T20:24:52.506509+00:00
-Fallout 4: Creations Bundle PC - DLC,£13.49,https://www.loaded.com/fallout-4-creations-bundle-pc-dlc-steam,2025-11-13T20:24:52.506509+00:00
-Football Manager 26 PC Steam,£35.99,https://www.loaded.com/football-manager-26-pc-steam,2025-11-13T20:24:52.506509+00:00
-Sacred 2 Remaster PC,£9.49,https://www.loaded.com/sacred-2-remaster-pc-steam,2025-11-13T20:24:52.506509+00:00
-GODBREAKERS PC,£15.99,https://www.loaded.com/godbreakers-pc-steam,2025-11-13T20:24:52.506509+00:00
-Digimon Story Time Stranger Ultimate Edition PC,£72.99,https://www.loaded.com/digimon-story-time-stranger-ultimate-edition-pc-steam,2025-11-13T20:24:52.506509+00:00
-The Outer Worlds 2 Xbox Series X|S/PC,£40.99,https://www.loaded.com/the-outer-worlds-2-xbox-series-x-s-pc,2025-11-13T20:24:52.506509+00:00
-Little Nightmares III PC (Europe & UK),£19.99,https://www.loaded.com/little-nightmares-3-pc-steam,2025-11-13T20:24:52.506509+00:00
-Farming Simulator 25: Highlands Fishing Edition PC,£25.99,https://www.loaded.com/farming-simulator-25-highlands-fishing-edition-pc-steam,2025-11-13T20:24:52.506509+00:00
-Battlefield 6 Phantom Edition PC (EA App),£73.99,https://www.loaded.com/battlefield-6-phantom-edition-pc-eaapp,2025-11-13T20:24:52.508070+00:00
-FINAL FANTASY TACTICS - The Ivalice Chronicles PC,£32.49,https://www.loaded.com/final-fantasy-tactics-the-ivalice-chronicles-pc-steam,2025-11-13T20:24:52.508070+00:00
-Vampire: The Masquerade - Bloodlines 2 PC,£37.99,https://www.loaded.com/vampire-the-masquerade-bloodlines-2-pc-steam,2025-11-13T20:24:52.508070+00:00
-Rue Valley PC,£15.49,https://www.loaded.com/rue-valley-pc-steam,2025-11-13T20:24:52.508070+00:00
-DRAGON QUEST I & II HD-2D Remake PC,£39.99,https://www.loaded.com/dragon-quest-i-ii-hd-2d-remake-pc-steam,2025-11-13T20:24:52.508070+00:00
-Wall World 2 PC,£5.79,https://www.loaded.com/wall-world-2-pc-steam,2025-11-13T20:24:52.508070+00:00
-Guild Wars 2: Visions of Eternity Expansion PC - DLC,£18.99,https://www.loaded.com/guild-wars-2-visions-of-eternity-expansion-pc-dlc-arenanet,2025-11-13T20:24:52.508070+00:00
-The Sims 4 Warm & Cozy Digital Content PC - DLC,£2.99,https://www.loaded.com/the-sims-4-warm-cozy-digital-content-pc-dlc-ea-app,2025-11-13T20:24:52.508070+00:00
-LEGO Party! PC,£23.99,https://www.loaded.com/lego-party-pc-steam,2025-11-13T20:24:52.508070+00:00
-The Outer Worlds 2 Premium Edition Xbox Series X|S/PC,£55.99,https://www.loaded.com/the-outer-worlds-2-premium-edition-xbox-series-x-s-pc,2025-11-13T20:24:52.508070+00:00
-Project Motor Racing - Year 1 Bundle PC,£46.99,https://www.loaded.com/project-motor-racing-year-1-bundle-pc-steam,2025-11-13T20:24:52.508070+00:00
-Biped 2 PC,£7.99,https://www.loaded.com/biped-2-pc-steam,2025-11-13T20:24:52.508070+00:00
-Tormented Souls 2 PC,£14.99,https://www.loaded.com/tormented-souls-2-pc-steam,2025-11-13T20:24:52.508070+00:00
-Farthest Frontier PC,£23.99,https://www.loaded.com/farthest-frontier-pc-steam,2025-11-13T20:24:52.508070+00:00
-Digimon Story Time Stranger Deluxe Edition PC,£62.99,https://www.loaded.com/digimon-story-time-stranger-deluxe-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-Battlefield 6 and REDSEC - 1100 BFC Xbox Series X|S,£6.49,https://www.loaded.com/battlefield-6-1100-bfc-xbox-series-x-s,2025-11-13T20:24:52.508070+00:00
-Tales of Xillia Remastered PC,£25.99,https://www.loaded.com/tales-of-xillia-remastered-pc-steam,2025-11-13T20:24:52.508070+00:00
-Second Sun PC,£8.99,https://www.loaded.com/second-sun-pc-steam,2025-11-13T20:24:52.508070+00:00
-Absolum PC,£16.79,https://www.loaded.com/absolum-pc-steam,2025-11-13T20:24:52.508070+00:00
-Possessor(s) PC,£9.29,https://www.loaded.com/possessor-s-pc-steam,2025-11-13T20:24:52.508070+00:00
-Little Nightmares III PC,£25.49,https://www.loaded.com/little-nightmares-iii-pc-steam,2025-11-13T20:24:52.508070+00:00
-NBA 2K26 SLAM Edition PC,£27.99,https://www.loaded.com/nba-2k26-slam-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-Outbreak Island PC,£5.99,https://www.loaded.com/outbreak-island-pc-steam,2025-11-13T20:24:52.508070+00:00
-Farming Simulator 25: Highlands Fishing Edition PC (GIANTS),£20.99,https://www.loaded.com/farming-simulator-25-highlands-fishing-edition-pc-giants,2025-11-13T20:24:52.508070+00:00
-Decktamer PC,£8.59,https://www.loaded.com/decktamer-pc-steam,2025-11-13T20:24:52.508070+00:00
-Age of Empires II: DE - Chronicles: Alexander the Great PC - DLC,£9.59,https://www.loaded.com/age-of-empires-ii-de-chronicles-alexander-the-great-pc-dlc-steam,2025-11-13T20:24:52.508070+00:00
-Train Sim World 6 PC,£22.99,https://www.loaded.com/train-sim-world-6-pc-steam,2025-11-13T20:24:52.508070+00:00
-Fellowship - Supporter Edition PC,£27.99,https://www.loaded.com/fellowship-supporter-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-Project Motor Racing PC,£29.99,https://www.loaded.com/project-motor-racing-pc-steam,2025-11-13T20:24:52.508070+00:00
-Battlefield 6 and REDSEC - 2400 BFC Xbox Series X|S,£12.99,https://www.loaded.com/battlefield-6-2400-bfc-xbox-series-x-s,2025-11-13T20:24:52.508070+00:00
-NINJA GAIDEN 4 Xbox Series X|S/PC,£39.99,https://www.loaded.com/ninja-gaiden-4-xbox-series-x-s-pc,2025-11-13T20:24:52.508070+00:00
-Wreckreation PC,£19.99,https://www.loaded.com/wreckreation-pc-steam,2025-11-13T20:24:52.508070+00:00
-Guild Wars 2: Visions of Eternity Expansion Deluxe Edition PC - DLC,£36.99,https://www.loaded.com/guild-wars-2-visions-of-eternity-expansion-deluxe-edition-pc-dlc-arenanet,2025-11-13T20:24:52.508070+00:00
-Jurassic World Evolution 3: Badlands Set PC - DLC,£3.19,https://www.loaded.com/jurassic-world-evolution-3-badlands-set-pc-dlc-steam,2025-11-13T20:24:52.508070+00:00
-Vampire: The Masquerade - Bloodlines 2 - Premium Edition PC,£59.99,https://www.loaded.com/vampire-the-masquerade-bloodlines-2-premium-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-Destiny 2: Renegades PC - DLC + Pre-Order Bonus,£25.99,https://www.loaded.com/destiny-2-renegades-pc-dlc-steam,2025-11-13T20:24:52.508070+00:00
-Battlefield 6 Tombstone Pack Pre-Order Bonus Xbox (WW),£14.99,https://www.loaded.com/battlefield-6-tombstone-pack-pre-order-bonus-xbox-ww,2025-11-13T20:24:52.508070+00:00
-Fortnite – Darkfire & Ice Bundle Xbox One & Xbox Series X|S,£19.09,https://www.loaded.com/fortnite-darkfire-ice-bundle-xbox-one-xbox-series-x-s,2025-11-13T20:24:52.508070+00:00
-Surviving Mars: Relaunched PC,£27.49,https://www.loaded.com/surviving-mars-relaunched-pc-steam,2025-11-13T20:24:52.508070+00:00
-Battlefield 6 and REDSEC - 5000 BFC Xbox Series X|S,£24.99,https://www.loaded.com/battlefield-6-5000-bfc-xbox-series-x-s,2025-11-13T20:24:52.508070+00:00
-The Outer Worlds 2 Premium Edition Upgrade Xbox Series X|S/PC - DLC,£16.99,https://www.loaded.com/the-outer-worlds-2-premium-edition-upgrade-xbox-series-x-s-pc-dlc,2025-11-13T20:24:52.508070+00:00
-Tales of Xillia Remastered Deluxe Edition PC,£37.49,https://www.loaded.com/tales-of-xillia-remastered-deluxe-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-NINJA GAIDEN 4 Deluxe Edition Xbox Series X|S/PC,£49.99,https://www.loaded.com/ninja-gaiden-4-deluxe-edition-xbox-series-x-s-pc,2025-11-13T20:24:52.508070+00:00
-Bye Sweet Carole PC,£14.99,https://www.loaded.com/bye-sweet-carole-pc-steam,2025-11-13T20:24:52.508070+00:00
-SpongeBob SquarePants: Titans of the Tide Ghostly Digital Edition PC,£25.99,https://www.loaded.com/spongebob-squarepants-titans-of-the-tide-ghostly-digital-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-Radiolight PC,£7.99,https://www.loaded.com/radiolight-pc-steam,2025-11-13T20:24:52.508070+00:00
-Surviving Mars: Relaunched - Ultimate Edition PC,£39.99,https://www.loaded.com/surviving-mars-relaunched-ultimate-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-Fallout 4: Anniversary Edition PC,£39.99,https://www.loaded.com/fallout-4-anniversary-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-Plants vs. Zombies: Replanted Xbox,£13.99,https://www.loaded.com/plants-vs-zombies-replanted-xbox,2025-11-13T20:24:52.508070+00:00
-Crimson Desert Deluxe Edition + Pre-Order Bonus PC,£51.99,https://www.loaded.com/crimson-desert-deluxe-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-Crimson Desert + Pre-Order Bonus PC,£44.99,https://www.loaded.com/crimson-desert-pc-steam,2025-11-13T20:24:52.508070+00:00
-CODE VEIN II + Pre-Order Bonus PC,£45.99,https://www.loaded.com/code-vein-ii-pc-steam,2025-11-13T20:24:52.508070+00:00
-CODE VEIN II Deluxe Edition + Pre-Order Bonus PC,£55.99,https://www.loaded.com/code-vein-ii-deluxe-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-CODE VEIN II Ultimate Edition + Pre-Order Bonus PC,£65.99,https://www.loaded.com/code-vein-ii-ultimate-edition-pc-steam,2025-11-13T20:24:52.508070+00:00
-Thief VR: Legacy of Shadow PC,£16.99,https://www.loaded.com/thief-vr-legacy-of-shadow-pc-steam,2025-11-13T20:24:52.508070+00:00
-Long Drive North: Co-Op RV Simulator PC,£16.79,https://www.loaded.com/long-drive-north-co-op-rv-simulator-pc-steam,2025-11-13T20:24:52.508070+00:00
-SpongeBob SquarePants: Titans of the Tide PC,£19.99,https://www.loaded.com/spongebob-squarepants-titans-of-the-tide-pc-steam,2025-11-13T20:24:52.508070+00:00
-Anno 117: Pax Romana Xbox Series X|S,£38.99,https://www.loaded.com/anno-117-pax-romana-xbox-series-x-s,2025-11-13T20:24:52.508070+00:00
-Anno 117: Pax Romana Gold Edition Xbox Series X|S,£59.99,https://www.loaded.com/anno-117-pax-romana-gold-edition-xbox-series-x-s,2025-11-13T20:24:52.508070+00:00
-Anno 117: Pax Romana – Year 1 Pass Xbox Series X|S - DLC,£23.99,https://www.loaded.com/anno-117-pax-romana-year-1-pass-xbox-series-x-s-dlc,2025-11-13T20:24:52.508070+00:00
-Kingdom Come: Deliverance II Mysteria Ecclesiae PC - DLC,£10.39,https://www.loaded.com/kingdom-come-deliverance-ii-mysteria-ecclesiae-pc-dlc-steam,2025-11-13T20:24:52.508070+00:00
-Age of Wonders 4: Thrones of Blood PC - DLC,£13.99,https://www.loaded.com/age-of-wonders-4-thrones-of-blood-pc-dlc-steam,2025-11-13T20:24:52.509595+00:00
-Fallout 4: Anniversary Upgrade PC - DLC,£25.99,https://www.loaded.com/fallout-4-anniversary-upgrade-pc-dlc-steam,2025-11-13T20:24:52.509595+00:00
-Star Ores Inc. PC,£11.49,https://www.loaded.com/star-ores-inc-pc-steam,2025-11-13T20:24:52.510225+00:00
-7 Days Blood Moons PC,£13.29,https://www.loaded.com/7-days-blood-moons-pc-steam,2025-11-13T20:24:52.510225+00:00
-Tales of Old: Dominus PC,£5.49,https://www.loaded.com/tales-of-old-dominus-pc-steam,2025-11-13T20:24:52.510225+00:00
-Devil Jam PC,£4.29,https://www.loaded.com/devil-jam-pc-steam,2025-11-13T20:24:52.510225+00:00
-Tales of Xillia Remastered Xbox Series X|S,£25.99,https://www.loaded.com/tales-of-xillia-remastered-xbox-series-x-s,2025-11-13T20:24:52.510225+00:00
-Flesh Made Fear PC,£9.49,https://www.loaded.com/flesh-made-fear-pc-steam,2025-11-13T20:24:52.510225+00:00
-Railway Empire 2 - Steel Dragons PC- DLC,£5.99,https://www.loaded.com/railway-empire-2-steel-dragons-pc-dlc-steam,2025-11-13T20:24:52.510225+00:00
-Battlefield 6 and REDSEC - 13000 BFC Xbox Series X|S,£60.99,https://www.loaded.com/battlefield-6-13000-bfc-xbox-series-x-s,2025-11-13T20:24:52.510225+00:00
-Beneath PC,£12.99,https://www.loaded.com/beneath-pc-steam,2025-11-13T20:24:52.510225+00:00
-Once Upon A KATAMARI - King of All Sounds Edition PC,£37.99,https://www.loaded.com/once-upon-a-katamari-king-of-all-sounds-edition-pc-steam,2025-11-13T20:24:52.510225+00:00
-FULL METAL SCHOOLGIRL PC,£24.99,https://www.loaded.com/full-metal-schoolgirl-pc-steam,2025-11-13T20:24:52.510225+00:00
-Car For Sale Simulator 2023 - Super Sports PC - DLC,£4.99,https://www.loaded.com/car-for-sale-simulator-2023-super-sports-pc-dlc-steam,2025-11-13T20:24:52.511235+00:00
-Bounty Star PC,£12.29,https://www.loaded.com/bounty-star-pc-steam,2025-11-13T20:24:52.511741+00:00
-Double Dragon Revive PC,£20.99,https://www.loaded.com/double-dragon-revive-pc-steam,2025-11-13T20:24:52.511741+00:00
-THE GOOD OLD DAYS PC,£8.49,https://www.loaded.com/the-good-old-days-pc-steam,2025-11-13T20:24:52.511741+00:00
-Double Dragon Revive - Deluxe Edition PC,£30.49,https://www.loaded.com/double-dragon-revive-deluxe-edition-pc-steam,2025-11-13T20:24:52.511741+00:00
-Decks of the Damned PC,£3.99,https://www.loaded.com/decks-of-the-damned-pc-steam,2025-11-13T20:24:52.511741+00:00
-Vampire: The Masquerade - Bloodlines 2 - Expansion Pass PC - DLC,£23.19,https://www.loaded.com/vampire-the-masquerade-bloodlines-2-expansion-pass-pc-dlc-steam,2025-11-13T20:24:52.511741+00:00
-Vampire: The Masquerade - Bloodlines 2 - Santa Monica Memories PC - DLC,£6.99,https://www.loaded.com/vampire-the-masquerade-bloodlines-2-santa-monica-memories-pc-dlc-steam,2025-11-13T20:24:52.511741+00:00
-Heistfest PC,£3.49,https://www.loaded.com/heistfest-pc-steam,2025-11-13T20:24:52.511741+00:00
-Vampire: The Masquerade - Bloodlines 2 - Deluxe Edition PC,£45.99,https://www.loaded.com/vampire-the-masquerade-bloodlines-2-deluxe-edition-pc-steam,2025-11-13T20:24:52.511741+00:00
-Fellowship - Guardian's Supporter Pack PC - DLC,£10.99,https://www.loaded.com/fellowship-guardian-s-supporter-pack-pc-dlc-steam,2025-11-13T20:24:52.511741+00:00
-Fellowship - Exile's Supporter Pack PC - DLC,£10.99,https://www.loaded.com/fellowship-exile-s-supporter-pack-pc-dlc-steam,2025-11-13T20:24:52.511741+00:00
-Fellowship - Wanderer's Supporter Pack PC - DLC,£10.99,https://www.loaded.com/fellowship-wanderer-s-supporter-pack-pc-dlc-steam,2025-11-13T20:24:52.511741+00:00
-Lords of Ravage PC,£3.49,https://www.loaded.com/lords-of-ravage-pc-steam,2025-11-13T20:24:52.511741+00:00
-Forgotten Seas PC,£8.89,https://www.loaded.com/forgotten-seas-pc-steam,2025-11-13T20:24:52.511741+00:00
-Little Nightmares III Deluxe Edition PC,£38.99,https://www.loaded.com/little-nightmares-iii-deluxe-edition-pc-steam,2025-11-13T20:24:52.511741+00:00
-Color Breakers 2 PC,£5.49,https://www.loaded.com/color-breakers-2-pc-steam,2025-11-13T20:24:52.511741+00:00
-Dicealot PC,£5.29,https://www.loaded.com/dicealot-pc-steam,2025-11-13T20:24:52.511741+00:00
-Shrine's Legacy PC,£8.39,https://www.loaded.com/shrine-s-legacy-pc-steam,2025-11-13T20:24:52.511741+00:00
-Lethal Honor - Order of the Apocalypse PC,£10.59,https://www.loaded.com/lethal-honor-order-of-the-apocalypse-pc-steam,2025-11-13T20:24:52.511741+00:00
-Seafarer: The Ship Sim PC,£13.59,https://www.loaded.com/seafarer-the-ship-sim-pc-steam,2025-11-13T20:24:52.511741+00:00
-Digimon Story Time Stranger - Costume Pack PC - DLC,£8.49,https://www.loaded.com/digimon-story-time-stranger-costume-pack-pc-dlc-steam,2025-11-13T20:24:52.511741+00:00
-Digimon Story Time Stranger - Season Pass PC - DLC,£19.99,https://www.loaded.com/digimon-story-time-stranger-season-pass-pc-dlc-steam,2025-11-13T20:24:52.511741+00:00
-Digimon Story Time Stranger - Digimon Anime Song Pack PC - DLC,£13.29,https://www.loaded.com/digimon-story-time-stranger-digimon-anime-song-pack-pc-dlc-steam,2025-11-13T20:24:52.511741+00:00
-Necesse PC,£6.99,https://www.loaded.com/necesse-pc-steam,2025-11-13T20:24:52.511741+00:00
-FINAL FANTASY TACTICS - The Ivalice Chronicles Deluxe Edition PC,£39.49,https://www.loaded.com/final-fantasy-tactics-the-ivalice-chronicles-deluxe-edition-pc-steam,2025-11-13T20:24:52.511741+00:00
-Grand Theft Auto VI PC - ROCKSTAR GAMES LAUNCHER,£60.99,https://www.loaded.com/grand-theft-auto-vi-pc-rockstar-games-launcher,2025-11-13T20:24:52.512749+00:00
+title,price_raw,product_url,scraped_at,category
+EA SPORTS FC 26 - 2800 FC Points Xbox One & Xbox Series X|S,€18.49,https://www.loaded.com/ea-sports-fc-26-2800-fc-points-xbox-one-xbox-series-x-s,2025-11-13T20:56:12.993766+00:00,gift-cards
+EA SPORTS FC 26 - 5900 FC Points Xbox One & Xbox Series X|S,€36.99,https://www.loaded.com/ea-sports-fc-26-5900-fc-points-xbox-one-xbox-series-x-s,2025-11-13T20:56:12.993766+00:00,gift-cards
+EA SPORTS FC 26 - 12000 FC Points Xbox One & Xbox Series X|S,€71.99,https://www.loaded.com/ea-sports-fc-26-12000-fc-points-xbox-one-xbox-series-x-s,2025-11-13T20:56:12.993766+00:00,gift-cards
+EA SPORTS FC 26 - 18500 FC Points Xbox One & Xbox Series X|S,€109.99,https://www.loaded.com/ea-sports-fc-26-18500-fc-points-xbox-one-xbox-series-x-s,2025-11-13T20:56:12.993766+00:00,gift-cards
+EA SPORTS FC 26 - 1050 FC Points Xbox One & Xbox Series X|S,€7.99,https://www.loaded.com/ea-sports-fc-26-1050-fc-points-xbox-one-xbox-series-x-s,2025-11-13T20:56:12.993766+00:00,gift-cards
+Apex Legends 2150 Coins VC PC,€15.99,https://www.loaded.com/apex-legends-2150-coins-vc-origin-pc,2025-11-13T20:56:12.993766+00:00,gift-cards
+Tom Clancy's Rainbow Six Siege 16000 R6 Credits Pack Xbox One & Xbox Series X|S (WW),€40.99,https://www.loaded.com/tom-clancys-rainbow-six-siege-16000-credits-pack-xbox-one,2025-11-13T20:56:12.993766+00:00,gift-cards
+EA SPORTS FC 26 - 5900 FC Points PC (EA App),€41.99,https://www.loaded.com/ea-sports-fc-26-5900-fc-points-pc-ea-app,2025-11-13T20:56:12.993766+00:00,gift-cards
+EA SPORTS FC 26 - 2800 FC Points PC (EA App),€20.99,https://www.loaded.com/ea-sports-fc-26-2800-fc-points-pc-ea-app,2025-11-13T20:56:12.993766+00:00,gift-cards
+EA SPORTS FC 26 - 12000 FC Points PC (EA App),€84.99,https://www.loaded.com/ea-sports-fc-26-12000-fc-points-pc-ea-app,2025-11-13T20:56:12.993766+00:00,gift-cards
+Apex Legends 11500 Coins VC PC,€79.79,https://www.loaded.com/apex-legends-11500-coins-vc-origin-pc,2025-11-13T20:56:12.993766+00:00,gift-cards
+Steam Gift Card 20 EUR (Europe & UK),€19.49,https://www.loaded.com/steam-wallet-top-up-20-eur,2025-11-13T20:56:12.993766+00:00,gift-cards
+Steam Gift Card 10 EUR,€9.89,https://www.loaded.com/steam-wallet-top-up-10-eur-eu,2025-11-13T20:56:12.993766+00:00,gift-cards
+ARC Raiders PC,€29.99,https://www.loaded.com/arc-raiders-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Football Manager 26 Steam / Epic (Europe & UK),€34.99,https://www.loaded.com/football-manager-26-pc-steam-epic-eu,2025-11-13T20:56:22.047325+00:00,deals
+Call of Duty: Black Ops 7 Xbox One/Xbox Series X|S/PC,€55.49,https://www.loaded.com/call-of-duty-black-ops-7-xbox-one-xbox-series-x-s-pc,2025-11-13T20:56:22.047325+00:00,deals
+Lost Soul Aside Deluxe Edition PC,€37.59,https://www.loaded.com/lost-soul-aside-deluxe-edition-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Europa Universalis V PC,€45.59,https://www.loaded.com/europa-universalis-v-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Battlefield 6 PC (EA App),€59.99,https://www.loaded.com/battlefield-6-pc-eaapp,2025-11-13T20:56:22.047325+00:00,deals
+ARC Raiders Deluxe Edition PC,€43.99,https://www.loaded.com/arc-raiders-deluxe-edition-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Resident Evil Requiem PC (Europe & UK),€45.59,https://www.loaded.com/resident-evil-requiem-pc-steam-eu,2025-11-13T20:56:22.047325+00:00,deals
+Fallout 4: Creations Bundle PC - DLC,€15.39,https://www.loaded.com/fallout-4-creations-bundle-pc-dlc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Clair Obscur: Expedition 33 PC,€25.09,https://www.loaded.com/clair-obscur-expedition-33-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Europa Universalis V: Premium Edition PC,€64.99,https://www.loaded.com/europa-universalis-v-premium-edition-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Battlefield 6 Xbox Series X|S,€56.99,https://www.loaded.com/battlefield-6-xbox-series-x-s,2025-11-13T20:56:22.047325+00:00,deals
+Battlefield 6 Phantom Edition PC (EA App),€84.39,https://www.loaded.com/battlefield-6-phantom-edition-pc-eaapp,2025-11-13T20:56:22.047325+00:00,deals
+Vampire: The Masquerade - Bloodlines 2 PC,€43.29,https://www.loaded.com/vampire-the-masquerade-bloodlines-2-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+"2,400 Black Ops 6 or Call of Duty: Warzone Points Xbox One/Xbox Series X|S/PC (WW)",€13.69,https://www.loaded.com/2-400-call-of-duty-warzone-points-xbox-ww,2025-11-13T20:56:22.047325+00:00,deals
+EA SPORTS FC 26 Xbox One & Xbox Series X|S,€45.39,https://www.loaded.com/ea-sports-fc-26-xbox-one-xbox-series-x-s,2025-11-13T20:56:22.047325+00:00,deals
+EA SPORTS FC 26 - 12000 FC Points Xbox One & Xbox Series X|S,€71.99,https://www.loaded.com/ea-sports-fc-26-12000-fc-points-xbox-one-xbox-series-x-s,2025-11-13T20:56:22.047325+00:00,deals
+EA SPORTS FC 26 Ultimate Edition Xbox One & Xbox Series X|S,€56.99,https://www.loaded.com/ea-sports-fc-26-ultimate-edition-xbox-one-xbox-series-x-s,2025-11-13T20:56:22.047325+00:00,deals
+EA SPORTS FC 26 - 2800 FC Points PC (EA App),€20.99,https://www.loaded.com/ea-sports-fc-26-2800-fc-points-pc-ea-app,2025-11-13T20:56:22.047325+00:00,deals
+Hogwarts Legacy PC,€6.79,https://www.loaded.com/hogwarts-legacy-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Hogwarts Legacy Deluxe Edition PC (WW),€7.99,https://www.loaded.com/hogwarts-legacy-deluxe-edition-pc-steam-ww,2025-11-13T20:56:22.047325+00:00,deals
+Killing Floor 3 PC,€19.39,https://www.loaded.com/killing-floor-3-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+REMATCH PC,€12.49,https://www.loaded.com/rematch-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Just Dance 2026 Edition Switch & Switch 2 (Europe & UK),€19.39,https://www.loaded.com/just-dance-2026-edition-switch-eu,2025-11-13T20:56:22.047325+00:00,deals
+Cronos: The New Dawn PC,€27.39,https://www.loaded.com/cronos-the-new-dawn-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Digimon Story Time Stranger PC,€48.99,https://www.loaded.com/digimon-story-time-stranger-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Fellowship PC,€14.19,https://www.loaded.com/fellowship-2025-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Fellowship - Supporter Edition PC,€31.89,https://www.loaded.com/fellowship-supporter-edition-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+3 Month Xbox Game Pass Ultimate Xbox One / PC (EU & UK),€36.49,https://www.loaded.com/3-month-xbox-game-pass-ultimate-xbox-one-pc-eu,2025-11-13T20:56:22.047325+00:00,deals
+Crusader Kings III: All Under Heaven PC - DLC,€21.69,https://www.loaded.com/crusader-kings-iii-all-under-heaven-pc-dlc-steam,2025-11-13T20:56:22.047325+00:00,deals
+HELLDIVERS 2 Super Citizen Edition PC,€34.19,https://www.loaded.com/helldivers-2-super-citizen-edition-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+HELLDIVERS 2 PC,€22.79,https://www.loaded.com/helldivers-2-pc-steam,2025-11-13T20:56:22.047325+00:00,deals
+Anno 117: Pax Romana Ubisoft Connect PC (Europe & UK),€44.49,https://www.loaded.com/anno-117-pax-romana-pc-ubisoft-connect-eu,2025-11-13T20:56:22.048841+00:00,deals
+The Escapists 2 PC,€3.79,https://www.loaded.com/the-escapists-2-pc-steam-cd-key,2025-11-13T20:56:22.048841+00:00,deals
+XIII - Classic PC,€1.59,https://www.loaded.com/xiii-classic-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Jump Space PC,€11.99,https://www.loaded.com/jump-space-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Clair Obscur: Expedition 33 Deluxe Edition PC,€29.59,https://www.loaded.com/clair-obscur-expedition-33-deluxe-edition-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Journey PC,€3.19,https://www.loaded.com/journey-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+CONSCRIPT PC,€2.29,https://www.loaded.com/conscript-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Rise of the Tomb Raider: 20 Year Celebration PC (Europe & UK),€2.59,https://www.loaded.com/rise-of-the-tomb-raider-20-year-celebration-pc-eu,2025-11-13T20:56:22.048841+00:00,deals
+FINAL FANTASY VII REBIRTH + Bonus PC,€29.59,https://www.loaded.com/final-fantasy-vii-rebirth-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Broken Arrow Vanguard Edition PC,€30.79,https://www.loaded.com/broken-arrow-vanguard-edition-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Borderlands 4 Deluxe Edition Xbox Series X|S,€63.79,https://www.loaded.com/borderlands-4-deluxe-edition-xbox-series-x-s,2025-11-13T20:56:22.048841+00:00,deals
+Borderlands 4 PC (Europe & UK),€38.19,https://www.loaded.com/borderlands-4-pc-eu-steam,2025-11-13T20:56:22.048841+00:00,deals
+Borderlands 2 Game of the Year PC (WW),€3.39,https://www.loaded.com/borderlands-2-game-of-the-year-pc-ww-steam,2025-11-13T20:56:22.048841+00:00,deals
+Borderlands 2 (PC),€1.89,https://www.loaded.com/borderlands-2-pc,2025-11-13T20:56:22.048841+00:00,deals
+No Man's Sky PC,€15.39,https://www.loaded.com/no-mans-sky-pc-steam-cd-key,2025-11-13T20:56:22.048841+00:00,deals
+"NBA 2K26 450,000 VC Pack Xbox One & Xbox Series X|S",€75.49,https://www.loaded.com/nba-2k26-450-000-virtual-currency-pack-xbox-one-xbox-series-x-s,2025-11-13T20:56:22.048841+00:00,deals
+The Sims 4 Adventure Awaits Expansion Pack PC - DLC,€22.79,https://www.loaded.com/the-sims-4-adventure-awaits-expansion-pack-pc-dlc-ea-app,2025-11-13T20:56:22.048841+00:00,deals
+BALL x PIT PC,€10.59,https://www.loaded.com/ball-x-pit-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Middle-earth Shadow of War Definitive Edition PC,€2.69,https://www.loaded.com/middle-earth-shadow-of-war-definitive-edition-pc-steam-cd-key,2025-11-13T20:56:22.048841+00:00,deals
+Days Gone PC,€12.49,https://www.loaded.com/days-gone-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Jurassic World Evolution 3 PC,€43.29,https://www.loaded.com/jurassic-world-evolution-3-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+SILENT HILL 2 PC,€29.59,https://www.loaded.com/silent-hill-2-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Alien: Isolation PC,€3.99,https://www.loaded.com/alien-isolation-pc-cd-key-steam,2025-11-13T20:56:22.048841+00:00,deals
+Farming Simulator 22 PC,€5.09,https://www.loaded.com/farming-simulator-22-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Cult of the Lamb PC,€8.49,https://www.loaded.com/cult-of-the-lamb-pc-steam,2025-11-13T20:56:22.048841+00:00,deals
+Quantum Break PC,€2.69,https://www.loaded.com/quantum-break-pc-steam-cd-key,2025-11-13T20:56:22.048841+00:00,deals
+Sid Meier's Civilization VI 6 PC (Global),€2.29,https://www.loaded.com/sid-meiers-civilization-vi-6-pc-global-steam-cd-key,2025-11-13T20:56:22.048841+00:00,deals
+Call of Duty: Black Ops 7 - Vault Edition Xbox One/Xbox Series X|S/PC,€74.99,https://www.loaded.com/call-of-duty-black-ops-7-vault-edition-xbox-one-xbox-series-x-s-pc,2025-11-13T20:56:22.048841+00:00,deals
+Destiny 2: The Edge of Fate PC - DLC,€15.99,https://www.loaded.com/destiny-2-the-edge-of-fate-pc-dlc-steam,2025-11-13T20:56:22.049359+00:00,deals
+Coral Island PC,€10.29,https://www.loaded.com/coral-island-pc-steam,2025-11-13T20:56:22.049359+00:00,deals
+WUCHANG: Fallen Feathers PC,€21.69,https://www.loaded.com/wuchang-fallen-feathers-pc-steam,2025-11-13T20:56:22.049359+00:00,deals
+Slime Rancher 2 PC,€10.49,https://www.loaded.com/slime-rancher-2-pc-steam,2025-11-13T20:56:22.049359+00:00,deals
+Forager PC,€1.59,https://www.loaded.com/forager-steam-pc,2025-11-13T20:56:22.049359+00:00,deals
+ARC Raiders PC,€29.99,https://www.loaded.com/arc-raiders-pc-steam,2025-11-13T20:56:26.299662+00:00,latest-games
+Football Manager 26 Steam / Epic (Europe & UK),€34.99,https://www.loaded.com/football-manager-26-pc-steam-epic-eu,2025-11-13T20:56:26.299662+00:00,latest-games
+ARC Raiders Deluxe Edition PC,€43.99,https://www.loaded.com/arc-raiders-deluxe-edition-pc-steam,2025-11-13T20:56:26.299662+00:00,latest-games
+Europa Universalis V PC,€45.59,https://www.loaded.com/europa-universalis-v-pc-steam,2025-11-13T20:56:26.299662+00:00,latest-games
+Battlefield 6 Xbox Series X|S,€56.99,https://www.loaded.com/battlefield-6-xbox-series-x-s,2025-11-13T20:56:26.299662+00:00,latest-games
+Europa Universalis V: Premium Edition PC,€64.99,https://www.loaded.com/europa-universalis-v-premium-edition-pc-steam,2025-11-13T20:56:26.299662+00:00,latest-games
+Battlefield 6 PC (EA App),€59.99,https://www.loaded.com/battlefield-6-pc-eaapp,2025-11-13T20:56:26.299662+00:00,latest-games
+Anno 117: Pax Romana Ubisoft Connect PC (Europe & UK),€44.49,https://www.loaded.com/anno-117-pax-romana-pc-ubisoft-connect-eu,2025-11-13T20:56:26.299662+00:00,latest-games
+Football Manager 26 PC Steam (Europe & UK),€39.89,https://www.loaded.com/football-manager-26-pc-steam-eu,2025-11-13T20:56:26.299662+00:00,latest-games
+The Sims 4 Adventure Awaits Expansion Pack PC - DLC,€22.79,https://www.loaded.com/the-sims-4-adventure-awaits-expansion-pack-pc-dlc-ea-app,2025-11-13T20:56:26.299662+00:00,latest-games
+Pokémon Legends: Z-A – Mega Dimension Switch (Europe & UK),€22.79,https://www.loaded.com/pokemon-legends-z-a-mega-dimension-switch-europe-uk,2025-11-13T20:56:26.299662+00:00,latest-games
+BALL x PIT PC,€10.59,https://www.loaded.com/ball-x-pit-pc-steam,2025-11-13T20:56:26.299662+00:00,latest-games
+Call of Duty: Black Ops 7 Xbox One/Xbox Series X|S/PC,€55.49,https://www.loaded.com/call-of-duty-black-ops-7-xbox-one-xbox-series-x-s-pc,2025-11-13T20:56:26.299662+00:00,latest-games
+Farming Simulator 25: Highlands Fishing Expansion PC - DLC,€18.19,https://www.loaded.com/farming-simulator-25-highlands-fishing-expansion-pc-dlc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Just Dance 2026 Edition Switch & Switch 2 (Europe & UK),€19.39,https://www.loaded.com/just-dance-2026-edition-switch-eu,2025-11-13T20:56:26.300168+00:00,latest-games
+Fellowship PC,€14.19,https://www.loaded.com/fellowship-2025-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Digimon Story Time Stranger PC,€48.99,https://www.loaded.com/digimon-story-time-stranger-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Call of Duty: Black Ops 7 - Vault Edition Xbox One/Xbox Series X|S/PC,€74.99,https://www.loaded.com/call-of-duty-black-ops-7-vault-edition-xbox-one-xbox-series-x-s-pc,2025-11-13T20:56:26.300168+00:00,latest-games
+Escape the Backrooms PC,€6.29,https://www.loaded.com/escape-the-backrooms-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Battlefield 6 Phantom Edition Xbox Series X|S,€76.49,https://www.loaded.com/battlefield-6-phantom-edition-xbox-series-x-s,2025-11-13T20:56:26.300168+00:00,latest-games
+Jurassic World Evolution 3: Deluxe Edition PC,€54.09,https://www.loaded.com/jurassic-world-evolution-3-deluxe-edition-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Age of Empires IV: Dynasties of the East PC - DLC,€14.19,https://www.loaded.com/age-of-empires-iv-dynasties-of-the-east-pc-dlc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Football Manager 26 Steam / Epic,€37.59,https://www.loaded.com/football-manager-26-pc-steam-epic-ww,2025-11-13T20:56:26.300168+00:00,latest-games
+Jurassic World Evolution 3 PC,€43.29,https://www.loaded.com/jurassic-world-evolution-3-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Crusader Kings III: All Under Heaven PC - DLC,€21.69,https://www.loaded.com/crusader-kings-iii-all-under-heaven-pc-dlc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Whiskerwood PC,€15.99,https://www.loaded.com/whiskerwood-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+ARC Raiders - Standard Edition Xbox Series X|S/PC (Europe & UK),€35.29,https://www.loaded.com/arc-raiders-standard-edition-xbox-series-x-s-pc-eu,2025-11-13T20:56:26.300168+00:00,latest-games
+Fallout 4: Creations Bundle PC - DLC,€15.39,https://www.loaded.com/fallout-4-creations-bundle-pc-dlc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Football Manager 26 PC Steam,€40.99,https://www.loaded.com/football-manager-26-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Sacred 2 Remaster PC,€10.79,https://www.loaded.com/sacred-2-remaster-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Pokémon Legends: Z-A Switch (Europe & UK),€54.69,https://www.loaded.com/pokemon-legends-z-a-switch-eu,2025-11-13T20:56:26.300168+00:00,latest-games
+GODBREAKERS PC,€18.19,https://www.loaded.com/godbreakers-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Digimon Story Time Stranger Ultimate Edition PC,€83.19,https://www.loaded.com/digimon-story-time-stranger-ultimate-edition-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+The Outer Worlds 2 Xbox Series X|S/PC,€46.69,https://www.loaded.com/the-outer-worlds-2-xbox-series-x-s-pc,2025-11-13T20:56:26.300168+00:00,latest-games
+Little Nightmares III PC (Europe & UK),€22.79,https://www.loaded.com/little-nightmares-3-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Farming Simulator 25: Highlands Fishing Edition PC,€29.59,https://www.loaded.com/farming-simulator-25-highlands-fishing-edition-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Battlefield 6 Phantom Edition PC (EA App),€84.39,https://www.loaded.com/battlefield-6-phantom-edition-pc-eaapp,2025-11-13T20:56:26.300168+00:00,latest-games
+FINAL FANTASY TACTICS - The Ivalice Chronicles PC,€36.99,https://www.loaded.com/final-fantasy-tactics-the-ivalice-chronicles-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Vampire: The Masquerade - Bloodlines 2 PC,€43.29,https://www.loaded.com/vampire-the-masquerade-bloodlines-2-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Rue Valley PC,€17.69,https://www.loaded.com/rue-valley-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+DRAGON QUEST I & II HD-2D Remake PC,€45.59,https://www.loaded.com/dragon-quest-i-ii-hd-2d-remake-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Hyrule Warriors: Age of Imprisonment Switch 2 (Europe & UK),€63.79,https://www.loaded.com/hyrule-warriors-age-of-imprisonment-switch-2-eu,2025-11-13T20:56:26.300168+00:00,latest-games
+Wall World 2 PC,€6.59,https://www.loaded.com/wall-world-2-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Guild Wars 2: Visions of Eternity Expansion PC - DLC,€21.69,https://www.loaded.com/guild-wars-2-visions-of-eternity-expansion-pc-dlc-arenanet,2025-11-13T20:56:26.300168+00:00,latest-games
+The Sims 4 Warm & Cozy Digital Content PC - DLC,€3.39,https://www.loaded.com/the-sims-4-warm-cozy-digital-content-pc-dlc-ea-app,2025-11-13T20:56:26.300168+00:00,latest-games
+LEGO Party! PC,€27.39,https://www.loaded.com/lego-party-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+The Outer Worlds 2 Premium Edition Xbox Series X|S/PC,€63.79,https://www.loaded.com/the-outer-worlds-2-premium-edition-xbox-series-x-s-pc,2025-11-13T20:56:26.300168+00:00,latest-games
+Project Motor Racing - Year 1 Bundle PC,€53.59,https://www.loaded.com/project-motor-racing-year-1-bundle-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Biped 2 PC,€9.09,https://www.loaded.com/biped-2-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Tormented Souls 2 PC,€17.09,https://www.loaded.com/tormented-souls-2-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Farthest Frontier PC,€27.39,https://www.loaded.com/farthest-frontier-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Digimon Story Time Stranger Deluxe Edition PC,€71.79,https://www.loaded.com/digimon-story-time-stranger-deluxe-edition-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Resident Evil Requiem PC (Europe & UK),€45.59,https://www.loaded.com/resident-evil-requiem-pc-steam-eu,2025-11-13T20:56:26.300168+00:00,latest-games
+Battlefield 6 and REDSEC - 1100 BFC Xbox Series X|S,€7.39,https://www.loaded.com/battlefield-6-1100-bfc-xbox-series-x-s,2025-11-13T20:56:26.300168+00:00,latest-games
+Resident Evil Requiem Deluxe Edition PC (Europe & UK),€56.99,https://www.loaded.com/resident-evil-requiem-deluxe-edition-pc-steam-eu,2025-11-13T20:56:26.300168+00:00,latest-games
+Tales of Xillia Remastered PC,€29.59,https://www.loaded.com/tales-of-xillia-remastered-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Pokémon Legends: Z-A – Nintendo Switch 2 Edition Upgrade Pack - DLC (Europe & UK),€7.99,https://www.loaded.com/pokemon-legends-z-a-nintendo-switch-2-edition-upgrade-pack-dlc-eu,2025-11-13T20:56:26.300168+00:00,latest-games
+Second Sun PC,€10.29,https://www.loaded.com/second-sun-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Absolum PC,€19.09,https://www.loaded.com/absolum-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Possessor(s) PC,€10.59,https://www.loaded.com/possessor-s-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Little Nightmares III PC,€29.09,https://www.loaded.com/little-nightmares-iii-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+NBA 2K26 SLAM Edition PC,€31.89,https://www.loaded.com/nba-2k26-slam-edition-pc-steam,2025-11-13T20:56:26.300168+00:00,latest-games
+Outbreak Island PC,€6.79,https://www.loaded.com/outbreak-island-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Farming Simulator 25: Highlands Fishing Edition PC (GIANTS),€23.89,https://www.loaded.com/farming-simulator-25-highlands-fishing-edition-pc-giants,2025-11-13T20:56:26.301721+00:00,latest-games
+Decktamer PC,€9.79,https://www.loaded.com/decktamer-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+ARC Raiders - Deluxe Edition Xbox Series X|S/PC (Europe & UK),€51.29,https://www.loaded.com/arc-raiders-deluxe-edition-xbox-series-x-s-pc-eu,2025-11-13T20:56:26.301721+00:00,latest-games
+Age of Empires II: DE - Chronicles: Alexander the Great PC - DLC,€10.89,https://www.loaded.com/age-of-empires-ii-de-chronicles-alexander-the-great-pc-dlc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Train Sim World 6 PC,€26.19,https://www.loaded.com/train-sim-world-6-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Fellowship - Supporter Edition PC,€31.89,https://www.loaded.com/fellowship-supporter-edition-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Project Motor Racing PC,€34.19,https://www.loaded.com/project-motor-racing-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Battlefield 6 and REDSEC - 2400 BFC Xbox Series X|S,€14.79,https://www.loaded.com/battlefield-6-2400-bfc-xbox-series-x-s,2025-11-13T20:56:26.301721+00:00,latest-games
+NINJA GAIDEN 4 Xbox Series X|S/PC,€45.59,https://www.loaded.com/ninja-gaiden-4-xbox-series-x-s-pc,2025-11-13T20:56:26.301721+00:00,latest-games
+Wreckreation PC,€22.79,https://www.loaded.com/wreckreation-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Guild Wars 2: Visions of Eternity Expansion Deluxe Edition PC - DLC,€42.19,https://www.loaded.com/guild-wars-2-visions-of-eternity-expansion-deluxe-edition-pc-dlc-arenanet,2025-11-13T20:56:26.301721+00:00,latest-games
+Jurassic World Evolution 3: Badlands Set PC - DLC,€3.59,https://www.loaded.com/jurassic-world-evolution-3-badlands-set-pc-dlc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Vampire: The Masquerade - Bloodlines 2 - Premium Edition PC,€68.39,https://www.loaded.com/vampire-the-masquerade-bloodlines-2-premium-edition-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Destiny 2: Renegades PC - DLC + Pre-Order Bonus,€29.59,https://www.loaded.com/destiny-2-renegades-pc-dlc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Battlefield 6 Tombstone Pack Pre-Order Bonus Xbox (WW),€17.09,https://www.loaded.com/battlefield-6-tombstone-pack-pre-order-bonus-xbox-ww,2025-11-13T20:56:26.301721+00:00,latest-games
+Fortnite – Darkfire & Ice Bundle Xbox One & Xbox Series X|S,€21.79,https://www.loaded.com/fortnite-darkfire-ice-bundle-xbox-one-xbox-series-x-s,2025-11-13T20:56:26.301721+00:00,latest-games
+Surviving Mars: Relaunched PC,€31.29,https://www.loaded.com/surviving-mars-relaunched-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Battlefield 6 and REDSEC - 5000 BFC Xbox Series X|S,€28.49,https://www.loaded.com/battlefield-6-5000-bfc-xbox-series-x-s,2025-11-13T20:56:26.301721+00:00,latest-games
+The Outer Worlds 2 Premium Edition Upgrade Xbox Series X|S/PC - DLC,€19.39,https://www.loaded.com/the-outer-worlds-2-premium-edition-upgrade-xbox-series-x-s-pc-dlc,2025-11-13T20:56:26.301721+00:00,latest-games
+Tales of Xillia Remastered Deluxe Edition PC,€42.69,https://www.loaded.com/tales-of-xillia-remastered-deluxe-edition-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+NINJA GAIDEN 4 Deluxe Edition Xbox Series X|S/PC,€56.99,https://www.loaded.com/ninja-gaiden-4-deluxe-edition-xbox-series-x-s-pc,2025-11-13T20:56:26.301721+00:00,latest-games
+Bye Sweet Carole PC,€17.09,https://www.loaded.com/bye-sweet-carole-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+SpongeBob SquarePants: Titans of the Tide Ghostly Digital Edition PC,€29.59,https://www.loaded.com/spongebob-squarepants-titans-of-the-tide-ghostly-digital-edition-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Super Mario Galaxy Switch & Switch 2 (Europe & UK),€37.59,https://www.loaded.com/super-mario-galaxy-switch-eu,2025-11-13T20:56:26.301721+00:00,latest-games
+Radiolight PC,€9.09,https://www.loaded.com/radiolight-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Surviving Mars: Relaunched - Ultimate Edition PC,€45.59,https://www.loaded.com/surviving-mars-relaunched-ultimate-edition-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Fallout 4: Anniversary Edition PC,€45.59,https://www.loaded.com/fallout-4-anniversary-edition-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Plants vs. Zombies: Replanted Xbox,€15.99,https://www.loaded.com/plants-vs-zombies-replanted-xbox,2025-11-13T20:56:26.301721+00:00,latest-games
+Crimson Desert Deluxe Edition + Pre-Order Bonus PC,€59.29,https://www.loaded.com/crimson-desert-deluxe-edition-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+007 First Light PC (Europe & UK),€59.29,https://www.loaded.com/007-first-light-pc-steam-eu,2025-11-13T20:56:26.301721+00:00,latest-games
+Crimson Desert + Pre-Order Bonus PC,€51.29,https://www.loaded.com/crimson-desert-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Nioh 3 PC (Europe & UK),€56.99,https://www.loaded.com/nioh-3-pc-steam-eu,2025-11-13T20:56:26.301721+00:00,latest-games
+CODE VEIN II + Pre-Order Bonus PC,€52.39,https://www.loaded.com/code-vein-ii-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+CODE VEIN II Deluxe Edition + Pre-Order Bonus PC,€63.79,https://www.loaded.com/code-vein-ii-deluxe-edition-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+CODE VEIN II Ultimate Edition + Pre-Order Bonus PC,€75.19,https://www.loaded.com/code-vein-ii-ultimate-edition-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Fortnite – Darkfire & Ice Bundle Switch (Europe & UK),€21.79,https://www.loaded.com/fortnite-darkfire-ice-bundle-switch-europe-uk,2025-11-13T20:56:26.301721+00:00,latest-games
+Fortnite – Darkfire & Ice Bundle Switch 2 (Europe & UK),€21.79,https://www.loaded.com/fortnite-darkfire-ice-bundle-switch-2-europe-uk,2025-11-13T20:56:26.301721+00:00,latest-games
+Thief VR: Legacy of Shadow PC,€19.39,https://www.loaded.com/thief-vr-legacy-of-shadow-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Long Drive North: Co-Op RV Simulator PC,€19.09,https://www.loaded.com/long-drive-north-co-op-rv-simulator-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+SpongeBob SquarePants: Titans of the Tide PC,€22.79,https://www.loaded.com/spongebob-squarepants-titans-of-the-tide-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Atelier Ryza 2: Lost Legends & the Secret Fairy DX PC (Europe & UK),€27.39,https://www.loaded.com/atelier-ryza-2-lost-legends-the-secret-fairy-dx-pc-steam-eu,2025-11-13T20:56:26.301721+00:00,latest-games
+Atelier Ryza 3: Alchemist of the End & the Secret Key DX PC (Europe & UK),€27.39,https://www.loaded.com/atelier-ryza-3-alchemist-of-the-end-the-secret-key-dx-pc-steam-eu,2025-11-13T20:56:26.301721+00:00,latest-games
+Atelier Ryza: Ever Darkness & the Secret Hideout DX PC (Europe & UK),€27.39,https://www.loaded.com/atelier-ryza-ever-darkness-the-secret-hideout-dx-pc-steam-eu,2025-11-13T20:56:26.301721+00:00,latest-games
+Anno 117: Pax Romana Xbox Series X|S,€44.49,https://www.loaded.com/anno-117-pax-romana-xbox-series-x-s,2025-11-13T20:56:26.301721+00:00,latest-games
+Anno 117: Pax Romana Gold Edition Xbox Series X|S,€68.39,https://www.loaded.com/anno-117-pax-romana-gold-edition-xbox-series-x-s,2025-11-13T20:56:26.301721+00:00,latest-games
+Anno 117: Pax Romana – Year 1 Pass Xbox Series X|S - DLC,€27.39,https://www.loaded.com/anno-117-pax-romana-year-1-pass-xbox-series-x-s-dlc,2025-11-13T20:56:26.301721+00:00,latest-games
+Kingdom Come: Deliverance II Mysteria Ecclesiae PC - DLC,€11.79,https://www.loaded.com/kingdom-come-deliverance-ii-mysteria-ecclesiae-pc-dlc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Age of Wonders 4: Thrones of Blood PC - DLC,€15.99,https://www.loaded.com/age-of-wonders-4-thrones-of-blood-pc-dlc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Fallout 4: Anniversary Upgrade PC - DLC,€29.59,https://www.loaded.com/fallout-4-anniversary-upgrade-pc-dlc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Star Ores Inc. PC,€13.09,https://www.loaded.com/star-ores-inc-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+7 Days Blood Moons PC,€15.19,https://www.loaded.com/7-days-blood-moons-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Tales of Old: Dominus PC,€6.29,https://www.loaded.com/tales-of-old-dominus-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Devil Jam PC,€4.89,https://www.loaded.com/devil-jam-pc-steam,2025-11-13T20:56:26.301721+00:00,latest-games
+Tales of Xillia Remastered Xbox Series X|S,€29.59,https://www.loaded.com/tales-of-xillia-remastered-xbox-series-x-s,2025-11-13T20:56:26.301721+00:00,latest-games
+Flesh Made Fear PC,€10.79,https://www.loaded.com/flesh-made-fear-pc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+Railway Empire 2 - Steel Dragons PC- DLC,€6.79,https://www.loaded.com/railway-empire-2-steel-dragons-pc-dlc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+Battlefield 6 and REDSEC - 13000 BFC Xbox Series X|S,€69.49,https://www.loaded.com/battlefield-6-13000-bfc-xbox-series-x-s,2025-11-13T20:56:26.303312+00:00,latest-games
+Beneath PC,€14.79,https://www.loaded.com/beneath-pc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+Once Upon A KATAMARI - King of All Sounds Edition PC (Europe & UK),€44.49,https://www.loaded.com/once-upon-a-katamari-king-of-all-sounds-edition-pc-steam-eu,2025-11-13T20:56:26.303312+00:00,latest-games
+Once Upon A KATAMARI - King of All Sounds Edition PC,€43.29,https://www.loaded.com/once-upon-a-katamari-king-of-all-sounds-edition-pc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+FULL METAL SCHOOLGIRL PC,€28.49,https://www.loaded.com/full-metal-schoolgirl-pc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+Car For Sale Simulator 2023 - Super Sports PC - DLC,€5.69,https://www.loaded.com/car-for-sale-simulator-2023-super-sports-pc-dlc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+Bounty Star PC,€13.99,https://www.loaded.com/bounty-star-pc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+Double Dragon Revive PC,€23.89,https://www.loaded.com/double-dragon-revive-pc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+THE GOOD OLD DAYS PC,€9.69,https://www.loaded.com/the-good-old-days-pc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+Double Dragon Revive - Deluxe Edition PC,€34.79,https://www.loaded.com/double-dragon-revive-deluxe-edition-pc-steam,2025-11-13T20:56:26.303312+00:00,latest-games
+Decks of the Damned PC,€4.59,https://www.loaded.com/decks-of-the-damned-pc-steam,2025-11-13T20:56:26.303312+00:00,latest-games

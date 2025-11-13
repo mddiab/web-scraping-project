@@ -4,6 +4,7 @@ import re
 from urllib.parse import urljoin
 from datetime import datetime, timezone
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import pandas as pd
 from fake_useragent import UserAgent
@@ -68,6 +69,26 @@ def scroll_to_bottom(driver):
     print("✅ Reached bottom of page.")
 
 
+def create_driver():
+    """Create and return a configured Chrome WebDriver instance."""
+    options = Options()
+    # options.add_argument("--headless")  # uncomment in CI/server
+    options.add_argument("--start-maximized")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--log-level=3")
+
+    ua = UserAgent()
+    options.add_argument(f"user-agent={ua.random}")
+
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=options,
+    )
+    return driver
+
+
 # ---------------------------
 # BeautifulSoup parsing
 # ---------------------------
@@ -84,7 +105,7 @@ PRICE_RE = re.compile(
 
 def parse_loaded_latest_games(html, base_url, max_items=None):
     """
-    Parse the Loaded (formerly CDKeys) 'Latest Games' page using BeautifulSoup.
+    Parse a Loaded/CDKeys category page using BeautifulSoup.
 
     Strategy:
       1. Find all <a> tags whose text looks like a product title
@@ -172,86 +193,141 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
 
 
 # ---------------------------
-# Main scraper
+# Per-category scraper
 # ---------------------------
 
-def scrape_cdkeys(max_items=50):
-    base_url = "https://www.cdkeys.com/latest-games"
-    loaded_base = "https://www.loaded.com"
-
-    print("\n==============================")
-    print(f"🎮  CDKeys/Loaded SCRAPER STARTED (LIMIT: {max_items} ITEMS)")
-    print("==============================\n")
-
-    # --- Chrome setup ---
-    options = Options()
-    # options.add_argument("--headless")  # uncomment in CI/server
-    options.add_argument("--start-maximized")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--log-level=3")
-
-    ua = UserAgent()
-    options.add_argument(f"user-agent={ua.random}")
-
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=options,
-    )
+def scrape_single_category(label, url, max_items_per_category, loaded_base):
+    """
+    Scrape a single category (given by URL) and tag all rows with `category=label`.
+    """
+    print(f"\n🌍 Opening category '{label}' → {url}")
+    driver = create_driver()
 
     try:
-        print("🌍 Opening Latest Games page...")
-        driver.get(base_url)
+        driver.get(url)
         human_wait(2.5, 4.5)
 
         # Accept cookies if any
         accept_cookies(driver)
 
-        # Wait until the "Latest Games" heading is present (just to be sure page loaded)
-        try:
-            WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located(
-                    (By.XPATH, "//*[contains(text(), 'Latest Games')]")
-                )
-            )
-            print("✅ Page header loaded.")
-        except Exception:
-            print("⚠️ Could not explicitly detect header, continuing...")
-
-        # Scroll to load everything
+        # We *could* wait on a specific heading if we know it, but to keep it generic,
+        # just scroll to bottom and parse page source.
         scroll_to_bottom(driver)
 
-        # Get final HTML and parse with BeautifulSoup
         html = driver.page_source
-        scraped_items = parse_loaded_latest_games(
-            html, base_url=loaded_base, max_items=max_items
+        items = parse_loaded_latest_games(
+            html, base_url=loaded_base, max_items=max_items_per_category
         )
 
-        df = pd.DataFrame(scraped_items)
+        # Add category column
+        for item in items:
+            item["category"] = label
 
-        # -------- Save to data/raw/ --------
-        BASE_DIR = Path(__file__).resolve().parent.parent  # project root
-        raw_dir = BASE_DIR / "data" / "raw"
-        raw_dir.mkdir(parents=True, exist_ok=True)
-
-        filename = raw_dir / "loaded.csv"
-        df.to_csv(filename, index=False)
-
-        print("\n🧹 Done. Closing browser...")
-        print("\n==============================")
-        print(f"✅ SCRAPING COMPLETE — {len(df)} items saved to '{filename}'")
-        print("==============================\n")
-
-        return df
+        print(f"📦 Category '{label}' → {len(items)} items scraped.")
+        return items
 
     except Exception as e:
-        print("❗ Unexpected error:", repr(e))
-        return None
+        print(f"❗ Error while scraping category '{label}': {repr(e)}")
+        return []
 
     finally:
+        print(f"🧹 Closing browser for category '{label}'...")
         driver.quit()
 
 
+# ---------------------------
+# Main multi-category scraper
+# ---------------------------
+
+def scrape_cdkeys(category_urls, max_items_per_category=50, use_threads=True):
+    """
+    Scrape multiple CDKeys/Loaded categories.
+
+    Parameters
+    ----------
+    category_urls : dict
+        Mapping from category label → category URL, e.g.:
+        {
+            "latest-games": "https://www.cdkeys.com/latest-games",
+            "xbox": "https://www.cdkeys.com/xbox-live",
+        }
+
+    max_items_per_category : int
+        Maximum number of items to parse per category page (after scrolling).
+
+    use_threads : bool
+        If True and you have multiple categories, each category will be scraped
+        in its own thread (i.e. its own Chrome driver) to speed things up.
+    """
+    loaded_base = "https://www.loaded.com"
+
+    print("\n==============================")
+    print("🎮  CDKeys/Loaded MULTI-CATEGORY SCRAPER STARTED")
+    print("==============================\n")
+
+    all_items = []
+
+    if use_threads and len(category_urls) > 1:
+        max_workers = min(len(category_urls), 4)  # don't spawn *too* many drivers
+        print(f"🧵 Using multithreading with {max_workers} workers...")
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {
+                executor.submit(
+                    scrape_single_category,
+                    label,
+                    url,
+                    max_items_per_category,
+                    loaded_base,
+                ): label
+                for label, url in category_urls.items()
+            }
+
+            for future in as_completed(futures):
+                label = futures[future]
+                try:
+                    items = future.result()
+                    all_items.extend(items)
+                except Exception as e:
+                    print(f"❗ Category '{label}' failed with error: {repr(e)}")
+    else:
+        # Sequential mode (default if 0 or 1 categories, or use_threads=False)
+        for label, url in category_urls.items():
+            items = scrape_single_category(
+                label, url, max_items_per_category, loaded_base
+            )
+            all_items.extend(items)
+
+    # ---------------- Save to data/raw/ ----------------
+    df = pd.DataFrame(all_items)
+
+    BASE_DIR = Path(__file__).resolve().parent.parent  # project root
+    raw_dir = BASE_DIR / "data" / "raw"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+
+    filename = raw_dir / "loaded.csv"
+    df.to_csv(filename, index=False)
+
+    print("\n==============================")
+    print(f"✅ SCRAPING COMPLETE — {len(df)} items saved to '{filename}'")
+    print("==============================\n")
+
+    return df
+
+
 if __name__ == "__main__":
-    scrape_cdkeys(max_items=500)
+    # 🔧 Define the categories you want to scrape here.
+    # Keys = label that will appear in the 'category' column.
+    # Values = full URLs of the category pages.
+    CATEGORY_URLS = {
+        "latest-games": "https://www.cdkeys.com/latest-games",
+        "deals": "https://www.loaded.com/cdkeys-deals",
+        "gift-cards": "https://www.loaded.com/gift-cards"
+    }
+
+    # Example: scrape all categories with multithreading enabled
+    scrape_cdkeys(
+        category_urls=CATEGORY_URLS,
+        max_items_per_category=500,
+        use_threads=True,
+    )

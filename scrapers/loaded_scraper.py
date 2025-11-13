@@ -235,7 +235,7 @@ def scrape_cdkeys(max_items=50):
         raw_dir = BASE_DIR / "data" / "raw"
         raw_dir.mkdir(parents=True, exist_ok=True)
 
-        filename = raw_dir / "cdkeys_latest_games.csv"
+        filename = raw_dir / "loaded.csv"
         df.to_csv(filename, index=False)
 
         print("\n🧹 Done. Closing browser...")

@@ -109,15 +109,23 @@ def parse_steam_search_html(html: str, category: str):
         release_date = a.select_one(".search_released")
         release_date = release_date.get_text(strip=True) if release_date else None
 
-        # Price / discount
-        discount_el = a.select_one(".search_discount span")
+        # --------- PRICE / DISCOUNT (FIXED) ----------
+        # Steam usually uses .discount_pct like "-50%"
+        discount_el = a.select_one(".discount_pct")
+        if not discount_el:
+            # Fallback in case markup is slightly different
+            discount_el = a.select_one(".search_discount span")
+
         discount_raw = discount_el.get_text(strip=True) if discount_el else None
+        if discount_raw == "":
+            discount_raw = None
 
         price_el = a.select_one(".discount_final_price")
         if not price_el:
             # Some entries only have .search_price
             price_el = a.select_one(".search_price")
         price_raw = price_el.get_text(strip=True) if price_el else None
+        # ---------------------------------------------
 
         url = a.get("href", "").split("?")[0]
 
@@ -188,4 +196,4 @@ def main(limit_per_category: int | None = None):
 
 
 if __name__ == "__main__":
-    main(limit_per_category=500)
+    main(limit_per_category=2000)

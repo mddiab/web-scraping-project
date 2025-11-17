@@ -51,7 +51,7 @@ def human_wait(min_s=1.0, max_s=2.5):
 def make_driver() -> webdriver.Chrome:
     ua = UserAgent()
     options = Options()
-    # options.add_argument("--headless=new")  # uncomment for headless
+    options.add_argument("--headless")
     options.add_argument(f"user-agent={ua.random}")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("--no-sandbox")

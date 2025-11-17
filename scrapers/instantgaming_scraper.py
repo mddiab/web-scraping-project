@@ -40,9 +40,7 @@ def make_driver() -> webdriver.Chrome:
     """Create and configure a Chrome WebDriver."""
     ua = UserAgent()
     options = Options()
-    # Uncomment to run headless:
-    # options.add_argument("--headless=new")
-
+    options.add_argument("--headless")
     options.add_argument(f"user-agent={ua.random}")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("--no-sandbox")

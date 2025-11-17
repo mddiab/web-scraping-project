@@ -72,7 +72,7 @@ def scroll_to_bottom(driver):
 def create_driver():
     """Create and return a configured Chrome WebDriver instance."""
     options = Options()
-    # options.add_argument("--headless")  # uncomment in CI/server
+    options.add_argument("--headless")
     options.add_argument("--start-maximized")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
@@ -178,6 +178,7 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
 
         items.append(
             {
+                "source": "loaded",
                 "title": title,
                 "price_raw": price_text,
                 "product_url": full_url,

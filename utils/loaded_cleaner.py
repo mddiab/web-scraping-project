@@ -6,10 +6,10 @@ Clean the raw Loaded.com games data.
 - Reads:  data/raw/loaded.csv   (fallback: ./loaded.csv)
 - Writes: data/cleaned/cleaned_loaded.csv
 
-Notes:
-- Original prices on Loaded.com are in GBP (£).
-- We convert them to USD ($) using a fixed rate (GBP_TO_USD).
-  Change GBP_TO_USD below if you want a different rate.
+Output columns (aligned with other stores):
+    source, title, platform, storefront, is_preorder,
+    price_eur, price_usd, original_price_eur, discount_pct,
+    product_url, category, scraped_at_utc
 """
 
 import re
@@ -31,8 +31,9 @@ RAW_CANDIDATES = [
 OUTPUT_DIR = Path("data/cleaned")
 OUTPUT_PATH = OUTPUT_DIR / "cleaned_loaded.csv"
 
-# Approximate conversion rate — adjust if you want
-GBP_TO_USD = 1.25
+# Approximate conversion rates — adjust if you want
+GBP_TO_EUR = 1.17
+EUR_TO_USD = 1.08
 
 
 # ---------------------------
@@ -108,11 +109,19 @@ def infer_platform(title: str) -> str:
     return "Unknown"
 
 
+def infer_is_preorder(title: str) -> bool:
+    """True if title mentions pre-order / preorder / pre order."""
+    if not isinstance(title, str):
+        return False
+    t = title.lower()
+    return ("pre-order" in t) or ("preorder" in t) or ("pre order" in t)
+
+
 def clean_loaded(df_raw: pd.DataFrame) -> pd.DataFrame:
-    """Apply cleaning steps to the Loaded dataset."""
+    """Apply cleaning steps to the Loaded dataset and return unified columns."""
     df = df_raw.copy()
 
-    # Fix the source column: the scraper stored literally "source"
+    # Source: normalize to match others
     df["source"] = "loaded.com"
 
     # Strip whitespace / normalize text
@@ -120,7 +129,7 @@ def clean_loaded(df_raw: pd.DataFrame) -> pd.DataFrame:
     df["product_url"] = df["product_url"].astype(str).str.strip()
     df["category"] = df["category"].astype(str).str.strip().str.lower()
 
-    # --- Price cleaning ---
+    # --- Price cleaning (GBP → EUR → USD) ---
 
     # Step 1: numeric price in GBP (from price_raw)
     df["price_gbp"] = df["price_raw"].map(clean_price_gbp)
@@ -129,35 +138,48 @@ def clean_loaded(df_raw: pd.DataFrame) -> pd.DataFrame:
     df = df[df["price_gbp"].notna() & (df["price_gbp"] > 0)]
     after_price = len(df)
 
-    # Step 2: convert to USD (this will be our main 'price' column)
-    df["price"] = (df["price_gbp"] * GBP_TO_USD).round(2)
+    # Step 2: convert GBP → EUR → USD
+    df["price_eur"] = (df["price_gbp"] * GBP_TO_EUR).round(2)
+    df["price_usd"] = (df["price_eur"] * EUR_TO_USD).round(2)
 
-    # --- Platform inference ---
+    # No discount info scraped → treat as 0% discount
+    df["discount_pct"] = 0.0
+    df["original_price_eur"] = df["price_eur"]
+
+    # --- Platform & storefront & preorder ---
 
     df["platform"] = df["title"].map(infer_platform)
+    df["storefront"] = "Loaded/CDKeys"
+    df["is_preorder"] = df["title"].map(infer_is_preorder)
 
     # --- Timestamps ---
 
+    # Parse to timezone-aware UTC datetimes
     df["scraped_at"] = pd.to_datetime(df["scraped_at"], errors="coerce", utc=True)
-    df["scraped_date"] = df["scraped_at"].dt.date
+
+    # Create ISO-like string column in UTC (same style for all sites)
+    # Example: 2025-11-18T15:23:45Z
+    df["scraped_at_utc"] = df["scraped_at"].dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     # Drop exact duplicates by product_url (if future runs append)
     before_dup = len(df)
     df = df.drop_duplicates(subset=["product_url"])
     after_dup = len(df)
 
-    # Reorder columns
+    # Final columns: EXACTLY match other cleaned CSVs
     cols = [
-        "source",
-        "title",
-        "platform",     # NEW
-        "price",        # numeric price in USD ($)
-        "price_gbp",    # numeric price in GBP (£)
-        "price_raw",    # original raw price string
-        "category",
-        "product_url",
-        "scraped_at",
-        "scraped_date",
+        "source",               # 'loaded.com'
+        "title",                # game title
+        "platform",             # PC / Xbox / PlayStation / ...
+        "storefront",           # 'Loaded/CDKeys'
+        "is_preorder",          # True/False
+        "price_eur",            # normalized EUR
+        "price_usd",            # normalized USD
+        "original_price_eur",   # same as price_eur (no discount info)
+        "discount_pct",         # 0.0
+        "product_url",          # link
+        "category",             # latest-games / deals / gift-cards / ...
+        "scraped_at_utc",       # ISO-like string in UTC
     ]
     df = df[cols]
 
@@ -183,7 +205,7 @@ def main():
     df_clean = clean_loaded(df_raw)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    df_clean.to_csv(OUTPUT_PATH, index=False)
+    df_clean.to_csv(OUTPUT_PATH, index=False, encoding="utf-8-sig")
 
     print(f"\n✅ Cleaned data saved to: {OUTPUT_PATH}")
     print(f"   ➜ Cleaned shape: {df_clean.shape}")

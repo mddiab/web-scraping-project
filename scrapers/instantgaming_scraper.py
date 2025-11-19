@@ -24,7 +24,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 BASE_URL = "https://www.instant-gaming.com/en/pc/trending/"
-OUTPUT_CSV = Path("data/raw/instantgaming_trending.csv")
+OUTPUT_CSV = Path("data/raw/instantgaming.csv")
 
 
 # ---------------------------
@@ -320,7 +320,7 @@ def click_next_page_by_number(
 def scrape_instantgaming_trending(max_items: int = 200):
     """
     Scrape the PC Trending page on Instant Gaming and save up to `max_items`
-    products into data/raw/instantgaming_trending.csv.
+    products into data/raw/instantgaming.csv.
     """
     print("\n==============================")
     print(f"🎮  Instant Gaming TRENDING SCRAPER STARTED (LIMIT: {max_items} ITEMS)")

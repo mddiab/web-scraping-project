@@ -37,7 +37,7 @@ PRICE_REGEX = re.compile(r"([€$£])\s?\d[\d.,]*|Free\+?", re.IGNORECASE)
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data" / "raw"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
-OUTPUT_CSV = DATA_DIR / "xbox_all_games.csv"
+OUTPUT_CSV = DATA_DIR / "xbox.csv"
 
 
 # ---------------------------

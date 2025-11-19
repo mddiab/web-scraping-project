@@ -151,7 +151,7 @@ def main(limit_per_category: int | None = None):
 
     data_dir = Path("data/raw")
     data_dir.mkdir(parents=True, exist_ok=True)
-    output_path = data_dir / "steam_games.csv"
+    output_path = data_dir / "steam.csv"
 
     driver = make_driver()
 

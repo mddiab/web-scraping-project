@@ -1,0 +1,900 @@
+store,title,platform,price,release_date
+epic_games_store,HITMAN - Game of the Year Edition,PC,38.99,2020-09-03
+epic_games_store,The Medium,PC,35.39,2021-01-28
+epic_games_store,Into The Breach,PC,5.35,2018-02-27
+epic_games_store,The Lion's Song,PC,2.27,2021-05-13
+epic_games_store,Costume Quest,PC,3.56,2010-10-19
+epic_games_store,Sunless Sea,PC,5.39,2021-02-25
+epic_games_store,2064: Read Only Memories,PC,5.63,2021-09-28
+epic_games_store,Kraken Academy,PC,5.99,2021-09-03
+epic_games_store,Assassin's Creed II,PC,5.99,2020-10-06
+epic_games_store,Ghost Recon Future Solider: Ultimate Edition,PC,17.99,2020-07-28
+epic_games_store,20XX,PC,5.72,2020-07-30
+epic_games_store,The Banner Saga Epic Trilogy,PC,22.67,2021-07-21
+epic_games_store,Back 4 Blood: Standard Edition,PC,35.99,2021-10-12
+epic_games_store,The Riftbreaker,PC,8.99,2021-10-14
+epic_games_store,INDUSTRIA,PC,6.35,2021-09-30
+epic_games_store,The Alien Cube,PC,5.63,2021-10-14
+epic_games_store,Rayman Origins,PC,5.99,2021-02-04
+epic_games_store,Superliminal,PC,7.14,2019-11-12
+epic_games_store,Red Dead Redemption 2,PC,38.39,2019-11-05
+epic_games_store,Tony Hawk's™ Pro Skater™ 1 + 2,PC,30.31,2020-09-04
+epic_games_store,Detroit: Become Human,PC,22.79,2019-12-12
+epic_games_store,Townscaper,PC,1.67,2021-08-27
+epic_games_store,SAMURAI SHODOWN NEOGEO COLLECTION,PC,11.62,2020-06-11
+epic_games_store,Observer: System Redux,PC,8.48,2020-11-10
+epic_games_store,BIOMUTANT,PC,22.67,2021-05-25
+epic_games_store,Conway: Disappearance at Dahlia View,PC,8.51,2021-11-02
+epic_games_store,Port Royale 4,PC,27.59,2020-09-25
+epic_games_store,Genshin Impact,PC,0.0,2021-06-09
+epic_games_store,Disciples: Liberation,PC,27.59,2021-10-21
+epic_games_store,A Plague Tale: Innocence,PC,20.39,2019-05-14
+epic_games_store,Warhammer Age of Sigmar: Storm Ground,PC,9.59,2021-09-23
+epic_games_store,Nioh 2 – The Complete Edition,PC,29.99,2021-09-23
+epic_games_store,Mafia: Definitive Edition,PC,26.39,2020-09-25
+epic_games_store,Samurai Jack: Battle Through Time,PC,11.62,2020-07-22
+epic_games_store,Transport Fever 2,PC,11.51,2021-08-18
+epic_games_store,The Eternal Cylinder,PC,8.51,2021-09-30
+epic_games_store,Crysis 2 Remastered,PC,8.51,2021-10-15
+epic_games_store,Comanche,PC,9.59,2021-08-30
+epic_games_store,Spacebase Startopia,PC,27.59,2021-03-26
+epic_games_store,Hello Neighbor: Hide and Seek,PC,8.04,2018-12-07
+epic_games_store,Rogue State Revolution,PC,5.51,2021-03-18
+epic_games_store,ELEX,PC,13.19,2021-03-25
+epic_games_store,Raji: An Ancient Epic,PC,7.14,2020-10-15
+epic_games_store,Days Gone,PC,39.59,2021-05-18
+epic_games_store,MotoGP™21,PC,14.39,2021-04-22
+epic_games_store,Old World,PC,13.4,2020-05-05
+epic_games_store,LEGO® Builder's Journey,PC,5.63,2021-06-22
+epic_games_store,Horror Story: Hallowseed,PC,7.07,2021-10-28
+epic_games_store,Crysis 3 Remastered,PC,8.51,2021-10-15
+epic_games_store,War Mongrels,PC,11.51,2021-10-19
+epic_games_store,Vampyr,PC,18.77,2018-06-05
+epic_games_store,Myst,PC,8.51,2021-08-26
+epic_games_store,New Super Lucky's Tale,PC,8.51,2020-08-21
+epic_games_store,Stonefly,PC,6.35,2021-06-01
+epic_games_store,Darksiders III,PC,25.98,2018-11-27
+epic_games_store,Tannenberg,PC,7.19,2021-07-22
+epic_games_store,Void Bastards,PC,7.67,2021-08-19
+epic_games_store,Basingstoke,PC,8.51,2021-10-29
+epic_games_store,Dark Deception,PC,5.63,2021-10-30
+epic_games_store,JETT : The Far Shore,PC,8.51,2021-10-05
+epic_games_store,In Sound Mind,PC,9.11,2021-09-28
+epic_games_store,The Magnificent Trufflepigs,PC,3.35,2021-08-26
+epic_games_store,Secret Government,PC,8.39,2021-04-15
+epic_games_store,Prey,PC,21.59,2021-09-09
+epic_games_store,Mundaun,PC,6.35,2021-03-16
+epic_games_store,Iron Harvest,PC,8.39,2020-11-19
+epic_games_store,Operencia,PC,8.04,2019-03-08
+epic_games_store,Desperados III,PC,20.87,2020-06-16
+epic_games_store,Night in the Woods,PC,5.63,2020-12-27
+epic_games_store,The Uncertain: Light at the End,PC,2.87,2021-07-13
+epic_games_store,Obduction,PC,8.51,2021-07-15
+epic_games_store,Destroy all Humans!,PC,13.67,2020-07-28
+epic_games_store,Haven,PC,7.07,2021-02-04
+epic_games_store,State of Decay 2: Juggernaut Edition,PC,13.4,2020-03-13
+epic_games_store,ARK: Survival Evolved,PC,8.51,2020-06-11
+epic_games_store,Marvel's Guardians of the Galaxy,PC,35.99,2021-10-26
+epic_games_store,Knockout City™,PC,17.99,2021-05-30
+epic_games_store,Chivalry 2,PC,11.27,2021-06-08
+epic_games_store,Saints Row®: The Third™  Remastered,PC,12.52,2020-05-22
+epic_games_store,Claire de Lune,PC,11.27,2021-07-12
+epic_games_store,OUTRIDERS,PC,31.19,2021-04-15
+epic_games_store,Horizon Zero Dawn™ Complete Edition,PC,39.59,2020-08-07
+epic_games_store,Swords of Legends Online,PC,0.0,2021-07-09
+epic_games_store,Mortal Shell,PC,14.94,2020-08-18
+epic_games_store,No Straight Roads,PC,7.07,2020-08-25
+epic_games_store,Nuclear Throne,PC,5.03,2019-11-07
+epic_games_store,Torchlight II,PC,6.72,2020-07-16
+epic_games_store,Blaster Master Zero 3,PC,11.46,2021-08-26
+epic_games_store,Aerial_Knight's Never Yield,PC,5.51,2021-05-19
+epic_games_store,The Life and Suffering of Sir Brante,PC,5.63,2021-03-04
+epic_games_store,RemiLore: Lost Girl in the Lands of Lore,PC,5.63,2021-02-12
+epic_games_store,Hitchhiker - A Mystery Game,PC,7.07,2021-04-15
+epic_games_store,Spectacular Sparky,PC,4.19,2021-10-20
+epic_games_store,Freedom Fighters,PC,4.46,2020-09-24
+epic_games_store,Amnesia:  The Dark Descent,PC,6.25,2020-04-30
+epic_games_store,Missile Command: Recharged,PC,0.83,2020-06-24
+epic_games_store,Shadow Man Remastered,PC,5.63,2021-04-15
+epic_games_store,Loop Hero,PC,5.99,2021-03-04
+epic_games_store,Sonic Mania,PC,12.47,2021-06-24
+epic_games_store,Superbrothers: Sword & Sworcery EP,PC,2.23,2020-07-30
+epic_games_store,Blazing Beaks,PC,4.19,2021-10-05
+epic_games_store,Buddy Simulator 1984,PC,2.87,2021-09-23
+epic_games_store,Super Meat Boy,PC,6.25,2010-10-20
+epic_games_store,A Short Hike,PC,3.56,2020-03-04
+epic_games_store,Tormentor x Punisher,PC,3.56,2020-03-26
+epic_games_store,No Longer Home,PC,5.51,2021-07-30
+epic_games_store,Garden Story,PC,5.63,2021-08-11
+epic_games_store,Crystal Crisis,PC,5.63,2021-07-08
+epic_games_store,Whispers of a Machine,PC,4.19,2020-11-24
+epic_games_store,Stories Untold,PC,5.35,2017-02-27
+epic_games_store,Rayman Legends,PC,11.99,2019-11-29
+epic_games_store,Where The Water Tastes Like Wine,PC,5.81,2020-09-10
+epic_games_store,Limbo,PC,3.56,2010-07-30
+epic_games_store,Crashlands,PC,5.35,2020-04-30
+epic_games_store,CARRION,PC,8.94,2020-10-29
+epic_games_store,Watch Dogs,PC,17.99,2020-03-19
+epic_games_store,Geneforge 1: Mutagen,PC,5.63,2021-02-24
+epic_games_store,Beyond Good & Evil,PC,2.99,2020-08-25
+epic_games_store,Might & Magic Heroes 3,PC,5.99,2021-03-03
+epic_games_store,Shakedown - Hawaii,PC,7.14,2019-05-07
+epic_games_store,Tom Clancy’s Splinter Cell Double Agent,PC,2.99,2021-03-11
+epic_games_store,Critadel,PC,5.63,2021-10-13
+epic_games_store,Wilmot's Warehouse,PC,5.5,2020-08-06
+epic_games_store,Halcyon 6 Starbase Commander,PC,5.75,2021-02-11
+epic_games_store,Spelldrifter,PC,5.63,2021-04-19
+epic_games_store,Stick It To The Man!,PC,2.23,2020-09-17
+epic_games_store,Rebel Galaxy Outlaw,PC,9.83,2019-08-13
+epic_games_store,Tower of Guns,PC,7.07,2021-07-22
+epic_games_store,Tales from the Borderlands,PC,13.2,2021-02-17
+epic_games_store,Everhood,PC,2.87,2021-09-16
+epic_games_store,The Fall,PC,2.87,2021-03-18
+epic_games_store,Mind Scanners,PC,4.79,2021-09-23
+epic_games_store,The Telltale Batman Shadows Edition,PC,9.83,2019-12-17
+epic_games_store,iRacing,PC,5.39,2021-02-09
+epic_games_store,Colt Canyon,PC,4.19,2021-09-02
+epic_games_store,Golf Club Wasteland,PC,2.1,2021-09-03
+epic_games_store,Tinytopia,PC,4.19,2021-08-30
+epic_games_store,Far Cry 3: Blood Dragon,PC,8.99,2020-02-18
+epic_games_store,Auto Chess,PC,0.0,2019-08-23
+epic_games_store,Druidstone: The Secret of the Menhir Forest,PC,7.07,2021-08-19
+epic_games_store,Trials Fusion,PC,11.99,2021-03-11
+epic_games_store,Unbound: Worlds Apart,PC,5.63,2021-07-28
+epic_games_store,The Unfinished Swan,PC,4.46,2020-09-10
+epic_games_store,JARS,PC,1.68,2021-10-20
+epic_games_store,Neurodeck,PC,5.27,2021-03-18
+epic_games_store,Bud Spencer & Terence Hill - Slaps And Beans,PC,3.35,2021-09-10
+epic_games_store,Fell Seal: Arbiter's Mark,PC,9.11,2020-12-17
+epic_games_store,UnMetal,PC,8.51,2021-09-28
+epic_games_store,I Am Dead,PC,5.63,2020-10-08
+epic_games_store,Terrain of Magical Expertise,PC,8.39,2021-09-09
+epic_games_store,Legend of Keepers,PC,5.63,2021-04-29
+epic_games_store,TOHU,PC,4.19,2021-10-18
+epic_games_store,Boyfriend Dungeon,PC,5.63,2021-08-11
+epic_games_store,Wanna Survive,PC,4.19,2021-05-21
+epic_games_store,Guardians of Hyelore,PC,5.63,2021-09-29
+epic_games_store,Costume Quest 2,PC,4.19,2020-10-22
+epic_games_store,Griftlands,PC,7.14,2019-07-11
+epic_games_store,True Hate,PC,2.27,2021-10-15
+epic_games_store,Ken Follett's The Pillars of the Earth,PC,0.72,2021-04-15
+epic_games_store,A Monster's Expedition,PC,5.63,2021-04-27
+epic_games_store,MudRunner,PC,9.59,2020-11-26
+epic_games_store,Flat Heroes,PC,2.87,2021-09-16
+epic_games_store,Legends of Runeterra,PC,0.0,2021-11-04
+epic_games_store,Killing Floor 2,PC,8.94,2020-07-09
+epic_games_store,The Last Show of Mr. Chardish,PC,2.87,2021-08-12
+epic_games_store,Amnesia: A Machine for Pigs,PC,5.63,2020-10-15
+epic_games_store,Vigil: The Longest Night,PC,5.63,2021-08-31
+epic_games_store,Carto,PC,5.81,2020-10-27
+epic_games_store,At Eve's Wake,PC,7.07,2021-10-26
+epic_games_store,Expeditions: Conquistador,PC,6.78,2021-10-13
+epic_games_store,Deponia: The Complete Journey,PC,1.8,2021-04-15
+epic_games_store,Down in Bermuda,PC,5.63,2021-01-14
+epic_games_store,Teacup,PC,2.87,2021-09-23
+epic_games_store,Out of the Park Baseball 22,PC,6.35,2021-09-23
+epic_games_store,Saint Kotar,PC,7.07,2021-10-28
+epic_games_store,To The Rescue!,PC,5.63,2021-11-02
+epic_games_store,Cyanide & Happiness - Freakpocalypse (Episode 1),PC,5.63,2021-03-11
+epic_games_store,HyperParasite,PC,4.19,2021-03-19
+epic_games_store,Pato Box,PC,4.19,2021-09-02
+epic_games_store,Wolfenstein: The New Order,PC,14.15,2021-09-09
+epic_games_store,KORAL,PC,2.87,2021-06-30
+epic_games_store,Oxygen Not Included,PC,7.15,2019-11-25
+epic_games_store,The Alto Collection,PC,2.68,2020-08-13
+epic_games_store,The Count Lucanor,PC,2.87,2021-06-30
+epic_games_store,APE OUT,PC,5.35,2019-02-28
+epic_games_store,Supraland,PC,5.63,2021-07-02
+epic_games_store,Legend of Grimrock,PC,4.19,2021-10-25
+epic_games_store,Shadowrun: Dragonfall - Director’s Cut,PC,5.51,2020-08-27
+epic_games_store,Shadowrun Returns,PC,5.51,2020-08-27
+epic_games_store,Yuppie Psycho: Executive Edition,PC,5.87,2021-06-30
+epic_games_store,The Vale: Shadow of the Crown,PC,5.63,2021-08-19
+epic_games_store,Banners of Ruin,PC,5.63,2021-07-29
+epic_games_store,Mayhem in Single Valley,PC,4.19,2021-05-20
+epic_games_store,Wizards: Wand of Epicosity,PC,2.27,2020-08-04
+epic_games_store,Fuga: Melodies of Steel,PC,26.09,2021-07-29
+epic_games_store,ChromaGun,PC,3.71,2021-11-03
+epic_games_store,Eastward,PC,7.43,2021-09-16
+epic_games_store,Bad North,PC,5.35,2018-11-16
+epic_games_store,The Textorcist: The Story of Ray Bibbia,PC,5.35,2020-11-12
+epic_games_store,Speed Brawl,PC,6.35,2018-09-18
+epic_games_store,Cosmic Express,PC,2.87,2021-04-27
+epic_games_store,Shadowrun Hong Kong - Extended Edition,PC,6.35,2020-08-27
+epic_games_store,Planescape: Torment: Enhanced Edition,PC,5.63,2021-09-28
+epic_games_store,Lovecraft's Untold Stories,PC,5.51,2021-07-20
+epic_games_store,Kine,PC,4.19,2020-02-24
+epic_games_store,HORROR TALES: The Wine,PC,4.19,2021-07-30
+epic_games_store,Dandara: Trials of Fear Edition,PC,4.19,2021-01-28
+epic_games_store,Sludge Life,PC,5.99,2020-05-28
+epic_games_store,Metro: 2033 Redux,PC,8.04,2010-03-16
+epic_games_store,Alan Wake's American Nightmare,PC,3.56,2012-05-22
+epic_games_store,Adios,PC,5.15,2021-06-29
+epic_games_store,Icewind Dale: Enhanced Edition,PC,5.63,2021-09-28
+epic_games_store,Out of Line,PC,3.71,2021-06-23
+epic_games_store,TOEM,PC,5.63,2021-09-17
+epic_games_store,Wheels of Aurelia,PC,4.19,2020-04-16
+epic_games_store,Legend Of Grimrock 2,PC,8.51,2021-10-25
+epic_games_store,The End is Nigh,PC,5.35,2017-07-12
+epic_games_store,Thimbleweed Park,PC,7.14,2017-03-30
+epic_games_store,Oxenfree,PC,3.56,2019-01-15
+epic_games_store,Baldur's Gate II: Enhanced Edition,PC,5.63,2021-09-28
+epic_games_store,Dishonored - Definitive Edition,PC,11.99,2021-09-09
+epic_games_store,Journey,PC,5.35,2019-06-06
+epic_games_store,Among the Sleep - Enhanced Edition,PC,4.79,2021-10-21
+epic_games_store,For The King,PC,6.25,2020-04-23
+epic_games_store,Hue,PC,4.19,2020-07-02
+epic_games_store,Hamsterdam,PC,1.43,2021-09-09
+epic_games_store,Teamfight Tactics,PC,0.0,2021-11-04
+epic_games_store,The Wolf Among Us,PC,5.35,2019-12-01
+epic_games_store,League of Legends,PC,0.0,2021-11-04
+epic_games_store,Dread Nautical,PC,7.14,2020-04-29
+epic_games_store,Black Widow: Recharged,PC,2.87,2021-10-28
+epic_games_store,Going Under,PC,6.25,2020-09-29
+epic_games_store,Centipede: Recharged,PC,2.87,2021-09-29
+epic_games_store,Dreamscaper,PC,7.07,2021-08-05
+epic_games_store,Narita Boy,PC,7.07,2021-03-30
+epic_games_store,Shadow Complex Remastered,PC,6.25,2009-08-19
+epic_games_store,Hammerting,PC,7.86,2020-10-27
+epic_games_store,The Last Friend,PC,4.19,2021-09-30
+epic_games_store,Songs for a Hero - Definitive Edition,PC,3.95,2021-07-08
+epic_games_store,Void Tyrant,PC,2.87,2021-10-11
+epic_games_store,Ageless,PC,5.5,2020-07-29
+epic_games_store,Jetboard Joust,PC,2.87,2021-08-20
+epic_games_store,Aground,PC,4.19,2021-02-11
+epic_games_store,Gone Viral,PC,5.63,2021-11-01
+epic_games_store,The Darkside Detective: A Fumble in the Dark,PC,3.71,2021-11-01
+epic_games_store,Oddworld: New 'n' Tasty,PC,5.63,2020-12-18
+epic_games_store,Sheltered,PC,5.51,2021-09-09
+epic_games_store,The Stanley Parable,PC,5.35,2020-03-26
+epic_games_store,Far Cry,PC,5.99,2020-08-18
+epic_games_store,Anno 2070,PC,17.99,2021-03-03
+epic_games_store,Tom Clancy's Splinter Cell Chaos Theory,PC,5.99,2021-03-30
+epic_games_store,Sokobond,PC,2.87,2021-04-27
+epic_games_store,Cave Story+,PC,4.19,2020-12-03
+epic_games_store,Neon City Riders: Super-powered Edition,PC,4.19,2021-08-03
+epic_games_store,Far Cry 2: Standard Edition,PC,5.99,2020-08-18
+epic_games_store,Torchlight,PC,5.35,2020-02-26
+epic_games_store,Shadowhand,PC,4.19,2021-02-05
+epic_games_store,Scarlet Hood and the Wicked Wood,PC,5.51,2021-04-08
+epic_games_store,The Fabled Woods,PC,4.19,2021-03-25
+epic_games_store,Genesis Noir,PC,4.19,2021-03-26
+epic_games_store,Sakuna: Of Rice and Ruin,PC,8.39,2021-06-23
+epic_games_store,Siege Survival - Gloria Victis,PC,6.83,2021-05-18
+epic_games_store,Warface,PC,0.0,2021-06-29
+epic_games_store,Hellpoint,PC,9.95,2020-07-30
+epic_games_store,Lost Words: Beyond the Page,PC,5.51,2021-04-06
+epic_games_store,Pumpkin Jack,PC,8.48,2020-10-23
+epic_games_store,Rising Storm 2: Vietnam,PC,7.14,2020-10-08
+epic_games_store,RUINER,PC,6.25,2017-09-26
+epic_games_store,Sherlock Holmes: Crimes and Punishments,PC,17.99,2020-04-02
+epic_games_store,Niche - a genetics survival game,PC,5.99,2021-09-15
+epic_games_store,OCTOPATH TRAVELER™,PC,51.0,2021-03-25
+epic_games_store,Golazo,PC,2.51,2021-03-31
+epic_games_store,Windbound,PC,6.35,2020-08-28
+epic_games_store,Might & Magic Heroes VII Ultimate Edition,PC,26.99,2020-08-25
+epic_games_store,World War Z: Aftermath,PC,11.27,2021-09-21
+epic_games_store,Tom Clancy's Splinter Cell,PC,2.99,2021-03-11
+epic_games_store,Orwell's Animal Farm,PC,4.19,2020-12-10
+epic_games_store,ZOMBI,PC,11.99,2020-10-13
+epic_games_store,Alex Kidd in Miracle World DX,PC,8.76,2021-06-22
+epic_games_store,Blade Strangers,PC,5.63,2021-10-06
+epic_games_store,Yoku's Island Express,PC,6.35,2021-09-02
+epic_games_store,Yooka-Laylee and the Impossible Lair,PC,8.04,2017-04-11
+epic_games_store,Curse of the Dead Gods,PC,9.59,2021-02-23
+epic_games_store,Dream Engines: Nomad Cities,PC,8.39,2021-07-14
+epic_games_store,Monster Jam Steel Titans 2,PC,10.91,2021-03-02
+epic_games_store,Darksiders Genesis,PC,13.91,2021-07-16
+epic_games_store,Trüberbrook,PC,4.19,2021-11-03
+epic_games_store,"Warhammer 40,000: Battlesector",PC,11.62,2021-07-22
+epic_games_store,Inertial Drift,PC,5.63,2021-10-05
+epic_games_store,SpellForce 3: Versus Edition,PC,0.0,2020-12-14
+epic_games_store,Franchise Hockey Manager 8,PC,35.18,2021-11-03
+epic_games_store,Mafia III: Definitive Edition,PC,20.39,2020-09-25
+epic_games_store,Severed Steel,PC,6.83,2021-09-17
+epic_games_store,The Signifier: Director's Cut,PC,5.63,2021-04-22
+epic_games_store,Kosmokrats,PC,4.19,2020-12-18
+epic_games_store,Sockventure,PC,7.07,2021-05-11
+epic_games_store,Backbone,PC,7.07,2021-06-08
+epic_games_store,Through the Woods,PC,6.78,2021-10-28
+epic_games_store,Cris Tales,PC,19.19,2021-07-20
+epic_games_store,Remnant: From the Ashes,PC,18.77,2020-08-13
+epic_games_store,Rogue Lords,PC,10.79,2021-09-30
+epic_games_store,RimWorld,PC,9.83,2020-06-09
+epic_games_store,Battle Chasers: Nightwar,PC,11.99,2021-03-25
+epic_games_store,The Flower Collectors,PC,5.63,2020-12-18
+epic_games_store,Aquanox Deep Descent,PC,13.67,2020-10-20
+epic_games_store,The Hand of Merlin,PC,11.27,2021-05-11
+epic_games_store,The Big Con,PC,5.51,2021-08-31
+epic_games_store,Mothergunship,PC,11.27,2021-07-29
+epic_games_store,Doomsday Vault,PC,4.79,2021-08-05
+epic_games_store,HammerHelm,PC,5.51,2021-10-21
+epic_games_store,Star Renegades,PC,7.07,2021-03-04
+epic_games_store,Poly Bridge 2,PC,4.46,2020-05-28
+epic_games_store,Fisti-Fluffs,PC,5.63,2021-09-23
+epic_games_store,SpellForce 3: Fallen God,PC,9.71,2020-12-14
+epic_games_store,Tandem: a Tale of Shadows,PC,7.07,2021-10-21
+epic_games_store,Mafia II: Definitive Edition,PC,20.39,2020-09-25
+epic_games_store,Unicorns on Unicycles,PC,3.71,2021-10-20
+epic_games_store,Expeditions: Viking,PC,8.75,2021-10-13
+epic_games_store,Assassin's Creed® III: Remastered,PC,23.99,2019-03-29
+epic_games_store,Solitairica,PC,2.87,2020-12-29
+epic_games_store,Creature in the Well,PC,5.51,2021-03-25
+epic_games_store,Shady Part of Me,PC,7.19,2020-12-11
+epic_games_store,Blair Witch,PC,8.48,2020-10-29
+epic_games_store,The Fall Part 2: Unbound,PC,4.79,2021-03-15
+epic_games_store,Cartel Tycoon,PC,7.07,2021-03-18
+epic_games_store,DEMON'S TILT,PC,6.35,2021-05-10
+epic_games_store,The Uncertain: Last Quiet Day,PC,2.87,2021-04-29
+epic_games_store,Genesis Alpha One,PC,8.04,2020-03-27
+epic_games_store,Stubbs the Zombie in Rebel Without a Pulse,PC,5.63,2021-10-14
+epic_games_store,Bridge Constructor: The Walking Dead,PC,4.19,2020-11-19
+epic_games_store,The Spectrum Retreat,PC,3.71,2021-07-01
+epic_games_store,Riders Republic,PC,35.99,2021-10-28
+epic_games_store,Tom Clancy's Ghost Recon Wildlands,PC,29.99,2018-04-10
+epic_games_store,Timelie - Game of the Year Edition,PC,5.15,2021-05-28
+epic_games_store,Pine,PC,6.83,2021-05-06
+epic_games_store,Omen Of Sorrow,PC,7.14,2019-06-07
+epic_games_store,The Red Lantern,PC,7.07,2020-10-22
+epic_games_store,8Doors: Arum's Afterlife Adventure,PC,5.63,2021-08-19
+epic_games_store,Ironcast,PC,4.19,2021-07-08
+epic_games_store,Sonic Colors: Ultimate,PC,35.99,2021-09-07
+epic_games_store,Arise: A Simple Story,PC,7.14,2019-12-03
+epic_games_store,NEO: The World Ends with You,PC,35.99,2021-09-28
+epic_games_store,Dark Future: Blood Red States,PC,7.07,2021-07-20
+epic_games_store,Watch Dogs 2,PC,41.99,2016-11-15
+epic_games_store,Conarium,PC,6.25,2017-06-06
+epic_games_store,A Knights Quest,PC,8.94,2019-10-09
+epic_games_store,The Jackbox Party Pack 8,PC,8.51,2021-10-14
+epic_games_store,Ruin Raiders,PC,5.63,2021-10-14
+epic_games_store,The Legend of Tianding,PC,6.35,2021-11-02
+epic_games_store,Tales of the Neon Sea,PC,4.79,2021-04-01
+epic_games_store,Relicta,PC,8.04,2020-08-24
+epic_games_store,God's Trigger,PC,5.74,2020-08-20
+epic_games_store,Chronos: Before the Ashes,PC,13.67,2020-12-01
+epic_games_store,Q.U.B.E. 2,PC,6.25,2018-03-18
+epic_games_store,Song of Farca,PC,5.63,2021-07-22
+epic_games_store,They Always Run,PC,4.19,2021-10-20
+epic_games_store,The Long Dark,PC,9.95,2020-12-19
+epic_games_store,Dollhouse,PC,6.35,2021-10-29
+epic_games_store,Deep Sky Derelicts,PC,6.35,2021-07-20
+epic_games_store,Suzerain,PC,4.19,2021-05-20
+epic_games_store,Operation:Tango,PC,13.27,2021-08-24
+epic_games_store,Doctor Who: The Lonely Assassins,PC,1.67,2021-06-18
+epic_games_store,Knight Squad 2,PC,4.19,2021-04-14
+epic_games_store,Surgeon Simulator 2,PC,5.63,2020-08-27
+epic_games_store,Close To The Sun,PC,17.88,2019-05-02
+epic_games_store,Demon Turf,PC,6.83,2021-11-04
+epic_games_store,Figment,PC,6.25,2020-03-26
+epic_games_store,Bonfire Peaks,PC,5.63,2021-09-30
+epic_games_store,Lumberjack's Dynasty,PC,7.07,2021-04-29
+epic_games_store,Inside,PC,7.14,2016-07-07
+epic_games_store,Outward,PC,30.4,2019-03-26
+epic_games_store,FORECLOSED,PC,5.87,2021-08-12
+epic_games_store,Boomerang X,PC,8.39,2021-07-08
+epic_games_store,Elite Dangerous,PC,23.24,2020-11-19
+epic_games_store,Wolfenstein: The Old Blood,PC,14.15,2021-09-09
+epic_games_store,Werewolf: The Apocalypse - Earthblood,PC,13.19,2020-12-14
+epic_games_store,Sky Racket,PC,4.19,2021-09-21
+epic_games_store,The Town of Light,PC,5.63,2021-11-02
+epic_games_store,Dangerous Driving,PC,9.83,2019-04-09
+epic_games_store,Redout: Solar Challenge Edition,PC,8.51,2021-09-01
+epic_games_store,GRIME,PC,7.07,2021-08-02
+epic_games_store,Death's Door,PC,8.39,2021-07-22
+epic_games_store,WE ARE FOOTBALL,PC,18.96,2021-06-10
+epic_games_store,Jotun: Valhalla Edition,PC,5.51,2019-12-06
+epic_games_store,Moonlighter,PC,6.25,2018-05-29
+epic_games_store,Verdun,PC,7.19,2021-07-22
+epic_games_store,Fort Triumph,PC,6.35,2021-08-17
+epic_games_store,Spiritfarer®: Farewell Edition,PC,8.39,2020-08-18
+epic_games_store,Totally Accurate Battle Simulator,PC,5.63,2019-04-01
+epic_games_store,Alluris,PC,4.16,2020-08-27
+epic_games_store,DISC ROOM,PC,7.14,2020-10-22
+epic_games_store,Assassin's Creed Origins,PC,35.99,2017-10-26
+epic_games_store,Nioh: The Complete Edition,PC,29.99,2021-09-09
+epic_games_store,A Juggler's Tale,PC,5.99,2020-08-27
+epic_games_store,Tunche,PC,5.63,2021-11-02
+epic_games_store,Kill It With Fire,PC,4.19,2020-08-13
+epic_games_store,Kingdoms of Amalur: Re-Reckoning,PC,17.48,2020-09-08
+epic_games_store,Last Day of June,PC,7.14,2017-08-31
+epic_games_store,Inscryption,PC,8.39,2021-10-20
+epic_games_store,Hundred Days - Winemaking Simulator,PC,7.07,2021-05-13
+epic_games_store,Grand Theft Auto V,PC,27.86,2020-05-14
+epic_games_store,InnerSpace,PC,6.25,2018-01-16
+epic_games_store,Godstrike,PC,4.19,2021-10-14
+epic_games_store,Death Coming,PC,3.8,2020-05-07
+epic_games_store,Assassins Creed Odyssey,PC,35.99,2018-10-05
+epic_games_store,Layers of Fear 2,PC,5.63,2020-10-22
+epic_games_store,DARQ: Complete Edition,PC,5.63,2021-10-28
+epic_games_store,Bloodroots,PC,7.14,2020-02-28
+epic_games_store,Mount & Blade II,PC,29.99,2020-06-18
+epic_games_store,Next Up Hero,PC,6.76,2020-07-23
+epic_games_store,Murder by Numbers,PC,4.19,2021-03-23
+epic_games_store,The Pathless,PC,11.62,2020-11-12
+epic_games_store,SpellForce 3: Soul Harvest,PC,9.71,2021-07-16
+epic_games_store,Deliver Us The Moon,PC,7.07,2021-11-02
+epic_games_store,Asemblance: Oversight,PC,2.27,2021-09-03
+epic_games_store,Tyranny - Gold Edition,PC,13.19,2020-12-10
+epic_games_store,Olija,PC,5.51,2021-01-28
+epic_games_store,Outer Wilds,PC,8.94,2019-05-28
+epic_games_store,Encased,PC,8.39,2021-09-07
+epic_games_store,Maneater,PC,13.4,2020-05-22
+epic_games_store,Crash Drive 3,PC,5.63,2021-07-08
+epic_games_store,Darksiders Warmastered Edition,PC,8.39,2016-11-26
+epic_games_store,Realpolitiks 2,PC,10.79,2021-05-12
+epic_games_store,Sherlock Holmes: The Devil's Daughter,PC,17.99,2021-06-25
+epic_games_store,Before Your Eyes,PC,4.19,2021-04-08
+epic_games_store,Cozy Grove,PC,5.51,2021-04-08
+epic_games_store,Gods Will Fall,PC,5.51,2021-01-29
+epic_games_store,Axiom Verge 2,PC,5.63,2021-08-12
+epic_games_store,Air Missions: HIND,PC,5.63,2021-09-27
+epic_games_store,Cruel Bands Career,PC,1.07,2021-09-30
+epic_games_store,Milky Way Prince – The Vampire Star,PC,4.19,2020-08-13
+epic_games_store,Pascal's Wager: Definitive Edition,PC,5.63,2021-06-23
+epic_games_store,Pathway,PC,6.3,2020-06-11
+epic_games_store,Untitled Goose Game,PC,7.14,2019-09-20
+epic_games_store,Carnival Games,PC,33.59,2020-11-20
+epic_games_store,OMNO,PC,5.39,2021-07-29
+epic_games_store,Barony,PC,5.46,2020-07-30
+epic_games_store,Foregone,PC,5.63,2020-02-26
+epic_games_store,Dead Age 2,PC,5.99,2021-09-02
+epic_games_store,HUMANKIND™,PC,28.79,2021-08-17
+epic_games_store,Corruption 2029,PC,7.14,2020-02-07
+epic_games_store,Sundered: Eldritch Edition,PC,6.35,2017-07-28
+epic_games_store,The Binding of Isaac: Repentance,PC,14.15,2021-03-31
+epic_games_store,CastleStorm II,PC,5.63,2020-09-23
+epic_games_store,Before We Leave,PC,7.14,2020-05-08
+epic_games_store,Yooka-Laylee,PC,23.99,2021-08-19
+epic_games_store,Mars Horizon,PC,5.63,2021-06-22
+epic_games_store,ReadySet Heroes,PC,7.14,2019-10-29
+epic_games_store,Afterparty,PC,7.14,2019-10-29
+epic_games_store,Scrapnaut,PC,3.95,2021-03-03
+epic_games_store,Ancient Enemy,PC,4.19,2021-03-18
+epic_games_store,Startup Panic,PC,4.19,2020-12-03
+epic_games_store,Road 96,PC,7.15,2021-08-16
+epic_games_store,Calico,PC,3.35,2020-12-15
+epic_games_store,Automachef,PC,5.51,2021-08-26
+epic_games_store,Real Farm - Gold Edition,PC,6.35,2021-06-24
+epic_games_store,The Last Campfire,PC,4.46,2020-08-27
+epic_games_store,Dungeons 3,PC,21.59,2020-11-05
+epic_games_store,"3 out of 10, EP 2: ""Foundation 101""",PC,0.0,2020-08-13
+epic_games_store,Slipways,PC,4.79,2021-06-03
+epic_games_store,"3 out of 10, EP 5: ""The Rig Is Up!""",PC,0.0,2020-09-03
+epic_games_store,3 out of 10: Season Two,PC,0.0,2021-04-08
+epic_games_store,Beyond: Two Souls,PC,10.79,2019-07-22
+epic_games_store,"3 out of 10, EP 1: ""Welcome To Shovelworks""",PC,0.0,2020-08-06
+epic_games_store,"3 out of 10, EP 4: ""Thank You For Being An Asset""",PC,0.0,2020-08-27
+epic_games_store,Diabotical,PC,0.0,2020-09-03
+epic_games_store,Monkey Barrels,PC,4.19,2021-02-09
+epic_games_store,Heavy Rain,PC,10.79,2019-06-24
+epic_games_store,King's Bounty II,PC,22.79,2021-08-24
+epic_games_store,The Solitaire Conspiracy,PC,3.56,2020-10-06
+epic_games_store,Aven Colony,PC,15.0,2021-11-04
+epic_games_store,Beast Breaker,PC,4.19,2021-09-23
+epic_games_store,"3 out of 10, EP 3: ""Pivot Like A Champion""",PC,0.0,2020-08-20
+epic_games_store,Ghost Recon Breakpoint,PC,35.99,2019-10-04
+epic_games_store,Horace,PC,5.35,2019-07-18
+epic_games_store,John Wick Hex,PC,7.14,2019-10-08
+epic_games_store,Enter the Gungeon,PC,6.25,2016-04-05
+epic_games_store,Super Meat Boy Forever,PC,5.63,2020-12-23
+epic_games_store,Magic: The Gathering Arena,PC,0.0,2020-01-16
+epic_games_store,Huntdown,PC,7.14,2020-05-12
+epic_games_store,The Escapists 2,PC,6.25,2020-07-09
+epic_games_store,Observation,PC,8.94,2019-05-21
+epic_games_store,Time Loader,PC,7.54,2021-11-03
+epic_games_store,Hello Neighbor,PC,8.04,2018-12-08
+epic_games_store,Ancestors: The Humankind Odyssey,PC,23.88,2019-08-27
+epic_games_store,Manifold Garden,PC,7.14,2019-10-18
+epic_games_store,Asemblance,PC,2.27,2021-06-25
+epic_games_store,City of Brass,PC,6.25,2018-05-04
+epic_games_store,Sunblaze,PC,4.19,2021-10-14
+epic_games_store,Farming Simulator 19,PC,9.59,2020-07-20
+epic_games_store,The First Tree,PC,2.87,2021-04-15
+epic_games_store,GoNNER,PC,4.46,2020-02-27
+epic_games_store,Mutant Year Zero: Road to Eden,PC,,2018-12-04
+epic_games_store,Mutazione,PC,6.25,2020-03-04
+epic_games_store,What Remains of Edith Finch,PC,7.14,2017-04-25
+epic_games_store,Hell is other demons,PC,2.87,2021-06-17
+epic_games_store,Hob,PC,6.25,2020-04-02
+epic_games_store,Trials Evolution: Gold Edition,PC,11.99,2021-02-11
+epic_games_store,Animation Throwdown: The Quest for Cards,PC,0.0,2021-10-04
+epic_games_store,TowerFall Ascension,PC,7.14,2019-12-31
+epic_games_store,Scott Pilgrim vs. The World: The Game – Complete Edition,PC,8.99,2021-01-14
+epic_games_store,The World Next Door,PC,2.87,2020-11-19
+epic_games_store,Lake,PC,6.35,2021-09-01
+epic_games_store,Assassin's Creed® I: Director's Cut,PC,5.99,2008-04-09
+epic_games_store,Lifeless Planet: Premier Edition,PC,5.81,2020-07-09
+epic_games_store,Primordials: Battle of Gods,PC,0.0,2021-03-04
+epic_games_store,Those Who Remain,PC,5.63,2021-11-02
+epic_games_store,Might & Magic: Chess Royale,PC,0.0,2020-05-05
+epic_games_store,Open Country,PC,9.95,2021-06-10
+epic_games_store,Ghostbusters: The Video Game Remastered,PC,8.94,2019-10-04
+epic_games_store,Anno 2205,PC,23.99,2020-02-19
+epic_games_store,Assassin's Creed Syndicate,PC,23.99,2020-02-20
+epic_games_store,Trials Rising,PC,11.99,2019-02-26
+epic_games_store,Anno 1701 History Edition,PC,5.99,2020-06-25
+epic_games_store,Anno 1404 History Edition,PC,8.99,2020-06-25
+epic_games_store,Far Cry New Dawn,PC,26.99,2019-02-15
+epic_games_store,Far Cry 5,PC,35.99,2018-03-27
+epic_games_store,Among Trees,PC,4.19,2020-06-14
+epic_games_store,Trackmania,PC,0.0,2020-07-01
+epic_games_store,South Park™: The Fractured But Whole™,PC,35.99,2017-10-16
+epic_games_store,The Witcher 3: Wild Hunt - Game of the Year Edition,PC,16.96,2020-05-14
+epic_games_store,Dice Legacy,PC,6.35,2021-09-09
+epic_games_store,Drone Racing League Simulator®,PC,2.87,2021-08-04
+epic_games_store,The Plane Effect,PC,5.51,2021-09-23
+epic_games_store,The Chameleon,PC,2.87,2021-07-13
+epic_games_store,Trials of Fire,PC,6.35,2021-06-09
+epic_games_store,Beasts of Maravilla Island,PC,2.87,2021-06-12
+epic_games_store,Oddworld: Soulstorm Enhanced Edition,PC,11.27,2021-04-06
+epic_games_store,NecroLand: Undead Corps,PC,2.87,2021-06-30
+epic_games_store,Discovery Tour: Viking Age,PC,11.99,2021-10-19
+epic_games_store,Cardpocalypse,PC,11.62,2019-09-19
+epic_games_store,Overcooked,PC,6.25,2018-08-07
+epic_games_store,Journey to the Savage Planet,PC,9.83,2020-01-28
+epic_games_store,The Messenger,PC,6.25,2019-11-14
+epic_games_store,Celeste,PC,7.14,2018-01-05
+epic_games_store,Beyond Blue,PC,5.63,2020-06-11
+epic_games_store,Batman™: Arkham Asylum Game of the Year Edition,PC,6.25,2010-03-26
+epic_games_store,Yaga,PC,8.94,2019-11-12
+epic_games_store,Minit,PC,4.46,2018-04-03
+epic_games_store,Ashwalkers,PC,3.35,
+epic_games_store,Expeditions: Rome,PC,17.99,
+epic_games_store,Chorus,PC,10.79,
+epic_games_store,Pupperazzi,PC,5.63,
+epic_games_store,Warshmallows,PC,2.87,
+epic_games_store,Wytchwood,PC,5.63,
+epic_games_store,Rogue Invader,PC,4.19,
+epic_games_store,Blast Brigade vs. the Evil Legion of Dr. Cread,PC,6.35,
+epic_games_store,Farmer's Dynasty,PC,8.51,
+epic_games_store,Of Bird And Cage,PC,5.51,
+epic_games_store,Solar Ash,PC,11.39,
+epic_games_store,Ys IX: Monstrum Nox,PC,13.62,
+epic_games_store,Partisans 1941 - Extended Edition,PC,14.39,
+epic_games_store,Battlefield™ 2042,PC,35.99,
+epic_games_store,FINAL FANTASY VII REMAKE INTERGRADE,PC,57.59,
+epic_games_store,KID A MNESIA EXHIBITION,PC,0.0,
+epic_games_store,Nemezis: Mysterious Journey III,PC,5.63,
+epic_games_store,Skábma - Snowfall,PC,5.71,
+epic_games_store,Exo One,PC,4.79,
+epic_games_store,Total War: WARHAMMER III,PC,40.79,
+epic_games_store,Faster Than Light,PC,4.46,
+epic_games_store,Galactic Civilizations IV,PC,14.15,
+epic_games_store,Jurassic World Evolution 2,PC,29.39,
+epic_games_store,Shattered: Tale of the Forgotten King,PC,8.51,
+epic_games_store,SpellForce 3 Reforced,PC,16.2,
+epic_games_store,Call of the Sea,PC,5.63,
+epic_games_store,Tennis Manager 2021,PC,9.01,
+epic_games_store,AWAY: The Survival Series,PC,8.51,
+epic_games_store,Tiny Tina's Assault on Dragon Keep: A Wonderlands One-shot Adventure,PC,9.0,
+epic_games_store,XCOM® 2,PC,35.99,
+epic_games_store,Transistor,PC,6.25,
+epic_games_store,Through the Darkest of Times,PC,5.39,
+epic_games_store,Little Big Workshop,PC,8.39,
+epic_games_store,MONOPOLY Madness,PC,17.99,
+epic_games_store,TUNIC,PC,8.51,
+epic_games_store,Parkitect,PC,8.39,
+epic_games_store,Where Cards Fall,PC,5.63,
+epic_games_store,Brothers - A Tale of Two Sons,PC,9.95,
+epic_games_store,The Walking Dead: Season One,PC,3.22,
+epic_games_store,Clouzy,PC,4.19,
+epic_games_store,Recompile,PC,5.63,
+epic_games_store,Just Die Already,PC,0.0,
+epic_games_store,Aeterna Noctis,PC,8.39,
+epic_games_store,NARAKA: BLADEPOINT,PC,14.39,
+epic_games_store,Ghostwire: Tokyo,PC,29.99,
+epic_games_store,Little Inferno,PC,5.35,
+epic_games_store,Syberia: The World Before,PC,11.27,
+epic_games_store,SOMA,PC,9.83,
+epic_games_store,F.I.S.T.: Forged In Shadow Torch,PC,15.59,
+epic_games_store,The Forgotten City,PC,7.07,
+epic_games_store,Moving Out,PC,6.83,
+epic_games_store,Rebel Cops,PC,5.64,
+epic_games_store,Zorya: The Celestial Sisters ™,PC,7.07,
+epic_games_store,Aztech Forgotten Gods,PC,8.51,
+epic_games_store,Never Alone (Kisima Ingitchuna),PC,4.19,
+epic_games_store,The Walking Dead: Michonne,PC,3.22,
+epic_games_store,Martha Is Dead,PC,8.51,
+epic_games_store,DEATHLOOP,PC,29.99,
+epic_games_store,Synergia,PC,2.34,
+epic_games_store,Unspottable,PC,2.87,
+epic_games_store,Lifeslide,PC,2.87,
+epic_games_store,As Far As The Eye,PC,7.14,
+epic_games_store,FAR: Lone Sails,PC,5.51,
+epic_games_store,Wolfstride,PC,4.19,
+epic_games_store,The Captain,PC,5.63,
+epic_games_store,Watch Dogs: Legion,PC,35.99,
+epic_games_store,Black Book,PC,4.24,
+epic_games_store,Risk of Rain 2,PC,7.07,
+epic_games_store,Layers of Fear: Masterpiece Edition,PC,7.14,
+epic_games_store,The Bridge,PC,4.46,
+epic_games_store,Asteroids: Recharged,PC,2.87,
+epic_games_store,Breakout: Recharged,PC,2.87,
+epic_games_store,Rogue Legacy,PC,4.19,
+epic_games_store,STAR WARS™ Battlefront™ Ultimate Edition,PC,3.6,
+epic_games_store,Shadow of the Tomb Raider: Definitive Edition,PC,26.34,
+epic_games_store,Clid The Snail,PC,6.35,
+epic_games_store,ELEX II,PC,19.19,
+epic_games_store,Chicken Police - Paint it Red!,PC,5.63,
+epic_games_store,This Is the Police 2,PC,5.99,
+epic_games_store,Unreal Tournament,PC,0.0,
+epic_games_store,Lumote: The Mastermote Chronicles,PC,5.63,
+epic_games_store,Titan Quest Anniversary Edition,PC,8.39,
+epic_games_store,Godfall Ultimate Edition,PC,11.27,
+epic_games_store,Defend the Rook,PC,5.99,
+epic_games_store,Hypnospace Outlaw,PC,6.35,
+epic_games_store,Tiny Lands,PC,2.03,
+epic_games_store,Kombinera,PC,4.19,
+epic_games_store,Anuchard,PC,4.19,
+epic_games_store,Hyper Light Drifter,PC,7.14,
+epic_games_store,CryoFall,PC,5.87,
+epic_games_store,Super Mega Zero,PC,2.87,
+epic_games_store,This Is the Police,PC,5.99,
+epic_games_store,This Is the President,PC,7.19,
+epic_games_store,Imp of the Sun,PC,5.63,
+epic_games_store,Coffee Talk,PC,3.71,
+epic_games_store,Wunderling DX,PC,3.35,
+epic_games_store,STAR WARS™ Battlefront™ II: Celebration Edition,PC,6.0,
+epic_games_store,Paper Beast,PC,4.91,
+epic_games_store,Breathedge,PC,3.76,
+epic_games_store,Mighty Fight Federation,PC,8.51,
+epic_games_store,God of War,PC,39.59,
+epic_games_store,"Yes, Your Grace",PC,6.35,
+epic_games_store,Guild of Dungeoneering Ultimate Edition,PC,7.07,
+epic_games_store,Mages of Mystralia,PC,5.63,
+epic_games_store,Tribes of Midgard,PC,8.39,
+epic_games_store,Tom Clancy’s Rainbow Six® Extraction,PC,23.99,
+epic_games_store,STAR WARS Jedi: Fallen Order,PC,7.5,
+epic_games_store,The Last Stand: Aftermath,PC,7.07,
+epic_games_store,NAIRI: Tower of Shirin,PC,1.43,
+epic_games_store,Trigon: Space Story,PC,14.4,
+epic_games_store,Hero's Hour,PC,5.99,
+epic_games_store,Othercide,PC,15.59,
+epic_games_store,Assassin's Creed Unity,PC,17.99,
+epic_games_store,Batman™: Arkham City - Game of the Year Edition,PC,6.25,
+epic_games_store,The Walking Dead: Season Two,PC,3.22,
+epic_games_store,Train Valley,PC,0.43,
+epic_games_store,Wunderdoktor,PC,2.87,
+epic_games_store,Penko Park,PC,3.71,
+epic_games_store,Doodle God,PC,4.19,
+epic_games_store,Axiom Verge,PC,7.14,
+epic_games_store,Child of Light: Ultimate Edition,PC,11.99,
+epic_games_store,Fishing: North Atlantic - Enhanced Edition,PC,9.95,
+epic_games_store,Camp Sunshine,PC,2.03,
+epic_games_store,Conan Exiles,PC,11.99,
+epic_games_store,Aces of the Luftwaffe – Squadron Extended Edition,PC,22.2,
+epic_games_store,Not For Broadcast,PC,6.83,
+epic_games_store,Alan Wake,PC,5.35,
+epic_games_store,Turnip Boy Commits Tax Evasion,PC,4.19,
+epic_games_store,Metro: Last Light Redux,PC,8.04,
+epic_games_store,Imagine Earth,PC,5.65,
+epic_games_store,Wonhon: A Vengeful Spirit,PC,3.11,
+epic_games_store,The Talos Principle,PC,10.73,
+epic_games_store,Glitchhikers: The Spaces Between,PC,3.71,
+epic_games_store,Mechajammer,PC,7.07,
+epic_games_store,Blue Fire,PC,5.63,
+epic_games_store,Orwell: Keeping an Eye on You,PC,4.19,
+epic_games_store,Princess Farmer,PC,4.19,
+epic_games_store,Amelie,PC,1.07,
+epic_games_store,Revita,PC,3.83,
+epic_games_store,The Vanishing of Ethan Carter,PC,5.63,
+epic_games_store,The Legend of Bum-bo,PC,4.19,
+epic_games_store,Rising Hell,PC,2.87,
+epic_games_store,Nowhere Prophet,PC,7.07,
+epic_games_store,FAR CRY 4,PC,17.99,
+epic_games_store,Far Cry®3,PC,11.99,
+epic_games_store,Far Cry Primal,PC,29.99,
+epic_games_store,Sky Fleet,PC,4.19,
+epic_games_store,El Hijo – A Wild West Tale,PC,6.35,
+epic_games_store,Trash Sailors,PC,6.35,
+epic_games_store,Beku,PC,1.67,
+epic_games_store,Submerged,PC,5.63,
+epic_games_store,Guardian of Lore,PC,3.95,
+epic_games_store,Baldur's Gate: Dark Alliance,PC,8.51,
+epic_games_store,Patron,PC,3.38,
+epic_games_store,Power to the People,PC,4.19,
+epic_games_store,Agatha Christie - Hercule Poirot: The First Cases,PC,11.99,
+epic_games_store,Pile Up! Box by Box,PC,4.19,
+epic_games_store,Hextech Mayhem: A League of Legends Story™,PC,5.75,
+epic_games_store,Weird West,PC,17.99,
+epic_games_store,Car Tuning Simulator,PC,0.3,
+epic_games_store,It follows you,PC,0.59,
+epic_games_store,Kapital: Sparks of Revolution,PC,7.13,
+epic_games_store,Ghostwire: Tokyo - Prelude,PC,0.0,
+epic_games_store,Helheim Hassle,PC,5.63,
+epic_games_store,Batman™ Arkham Knight,PC,16.09,
+epic_games_store,ReDrawn: The Painted Tower Collector's Edition,PC,4.19,
+epic_games_store,The Smurfs - Mission Vileaf,PC,9.95,
+epic_games_store,Expedition Zero,PC,5.63,
+epic_games_store,Adam's Venture: Origins,PC,2.87,
+epic_games_store,Undungeon,PC,6.35,
+epic_games_store,Guild Of Ascension,PC,4.19,
+epic_games_store,SCARF,PC,3.83,
+epic_games_store,The Division 2,PC,2.7,
+epic_games_store,Zool Redimensioned,PC,2.87,
+epic_games_store,Dumpy and Bumpy,PC,1.43,
+epic_games_store,A Musical Story,PC,4.19,
+epic_games_store,Angry Video Game Nerd I and II Deluxe,PC,4.19,
+epic_games_store,Night Lights,PC,0.71,
+epic_games_store,VALORANT,PC,0.0,
+epic_games_store,Upaon: A Snake's Journey,PC,0.71,
+epic_games_store,Raven's Hike,PC,1.07,
+epic_games_store,Red Ronin,PC,2.27,
+epic_games_store,Cat Cafe Manager,PC,5.63,
+epic_games_store,SHEEPO,PC,2.01,
+epic_games_store,VENGEFUL HEART,PC,2.87,
+epic_games_store,HENCHMAN STORY,PC,4.19,
+epic_games_store,Forgotten Fields,PC,2.6,
+epic_games_store,FIRES AT MIDNIGHT,PC,2.34,
+epic_games_store,Sense - A Cyberpunk Ghost Story,PC,3.94,
+epic_games_store,Kawaii Deathu Desu,PC,0.75,
+epic_games_store,Merrily Perilly,PC,1.07,
+epic_games_store,Reverie Knights Tactics,PC,8.39,
+epic_games_store,Mail Time,PC,,
+epic_games_store,KeyWe,PC,7.07,
+epic_games_store,RAINSWEPT,PC,3.35,
+epic_games_store,Dark Deity,PC,7.07,
+epic_games_store,Neighbours back From Hell,PC,7.6,
+epic_games_store,Let's Build a Zoo,PC,5.63,
+epic_games_store,Nexomon: Extinction,PC,6.35,
+epic_games_store,Rescue Party: Live!,PC,9.95,
+epic_games_store,STORY OF SEASONS: Friends of Mineral Town,PC,,
+epic_games_store,Tacoma,PC,,
+epic_games_store,Fights in Tight Spaces,PC,,
+epic_games_store,Surviving Mars,PC,,
+epic_games_store,Surviving the Aftermath,PC,,
+epic_games_store,WRC 8 FIA World Rally Championship,PC,,
+epic_games_store,WRC 9 FIA World Rally Championship,PC,,
+epic_games_store,Insurgency: Sandstorm,PC,,
+epic_games_store,SnowRunner,PC,,
+epic_games_store,Northgard,PC,,
+epic_games_store,SUPERHOT,PC,,
+epic_games_store,Anno 1800,PC,,
+epic_games_store,NBA 2K21,PC,,
+epic_games_store,Totally Reliable Delivery Service,PC,,
+epic_games_store,The Escapists,PC,,
+epic_games_store,My Time At Portia,PC,,
+epic_games_store,Subnautica,PC,,
+epic_games_store,The Witness,PC,,
+epic_games_store,Aztez,PC,,
+epic_games_store,Rainbow Billy: The Curse of the Leviathan,PC,,
+epic_games_store,Flower,PC,,
+epic_games_store,The Colonists,PC,,
+epic_games_store,Anodyne 2: Return To Dust,PC,,
+epic_games_store,WIFE QUEST,PC,,
+epic_games_store,Saviors of Sapphire Wings & Strangers of Sword City Revisited,PC,,
+epic_games_store,MONOPOLY® PLUS,PC,,
+epic_games_store,Paradise Killer,PC,,
+epic_games_store,Assassin's Creed Rogue,PC,,
+epic_games_store,KINGDOM HEARTS III + Re Mind (DLC),PC,,
+epic_games_store,KINGDOM HEARTS HD 2.8 Final Chapter Prologue,PC,,
+epic_games_store,KINGDOM HEARTS Melody of Memory,PC,,
+epic_games_store,KINGDOM HEARTS HD 1.5+2.5 ReMIX,PC,,
+epic_games_store,Fez,PC,,
+epic_games_store,Spirit of the North,PC,,
+epic_games_store,Everything,PC,,
+epic_games_store,"Trolley Problem, Inc.",PC,,
+epic_games_store,Unrailed!,PC,,
+epic_games_store,Sephonie,PC,,
+epic_games_store,A Good Snowman is Hard to Build,PC,,
+epic_games_store,Levelhead,PC,,
+epic_games_store,Skate City,PC,,
+epic_games_store,Subnautica Below Zero,PC,,
+epic_games_store,RiME,PC,,
+epic_games_store,The Longest Road on Earth,PC,,
+epic_games_store,Disco Elysium - The Final Cut,PC,,
+epic_games_store,Chicory: A Colorful Tale,PC,,
+epic_games_store,GNOG,PC,,
+epic_games_store,Drawful 2,PC,,
+epic_games_store,LEGO® Batman™ 2: DC Super Heroes,PC,,
+epic_games_store,SpongeBob SquarePants: Battle for Bikini Bottom - Rehydrated,PC,,
+epic_games_store,Valiant Hearts: The Great War,PC,,
+epic_games_store,AER,PC,,
+epic_games_store,Doki Doki Literature Club Plus!,PC,,
+epic_games_store,Slime Rancher,PC,,
+epic_games_store,7 Billion Humans,PC,,
+epic_games_store,Behind the Frame: The Finest Scenery,PC,,
+epic_games_store,Control,PC,,
+epic_games_store,Donut County,PC,,
+epic_games_store,Redout: Space Assault,PC,,
+epic_games_store,Falcon Age,PC,,
+epic_games_store,Crysis Remastered,PC,,
+epic_games_store,The Sojourn,PC,,
+epic_games_store,Sable,PC,,
+epic_games_store,RollerCoaster Tycoon 3 Complete Edition,PC,,
+epic_games_store,DRAGON QUEST® XI S: Echoes of an Elusive Age™,PC,,
+epic_games_store,LEGO® Batman™: The Videogame,PC,,
+epic_games_store,WHAT THE GOLF?,PC,,
+epic_games_store,Pikuniku,PC,,
+epic_games_store,World of Goo,PC,,
+epic_games_store,The Jackbox Party Pack 2,PC,,
+epic_games_store,Human Resource Machine,PC,,
+epic_games_store,The Jackbox Party Pack 7,PC,,
+epic_games_store,Jackbox Party Pack 5,PC,,
+epic_games_store,Jackbox Party Pack 6,PC,,
+epic_games_store,The Jackbox Party Pack 3,PC,,
+epic_games_store,Rise of the Tomb Raider: 20 Year Celebration,PC,,
+epic_games_store,Jackbox Party Pack 4,PC,,
+epic_games_store,Democracy 4,PC,,
+epic_games_store,ScourgeBringer,PC,,
+epic_games_store,Subway Midnight,PC,,
+epic_games_store,LEGO® Batman™ 3: Beyond Gotham,PC,,
+epic_games_store,Bee Simulator,PC,,
+epic_games_store,The Jackbox Party Pack,PC,,
+epic_games_store,Production Line,PC,,
+epic_games_store,Evan's Remains,PC,,
+epic_games_store,Shadow Tactics - Aiko's Choice,PC,,
+epic_games_store,The Darkside Detective,PC,,
+epic_games_store,SuperMash,PC,,
+epic_games_store,Gorogoa,PC,,
+epic_games_store,Big Pharma,PC,,
+epic_games_store,Wattam,PC,,
+epic_games_store,Medieval Dynasty,PC,,
+epic_games_store,Disaster Report 4: Summer Memories,PC,,
+epic_games_store,Tomb Raider GOTY,PC,,
+epic_games_store,Stygian: Reign of the Old Ones,PC,6.83,
+epic_games_store,Kardboard Kings,PC,5.63,
+epic_games_store,Darksiders II Deathinitive Edition,PC,11.99,
+epic_games_store,Song of Horror Complete Edition,PC,23.99,
+epic_games_store,King's Bounty: Armored Princess,PC,4.43,
+epic_games_store,King's Bounty: Warriors of the North,PC,4.43,
+epic_games_store,King's Bounty: The Legend,PC,3.83,
+epic_games_store,VELONE,PC,5.87,
+epic_games_store,Warpips,PC,3.4,
+epic_games_store,The Dark Prophecy,PC,2.87,
+epic_games_store,Defunct,PC,2.87,
+epic_games_store,Happy's Humble Burger Farm,PC,6.35,
+epic_games_store,Aspire: Ina's Tale,PC,3.71,
+epic_games_store,What Lies in the Multiverse,PC,4.19,
+epic_games_store,The Walking Dead: Final Season,PC,2.5,
+epic_games_store,The Walking Dead : The Telltale Definitive Series,PC,8.49,
+epic_games_store,Five Nights at Freddy's: Security Breach,PC,11.27,
+epic_games_store,Nibiru,PC,5.63,
+epic_games_store,ATOM RPG,PC,5.75,
+epic_games_store,Rainbow Six Siege,PC,11.99,
+epic_games_store,Harlow,PC,3.71,
+epic_games_store,The Crows Eye,PC,2.87,
+epic_games_store,Not Tonight 2,PC,5.63,
+epic_games_store,Family Man,PC,5.63,
+epic_games_store,The Division,PC,17.99,
+epic_games_store,Quake,PC,5.99,
+epic_games_store,Strange Horticulture,PC,4.19,
+epic_games_store,STAR WARS™: Squadrons,PC,7.5,
+epic_games_store,Hirilun,PC,2.87,
+epic_games_store,Astria Ascending,PC,9.95,
+epic_games_store,JANITOR BLEEDS,PC,3.71,
+epic_games_store,Submerged: Hidden Depths,PC,8.51,
+epic_games_store,Beholder 3,PC,4.19,
+epic_games_store,OPUS: Echo of Starsong,PC,5.99,
+epic_games_store,Firework,PC,4.19,
+epic_games_store,The Walking Dead: A New Frontier,PC,3.22,
+epic_games_store,He Will Shoot,PC,0.59,
+epic_games_store,Snake Pass,PC,5.63,
+epic_games_store,Strategic Mind: Fight for Freedom,PC,13.19,
+epic_games_store,Strategic Mind: Blitzkrieg,PC,11.27,
+epic_games_store,Strategic Mind: The Pacific,PC,8.51,
+epic_games_store,Strategic Mind: Spectre of Communism,PC,8.51,
+epic_games_store,White Shadows,PC,6.35,
+epic_games_store,Iron Danger,PC,5.87,
+epic_games_store,Alfred Hitchcock - Vertigo,PC,19.19,
+epic_games_store,Zombie Rollerz: Pinball Heroes,PC,4.79,
+epic_games_store,Godlike Burger,PC,5.71,
+epic_games_store,112th Seed,PC,1.43,
+epic_games_store,Paradigm,PC,0.0,
+epic_games_store,Wildfire - Ticket to Rock,PC,2.87,
+epic_games_store,RUN: The World In-Between,PC,2.87,
+epic_games_store,LOVE 3,PC,2.87,
+epic_games_store,Amnesia: Rebirth,PC,8.48,
+epic_games_store,Lila’s Sky Ark,PC,3.35,
+epic_games_store,Orwell: Ignorance is Strength,PC,2.87,
+epic_games_store,Out of the Park Baseball 23,PC,10.14,
+epic_games_store,Cobra Kai: The Karate Kid Saga Continues,PC,5.63,
+epic_games_store,Rebel Galaxy,PC,6.25,
+epic_games_store,South Park™: The Stick of Truth™,PC,17.99,
+epic_games_store,FAR: Changing Tides,PC,9.59,
+epic_games_store,This War of Mine,PC,6.25,
+epic_games_store,Trackmania Turbo,PC,23.99,
+epic_games_store,Coromon,PC,,
+epic_games_store,Kingdom New Lands,PC,5.35,
+epic_games_store,NORCO,PC,4.19,
+epic_games_store,Insurmountable,PC,3.59,

@@ -1,0 +1,39 @@
+{
+  "model_name": "Linear Regression",
+  "model_type": "LinearRegression",
+  "training_date": "2025-11-30T23:09:19.030350",
+  "dataset_info": {
+    "total_samples": 6159,
+    "training_samples": 4927,
+    "testing_samples": 1232,
+    "features": 14,
+    "target": "price_eur"
+  },
+  "performance_metrics": {
+    "train_r2": 1.0,
+    "test_r2": 1.0,
+    "train_rmse_eur": 3.234172933615841e-14,
+    "test_rmse_eur": 3.251538056293501e-14,
+    "train_mae_eur": 2.4991374912284228e-14,
+    "test_mae_eur": 2.462514319440905e-14,
+    "test_mape": 2.66233766233767
+  },
+  "numerical_features": [
+    "discount_pct",
+    "original_price_eur",
+    "has_discount",
+    "high_discount",
+    "savings_eur",
+    "price_per_percent_discount",
+    "is_free",
+    "is_premium",
+    "is_budget"
+  ],
+  "categorical_features": [
+    "source",
+    "platform",
+    "storefront",
+    "category",
+    "is_preorder"
+  ]
+}

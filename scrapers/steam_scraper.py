@@ -196,4 +196,10 @@ def main(limit_per_category: int | None = None):
 
 
 if __name__ == "__main__":
-    main(limit_per_category=2000)
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Steam Scraper")
+    parser.add_argument("--limit", type=int, default=2000, help="Maximum number of items to scrape per category")
+    args = parser.parse_args()
+    
+    main(limit_per_category=args.limit)

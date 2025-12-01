@@ -317,6 +317,13 @@ def scrape_cdkeys(category_urls, max_items_per_category=50, use_threads=True):
 
 
 if __name__ == "__main__":
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Loaded/CDKeys Scraper")
+    parser.add_argument("--limit", type=int, default=500, help="Maximum number of items to scrape per category")
+    parser.add_argument("--no-threads", action="store_true", help="Disable multithreading")
+    args = parser.parse_args()
+
     # 🔧 Define the categories you want to scrape here.
     # Keys = label that will appear in the 'category' column.
     # Values = full URLs of the category pages.
@@ -329,6 +336,6 @@ if __name__ == "__main__":
     # Example: scrape all categories with multithreading enabled
     scrape_cdkeys(
         category_urls=CATEGORY_URLS,
-        max_items_per_category=500,
-        use_threads=True,
+        max_items_per_category=args.limit,
+        use_threads=not args.no_threads,
     )

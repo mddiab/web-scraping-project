@@ -268,4 +268,10 @@ def scrape_xbox_all_games(max_items: int = MAX_ITEMS):
 
 
 if __name__ == "__main__":
-    scrape_xbox_all_games(max_items=1500)
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Xbox Scraper")
+    parser.add_argument("--limit", type=int, default=1500, help="Maximum number of items to scrape")
+    args = parser.parse_args()
+    
+    scrape_xbox_all_games(max_items=args.limit)

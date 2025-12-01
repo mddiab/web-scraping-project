@@ -415,13 +415,35 @@ def save_to_csv(data, filename="epic_games_full.csv"):
 # ============================================================
 
 def main():
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Epic Games Scraper")
+    parser.add_argument("--limit", type=int, default=1000, help="Maximum number of items to scrape")
+    parser.add_argument("--max-workers", type=int, default=2, help="Number of worker threads")
+    args = parser.parse_args()
+
+    # Each page has 40 items
+    # Calculate how many pages we need to get roughly 'limit' items
+    # (limit + 39) // 40 gives the ceiling division
+    num_pages = (args.limit + 39) // 40
+    
+    # Cap at 149 pages as per original code
+    num_pages = min(num_pages, 149)
+    
+    print(f"Scraping {num_pages} pages to get approx {args.limit} items...")
+
     page_urls = [
         f"https://store.epicgames.com/en-US/browse?"
         f"sortBy=relevancy&sortDir=DESC&count=40&start={(p-1)*40}"
-        for p in range(1, 149)  # change later up to 149
+        for p in range(1, num_pages + 1)
     ]
 
-    all_data = scrape_all_pages(page_urls, max_workers=2)
+    all_data = scrape_all_pages(page_urls, max_workers=args.max_workers)
+    
+    # Trim to exact limit if needed
+    if len(all_data) > args.limit:
+        all_data = all_data[:args.limit]
+        
     save_to_csv(all_data)
 
 

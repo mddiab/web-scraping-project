@@ -395,5 +395,10 @@ def scrape_instantgaming_trending(max_items: int = 200):
 
 
 if __name__ == "__main__":
-    # Change the limit here when you run the script
-    scrape_instantgaming_trending(max_items=1000)
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Instant Gaming Scraper")
+    parser.add_argument("--limit", type=int, default=1000, help="Maximum number of items to scrape")
+    args = parser.parse_args()
+    
+    scrape_instantgaming_trending(max_items=args.limit)

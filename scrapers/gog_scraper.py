@@ -34,73 +34,12 @@ class GOGScraper:
         options.add_argument("--remote-debugging-port=9222")
         options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
         
-        chrome_bin = os.environ.get('CHROME_BIN')
-        chromedriver_path = os.environ.get('CHROMEDRIVER_PATH')
-        chrome_paths = [
-            '/usr/bin/google-chrome-stable',
-            '/usr/bin/google-chrome',
-            '/usr/bin/chromium',
-            '/usr/bin/chromium-browser',
-            '/snap/bin/chromium'
-        ]
-        
-        if chrome_bin and os.path.exists(chrome_bin):
-            options.binary_location = chrome_bin
-        else:
-            for path in chrome_paths:
-                if os.path.exists(path):
-                    options.binary_location = path
-                    break
-        
-        if chromedriver_path and os.path.exists(chromedriver_path):
-            service = Service(chromedriver_path)
-        elif os.path.exists('/usr/bin/chromedriver'):
-            service = Service('/usr/bin/chromedriver')
-        else:
-            try:
-                driver_path = ChromeDriverManager().install()
-                if os.path.isdir(driver_path):
-                    parent_dir = driver_path
-                    chromedriver_file = os.path.join(parent_dir, 'chromedriver')
-                    if os.path.exists(chromedriver_file):
-                        os.chmod(chromedriver_file, 0o755)
-                        driver_path = chromedriver_file
-                    else:
-                        for root, dirs, files in os.walk(driver_path):
-                            for file in files:
-                                if file == 'chromedriver' and not file.startswith('.'):
-                                    full_path = os.path.join(root, file)
-                                    if os.path.isfile(full_path):
-                                        os.chmod(full_path, 0o755)
-                                        driver_path = full_path
-                                        break
-                            if driver_path != ChromeDriverManager().install() and os.path.isfile(driver_path):
-                                break
-                if os.path.isdir(driver_path):
-                    raise Exception("Could not find chromedriver executable")
-                service = Service(driver_path)
-            except Exception as e:
-                print(f"ChromeDriverManager failed: {e}, trying default...")
-                try:
-                    service = Service()
-                except:
-                    import platform
-                    if platform.system() == 'Darwin':
-                        possible_paths = [
-                            '/usr/local/bin/chromedriver',
-                            '/opt/homebrew/bin/chromedriver',
-                            os.path.expanduser('~/chromedriver')
-                        ]
-                        for path in possible_paths:
-                            if os.path.exists(path):
-                                service = Service(path)
-                                break
-                        else:
-                            raise Exception("Could not find chromedriver")
-                    else:
-                        raise
-        
-        return webdriver.Chrome(service=service, options=options)
+        try:
+            service = Service(ChromeDriverManager().install())
+            return webdriver.Chrome(service=service, options=options)
+        except Exception as e:
+            print(f"Failed to initialize Chrome driver: {e}")
+            raise
     
     def load_scraped_ids(self):
         if os.path.exists("gog_products.csv"):

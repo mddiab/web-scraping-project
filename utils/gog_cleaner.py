@@ -1,238 +1,215 @@
 #!/usr/bin/env python3
 """
-Analyze GOG products CSV for uniqueness and data quality
-"""
-import csv
-import sys
-from collections import Counter, defaultdict
+gog_cleaner.py
 
-def analyze_csv(filename):
-    products = []
-    fieldnames = []
+Clean the raw GOG CSV into a modeling-friendly format,
+sharing as many fields as possible with other scrapers.
+"""
+
+import re
+import sys
+from pathlib import Path
+from datetime import datetime
+
+import numpy as np
+import pandas as pd
+
+# ---------------------------
+# Paths
+# ---------------------------
+
+RAW_CANDIDATES = [
+    Path("data/raw/gog.csv"),
+    Path("data/raw/gog_products.csv"),
+    Path("gog_products.csv"),
+]
+
+OUTPUT_DIR = Path("data/cleaned")
+OUTPUT_PATH = OUTPUT_DIR / "cleaned_gog.csv"
+
+# ---------------------------
+# Parsing helpers
+# ---------------------------
+
+def parse_price(text):
+    """
+    Convert price strings to float.
+    Handles 'Free', currency symbols, and standard number formats.
+    """
+    if pd.isna(text):
+        return np.nan
+    s = str(text).strip()
+
+    if "free" in s.lower():
+        return 0.0
     
-    # Read CSV
-    with open(filename, 'r', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        fieldnames = reader.fieldnames
-        products = list(reader)
+    # Remove 'N/A'
+    if s.upper() == 'N/A':
+        return np.nan
+
+    # Remove currency symbols and extraneous chars
+    s_clean = re.sub(r"[^\d.,\-]", "", s)
+
+    if not s_clean:
+        return np.nan
+
+    # Handle comma/dot decimal separators
+    if s_clean.count(".") == 1 and s_clean.count(",") >= 1:
+        s_clean = s_clean.replace(",", "")
+    elif s_clean.count(",") == 1 and s_clean.count(".") == 0:
+        s_clean = s_clean.replace(",", ".")
+
+    try:
+        return float(s_clean)
+    except ValueError:
+        return np.nan
+
+def parse_discount_pct(val):
+    """
+    Convert discount to positive float percentage.
+    """
+    if pd.isna(val):
+        return 0.0
     
-    total_products = len(products)
-    print(f"=" * 80)
-    print(f"CSV ANALYSIS REPORT")
-    print(f"=" * 80)
-    print(f"\nTotal products: {total_products}")
-    print(f"Total fields: {len(fieldnames)}")
+    if isinstance(val, (int, float)):
+        return float(abs(val))
+        
+    s = str(val).strip()
+    if not s or s.upper() == 'N/A':
+        return 0.0
+        
+    m = re.search(r"(-?\d+)", s)
+    if not m:
+        return 0.0
+    return float(abs(float(m.group(1))))
+
+def parse_date(date_str):
+    """
+    Attempt to parse date string to YYYY-MM-DD.
+    """
+    if pd.isna(date_str) or str(date_str).strip().upper() == 'N/A':
+        return None
     
-    # Check uniqueness
-    print(f"\n{'=' * 80}")
-    print("UNIQUENESS CHECK")
-    print(f"{'=' * 80}")
+    # GOG dates are often ISO format already (YYYY-MM-DD)
+    # or full timestamps
+    s = str(date_str).strip()
+    try:
+        # Try taking just the date part if it's a timestamp
+        if 'T' in s:
+            s = s.split('T')[0]
+        elif ' ' in s:
+            s = s.split(' ')[0]
+            
+        # Validate format
+        datetime.strptime(s, "%Y-%m-%d")
+        return s
+    except ValueError:
+        return None
+
+# ---------------------------
+# Main cleaning logic
+# ---------------------------
+
+def load_raw_csv():
+    for p in RAW_CANDIDATES:
+        if p.exists():
+            print(f"📥 Loading raw GOG data from: {p}")
+            return pd.read_csv(p)
     
-    # Check product_id uniqueness
-    product_ids = [p.get('product_id', '') for p in products]
-    product_id_counts = Counter(product_ids)
-    duplicate_ids = {pid: count for pid, count in product_id_counts.items() if count > 1}
+    # If we are in utils/, try looking up one level
+    parent_candidates = [Path("../") / p for p in RAW_CANDIDATES]
+    for p in parent_candidates:
+        if p.exists():
+            print(f"📥 Loading raw GOG data from: {p}")
+            return pd.read_csv(p)
+
+    raise FileNotFoundError(
+        "GOG data file not found in expected locations."
+    )
+
+def main():
+    try:
+        df = load_raw_csv()
+    except FileNotFoundError as e:
+        print(f"❌ {e}")
+        sys.exit(1)
+
+    print(f"🔹 Raw shape: {df.shape}")
     
-    if duplicate_ids:
-        print(f"\n❌ Found {len(duplicate_ids)} duplicate product_ids:")
-        for pid, count in list(duplicate_ids.items())[:10]:
-            print(f"   - {pid}: appears {count} times")
-        if len(duplicate_ids) > 10:
-            print(f"   ... and {len(duplicate_ids) - 10} more")
+    # Drop duplicates based on product_id or url
+    if "product_id" in df.columns:
+        df = df.drop_duplicates(subset=["product_id"])
+    elif "url" in df.columns:
+        df = df.drop_duplicates(subset=["url"])
+    
+    print(f"🔹 Shape after deduplication: {df.shape}")
+
+    # Normalize columns
+    # Map GOG scraper columns to standard schema
+    # Expected GOG columns: title, price_final, price_base, discount_percentage, url, release_date
+    
+    # Price parsing
+    if "price_final" in df.columns:
+        df["price_usd"] = df["price_final"].apply(parse_price)
     else:
-        print(f"\n✅ All product_ids are unique ({len(set(product_ids))} unique IDs)")
-    
-    # Check slug uniqueness
-    slugs = [p.get('slug', '') for p in products]
-    slug_counts = Counter(slugs)
-    duplicate_slugs = {slug: count for slug, count in slug_counts.items() if count > 1}
-    
-    if duplicate_slugs:
-        print(f"\n❌ Found {len(duplicate_slugs)} duplicate slugs:")
-        for slug, count in list(duplicate_slugs.items())[:10]:
-            print(f"   - {slug}: appears {count} times")
-        if len(duplicate_slugs) > 10:
-            print(f"   ... and {len(duplicate_slugs) - 10} more")
+        df["price_usd"] = np.nan
+
+    if "price_base" in df.columns:
+        df["original_price_usd"] = df["price_base"].apply(parse_price)
     else:
-        print(f"\n✅ All slugs are unique ({len(set(slugs))} unique slugs)")
-    
-    # Check URL uniqueness
-    urls = [p.get('url', '') for p in products]
-    url_counts = Counter(urls)
-    duplicate_urls = {url: count for url, count in url_counts.items() if count > 1}
-    
-    if duplicate_urls:
-        print(f"\n❌ Found {len(duplicate_urls)} duplicate URLs:")
-        for url, count in list(duplicate_urls.items())[:5]:
-            print(f"   - {url[:60]}...: appears {count} times")
-        if len(duplicate_urls) > 5:
-            print(f"   ... and {len(duplicate_urls) - 5} more")
+        df["original_price_usd"] = np.nan
+
+    # Discount parsing
+    if "discount_percentage" in df.columns:
+        df["discount_pct"] = df["discount_percentage"].apply(parse_discount_pct)
     else:
-        print(f"\n✅ All URLs are unique ({len(set(urls))} unique URLs)")
+        df["discount_pct"] = 0.0
+
+    # Date parsing
+    if "release_date" in df.columns:
+        df["release_date"] = df["release_date"].apply(parse_date)
+
+    # Add metadata
+    df["source"] = "gog"
+    df["storefront"] = "GOG"
+    df["platform"] = "PC" # GOG is PC only
     
-    # Check for completely duplicate rows
-    rows_as_tuples = [tuple(p.values()) for p in products]
-    row_counts = Counter(rows_as_tuples)
-    duplicate_rows = {row: count for row, count in row_counts.items() if count > 1}
+    # Rename URL column if needed
+    if "url" in df.columns:
+        df = df.rename(columns={"url": "product_url"})
+
+    # Select and reorder columns
+    keep_cols = [
+        "source", "storefront", "platform", "title", 
+        "price_usd", "original_price_usd", "discount_pct",
+        "product_url", "release_date"
+    ]
     
-    if duplicate_rows:
-        print(f"\n❌ Found {len(duplicate_rows)} completely duplicate rows:")
-        for i, (row, count) in enumerate(list(duplicate_rows.items())[:3]):
-            print(f"   - Row {i+1}: appears {count} times")
-            print(f"     Example: {row[2][:50]}...")
-        if len(duplicate_rows) > 3:
-            print(f"   ... and {len(duplicate_rows) - 3} more")
-    else:
-        print(f"\n✅ No completely duplicate rows found")
+    # Add any other useful columns that exist
+    optional_cols = ["review_score", "genres", "tags"]
+    for col in optional_cols:
+        if col in df.columns:
+            keep_cols.append(col)
+
+    # Filter to available columns
+    final_cols = [c for c in keep_cols if c in df.columns]
+    cleaned = df[final_cols].copy()
+
+    # Drop rows with no price AND no title (useless data)
+    cleaned = cleaned.dropna(subset=["title"])
+
+    # Ensure output directory exists
+    # If running from utils/, output might need to be adjusted relative to project root
+    # But we defined OUTPUT_DIR as relative to CWD. 
+    # Assuming script is run from project root.
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     
-    # Data quality check
-    print(f"\n{'=' * 80}")
-    print("DATA QUALITY CHECK")
-    print(f"{'=' * 80}")
-    
-    # Check for missing critical fields
-    critical_fields = ['product_id', 'slug', 'title', 'url']
-    print(f"\nMissing critical fields:")
-    for field in critical_fields:
-        missing = sum(1 for p in products if not p.get(field) or p.get(field).strip() == '')
-        if missing > 0:
-            print(f"   ❌ {field}: {missing} missing ({missing/total_products*100:.1f}%)")
-        else:
-            print(f"   ✅ {field}: all present")
-    
-    # Check for N/A values
-    print(f"\nFields with 'N/A' values:")
-    na_counts = {}
-    for field in fieldnames:
-        na_count = sum(1 for p in products if p.get(field, '').strip() == 'N/A')
-        if na_count > 0:
-            na_counts[field] = na_count
-            percentage = na_count / total_products * 100
-            print(f"   - {field}: {na_count} ({percentage:.1f}%)")
-    
-    # Check price data quality
-    print(f"\nPrice data quality:")
-    price_fields = ['price_base', 'price_final', 'price_currency', 'discount_percentage']
-    for field in price_fields:
-        if field == 'price_currency':
-            currencies = Counter(p.get(field, '') for p in products)
-            print(f"   - {field}: {len(currencies)} different values")
-            for curr, count in currencies.most_common(5):
-                print(f"     * {curr}: {count} products")
-        elif field == 'discount_percentage':
-            discounts = [p.get(field, '0') for p in products]
-            try:
-                discount_nums = [float(d) for d in discounts if d and d != 'N/A']
-                if discount_nums:
-                    print(f"   - {field}: range {min(discount_nums):.0f}% - {max(discount_nums):.0f}%, avg {sum(discount_nums)/len(discount_nums):.1f}%")
-                    discounted = sum(1 for d in discount_nums if d > 0)
-                    print(f"     * {discounted} products have discounts")
-            except:
-                print(f"   - {field}: parsing error")
-        else:
-            prices = [p.get(field, '') for p in products]
-            valid_prices = [p for p in prices if p and p != 'N/A' and p.replace('.', '').replace('-', '').isdigit()]
-            if valid_prices:
-                try:
-                    price_nums = [float(p) for p in valid_prices]
-                    print(f"   - {field}: {len(valid_prices)} valid prices, range ${min(price_nums):.2f} - ${max(price_nums):.2f}")
-                except:
-                    print(f"   - {field}: {len(valid_prices)} valid prices")
-            else:
-                print(f"   - {field}: no valid prices found")
-    
-    # Check URL format
-    print(f"\nURL format check:")
-    valid_urls = sum(1 for p in products if p.get('url', '').startswith('https://www.gog.com'))
-    invalid_urls = total_products - valid_urls
-    print(f"   - Valid GOG URLs: {valid_urls} ({valid_urls/total_products*100:.1f}%)")
-    if invalid_urls > 0:
-        print(f"   - Invalid URLs: {invalid_urls}")
-        for p in products[:5]:
-            url = p.get('url', '')
-            if url and not url.startswith('https://www.gog.com'):
-                print(f"     Example: {url[:80]}")
-    
-    # Check cover_image URLs
-    print(f"\nCover image check:")
-    valid_images = sum(1 for p in products if p.get('cover_image', '').startswith('http'))
-    invalid_images = total_products - valid_images - sum(1 for p in products if p.get('cover_image', '').strip() == 'N/A')
-    print(f"   - Valid image URLs: {valid_images} ({valid_images/total_products*100:.1f}%)")
-    if invalid_images > 0:
-        print(f"   - Invalid image URLs: {invalid_images}")
-    
-    # Check date format
-    print(f"\nRelease date check:")
-    dates = [p.get('release_date', '') for p in products]
-    valid_dates = sum(1 for d in dates if d and d != 'N/A' and len(d) == 10 and d.count('-') == 2)
-    print(f"   - Valid dates (YYYY-MM-DD): {valid_dates} ({valid_dates/total_products*100:.1f}%)")
-    
-    # Check review scores
-    print(f"\nReview score check:")
-    scores = [p.get('review_score', '') for p in products]
-    valid_scores = [s for s in scores if s and s != 'N/A' and s.replace('.', '').isdigit()]
-    if valid_scores:
-        try:
-            score_nums = [float(s) for s in valid_scores]
-            print(f"   - Valid scores: {len(valid_scores)} ({len(valid_scores)/total_products*100:.1f}%)")
-            print(f"   - Score range: {min(score_nums):.0f} - {max(score_nums):.0f}, avg {sum(score_nums)/len(score_nums):.1f}")
-        except:
-            print(f"   - Valid scores: {len(valid_scores)}")
-    else:
-        print(f"   - No valid review scores found")
-    
-    # Summary
-    print(f"\n{'=' * 80}")
-    print("SUMMARY")
-    print(f"{'=' * 80}")
-    
-    issues = []
-    if duplicate_ids:
-        issues.append(f"{len(duplicate_ids)} duplicate product_ids")
-    if duplicate_slugs:
-        issues.append(f"{len(duplicate_slugs)} duplicate slugs")
-    if duplicate_urls:
-        issues.append(f"{len(duplicate_urls)} duplicate URLs")
-    if duplicate_rows:
-        issues.append(f"{len(duplicate_rows)} duplicate rows")
-    
-    missing_critical = sum(1 for field in critical_fields 
-                          for p in products if not p.get(field) or p.get(field).strip() == '')
-    if missing_critical > 0:
-        issues.append(f"{missing_critical} missing critical field values")
-    
-    if issues:
-        print(f"\n⚠️  Issues found:")
-        for issue in issues:
-            print(f"   - {issue}")
-    else:
-        print(f"\n✅ No major issues found!")
-    
-    print(f"\n✅ Total unique products: {len(set(product_ids))}")
-    print(f"✅ Data completeness: {((total_products - sum(1 for p in products if not p.get('title') or p.get('title').strip() == '')) / total_products * 100):.1f}%")
-    
-    return {
-        'total': total_products,
-        'unique_ids': len(set(product_ids)),
-        'duplicate_ids': len(duplicate_ids),
-        'duplicate_slugs': len(duplicate_slugs),
-        'duplicate_urls': len(duplicate_urls),
-        'duplicate_rows': len(duplicate_rows)
-    }
+    cleaned.to_csv(OUTPUT_PATH, index=False, encoding="utf-8-sig")
+
+    print(f"✅ Saved cleaned GOG data to: {OUTPUT_PATH}")
+    print(f"✅ Final shape: {cleaned.shape}")
+    print("\n🔎 Preview:")
+    print(cleaned.head())
 
 if __name__ == "__main__":
-    filename = "gog_products.csv"
-    if len(sys.argv) > 1:
-        filename = sys.argv[1]
-    
-    try:
-        results = analyze_csv(filename)
-        sys.exit(0 if results['duplicate_ids'] == 0 and results['duplicate_rows'] == 0 else 1)
-    except FileNotFoundError:
-        print(f"Error: File '{filename}' not found")
-        sys.exit(1)
-    except Exception as e:
-        print(f"Error: {e}")
-        import traceback
-        traceback.print_exc()
-        sys.exit(1)
+    main()

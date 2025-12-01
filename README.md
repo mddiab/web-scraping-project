@@ -28,11 +28,16 @@ game-deals-scraper/
 ├── notebooks/
 │   └── EDA.ipynb                # Data analysis and visualizations
 │
-├── scripts/
+├── scrapers/
 │   ├── loaded_scraper.py        # Scraper for Loaded.com
 │   ├── steam_scraper.py         # Scraper for Steam Store
-│   ├── epic_scraper.py          # Scraper for Epic Games
-│   ├── clean_data.py            # Functions to clean & unify data
+│   ├── epicgames_scraper.py     # Scraper for Epic Games
+│   ├── gog_scraper.py           # Scraper for GOG
+│   ├── instantgaming_scraper.py # Scraper for Instant Gaming
+│   ├── xbox_scraper.py          # Scraper for Xbox
+│
+├── utils/
+│   ├── *_cleaner.py             # Data cleaning scripts per platform
 │
 ├── utils/
 │   ├── helpers.py               # Common scraping utilities

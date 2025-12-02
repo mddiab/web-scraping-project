@@ -66,6 +66,23 @@
           694
         ]
       ]
+    },
+    "price_regression": {
+      "model_name": "Gradient Boosting Regressor",
+      "model_type": "GradientBoostingRegressor",
+      "purpose": "Predict game price (continuous value in \u20ac)",
+      "performance_metrics": {
+        "train_rmse": 0.1952304106710626,
+        "test_rmse": 1.9181949176673918,
+        "train_mae": 0.10924967759507546,
+        "test_mae": 0.2099172883381227,
+        "train_r2": 0.9999298408773178,
+        "test_r2": 0.9936670164504136
+      },
+      "baseline_comparison": {
+        "baseline_mae": 16.920784543439844,
+        "improvement_percentage": 98.75941161120979
+      }
     }
   },
   "training_date": "2025-12-02T20:43:25.012057",

@@ -1,33 +1,90 @@
 {
-  "model_name": "Linear Regression",
-  "model_type": "LinearRegression",
-  "training_date": "2025-11-30T23:09:19.030350",
-  "dataset_info": {
-    "total_samples": 6159,
-    "training_samples": 4927,
-    "testing_samples": 1232,
-    "features": 14,
-    "target": "price_eur"
+  "models": {
+    "price_category_classifier": {
+      "model_name": "Random Forest",
+      "model_type": "RandomForestClassifier",
+      "purpose": "Classify games into price brackets",
+      "classes": [
+        "Budget (\u20ac10-30)",
+        "Mid-range (\u20ac30-60)",
+        "Premium (\u20ac60+)"
+      ],
+      "performance_metrics": {
+        "train_accuracy": 0.997702589807853,
+        "test_accuracy": 0.9958263772954925,
+        "train_precision": 0.9948328641226137,
+        "test_precision": 0.990523937296992,
+        "train_recall": 0.9905003852394699,
+        "test_recall": 0.9890459123208867,
+        "train_f1": 0.9926152216416586,
+        "test_f1": 0.9897017247041786
+      },
+      "confusion_matrix": [
+        [
+          969,
+          2,
+          0
+        ],
+        [
+          1,
+          142,
+          0
+        ],
+        [
+          0,
+          2,
+          82
+        ]
+      ]
+    },
+    "good_deal_classifier": {
+      "model_name": "Gradient Boosting",
+      "model_type": "GradientBoostingClassifier",
+      "purpose": "Identify if a game is a good deal",
+      "deal_criteria": "Discount >= 25% OR Savings >= \u20ac10",
+      "classes": [
+        "Good Deal",
+        "Not a Deal"
+      ],
+      "performance_metrics": {
+        "train_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "train_precision": 1.0,
+        "test_precision": 1.0,
+        "train_recall": 1.0,
+        "test_recall": 1.0,
+        "train_f1": 1.0,
+        "test_f1": 1.0
+      },
+      "confusion_matrix": [
+        [
+          504,
+          0
+        ],
+        [
+          0,
+          694
+        ]
+      ]
+    }
   },
-  "performance_metrics": {
-    "train_r2": 1.0,
-    "test_r2": 1.0,
-    "train_rmse_eur": 3.234172933615841e-14,
-    "test_rmse_eur": 3.251538056293501e-14,
-    "train_mae_eur": 2.4991374912284228e-14,
-    "test_mae_eur": 2.462514319440905e-14,
-    "test_mape": 2.66233766233767
+  "training_date": "2025-12-02T20:43:25.012057",
+  "dataset_info": {
+    "total_samples": 5986,
+    "training_samples": 4788,
+    "testing_samples": 1198,
+    "features": 9
+  },
+  "price_categories": {
+    "Budget": "\u20ac10-30",
+    "Mid-range": "\u20ac30-60",
+    "Premium": "\u20ac60+"
   },
   "numerical_features": [
     "discount_pct",
     "original_price_eur",
     "has_discount",
-    "high_discount",
-    "savings_eur",
-    "price_per_percent_discount",
-    "is_free",
-    "is_premium",
-    "is_budget"
+    "high_discount"
   ],
   "categorical_features": [
     "source",

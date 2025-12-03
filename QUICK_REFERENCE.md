@@ -1,186 +1,230 @@
-# 🎮 Game Deals Datasets - Quick Reference
+# 🚀 Quick Reference Guide
 
-## 📊 All Datasets Overview
-
-| Source | Games | Platforms | Avg Price | Discounts | Status |
-|--------|-------|-----------|-----------|-----------|--------|
-| **Steam** | 3,533 | PC | €25 | ✅ Yes | ✅ Ready |
-| **Epic Games** | 901 | PC | €20 | ⚠️ Limited | ✅ Normalized |
-| **Instant Gaming** | 1,000 | Multi | €15 | ✅ High | ✅ Ready |
-| **Loaded/CDKeys** | 132 | Multi | €40 | ❌ None | ✅ Ready |
-| **Xbox** | 1,502 | Xbox | €8 | ❌ Low | ✅ Ready |
-| **TOTAL** | **7,068** | **5+** | **~€20** | ✅ | ✅ Ready |
+**Fast access to documentation and common commands.**
 
 ---
 
-## 📈 Key Metrics
+## 📚 Documentation Map
 
-```
-Total Games:           7,068
-Total Sources:         5
-Total Platforms:       5+ (PC, Xbox, PlayStation, Switch, Unknown)
-Price Range:           €0 - €99.99+
-Discount Range:        0% - 80%+
-Data Points:           84,816+
-```
+| Document | Purpose | When to Use |
+|----------|---------|-----------|
+| **[README.md](README.md)** | Overview & setup | Getting started |
+| **[DATASET_OVERVIEW.md](DATASET_OVERVIEW.md)** | Dataset details & schema | Understanding data |
+| **[EDA_STATUS.md](EDA_STATUS.md)** | Analysis findings | Key insights |
+| **[ML_PIPELINE_FINAL_REPORT.md](ML_PIPELINE_FINAL_REPORT.md)** | Model details & validation | ML implementation |
 
 ---
 
-## 🔥 Hot Stats
+## 🚀 Quick Commands
 
-- **Most Games**: Steam (50%)
-- **Best Prices**: Instant Gaming (avg €15)
-- **Highest Discounts**: Instant Gaming (avg ~20%)
-- **Most Expensive**: Premium titles (€40-99)
-- **Most Affordable**: Indie games (€2-10)
-- **Free Games**: ~500+ (Game Pass + Free-to-Play)
-
----
-
-## 📝 Datasets at a Glance
-
-### 🔵 Steam (3,533)
-`cleaned_steam.csv`
-- Largest dataset
-- PC games only
-- Top sellers, specials, trending categories
-- Price range: €0 - €60+
-- Moderate discounts (avg 10-15%)
-
-### 🟠 Epic Games Store (901)
-`cleaned_epicgames.csv` ✅ NORMALIZED
-- Second largest PC platform
-- Limited discounts (store-wide sales only)
-- Price range: €0 - €40+
-- Now matches standard schema
-
-### 🎯 Instant Gaming (1,000)
-`cleaned_instantgaming.csv`
-- Key reseller
-- Multi-platform focus
-- **Best discounts** (avg 20-30%)
-- Price range: €10 - €80+
-
-### 💳 Loaded/CDKeys (132)
-`cleaned_loaded.csv`
-- Smallest dataset
-- Multi-platform
-- Premium pricing
-- Very limited inventory
-
-### 🎮 Xbox Store (1,502)
-`cleaned_xbox.csv`
-- Largest Xbox collection
-- Microsoft Game Pass items
-- Many free (€0) items
-- Premium titles (€50-99)
-
----
-
-## 🎯 Common Analysis Queries
-
-### Find Best Deals
-```python
-df_combined[df_combined['discount_pct'] > 50].nlargest(10, 'discount_pct')
-```
-
-### Compare Sources
-```python
-df_combined.groupby('source')['price_eur'].agg(['mean', 'min', 'max', 'count'])
-```
-
-### Platform Breakdown
-```python
-df_combined['platform'].value_counts()
-```
-
-### Free Games
-```python
-free_games = df_combined[df_combined['price_eur'] == 0.0]
-len(free_games)  # Count of free games
-```
-
-### Most Expensive
-```python
-df_combined.nlargest(10, 'price_eur')[['title', 'source', 'price_eur']]
-```
-
-### Price by Platform
-```python
-df_combined.groupby('platform')['price_eur'].describe()
-```
-
----
-
-## 🚀 EDA Notebook Sections
-
-1. **Load & Normalize** - All 5 sources unified
-2. **Data Info** - Shape, types, nulls
-3. **Statistics** - Descriptive stats
-4. **Missing Values** - Quality check
-5. **Source Distribution** - Where games come from
-6. **Price Analysis** - Distribution & ranges
-7. **Discount Trends** - Who offers best deals
-8. **Pre-orders** - Released vs upcoming
-9. **Platforms** - Game availability by console
-10. **Correlations** - Relationships in data
-11. **Outliers** - Unusual prices/discounts
-12. **Top Games** - Best deals & most expensive
-13. **Summary** - Executive findings
-
----
-
-## 📂 File Locations
-
-```
-notebooks/EDA.ipynb                    # Main analysis notebook ✅
-data/cleaned/cleaned_*.csv             # All 5 cleaned datasets ✅
-DATASET_OVERVIEW.md                    # Detailed overview
-EDA_STATUS.md                          # Full status report
-normalize_epic.py                      # Epic Games normalizer
-```
-
----
-
-## 🎯 Next Action
-
-**Run the notebook!**
+### Setup
 
 ```bash
-# In VS Code:
-1. Open: notebooks/EDA.ipynb
-2. Ensure pandas/numpy/matplotlib installed
-3. Run all cells (Ctrl+Shift+Enter)
-4. View comprehensive analysis with 30+ visualizations
+# Clone repository
+git clone https://github.com/mddiab/web-scraping-project.git
+cd web-scraping-project
+
+# Virtual environment
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+source .venv/bin/activate  # macOS/Linux
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Dashboard
+
+```bash
+# Launch interactive dashboard
+streamlit run dashboard.py
+
+# Dashboard URL: http://localhost:8501
+```
+
+### Notebooks
+
+```bash
+# Run EDA notebook
+jupyter notebook notebooks/EDA.ipynb
+
+# Run ML Pipeline notebook
+jupyter notebook notebooks/ML_Pipeline.ipynb
+```
+
+### Scrapers
+
+```bash
+# Individual scrapers
+python scrapers/steam_scraper.py
+python scrapers/epicgames_scraper.py
+python scrapers/gog_scraper.py
+python scrapers/instantgaming_scraper.py
+python scrapers/loaded_scraper.py
+python scrapers/xbox_scraper.py
+
+# Data cleaning
+python cleaners/steam_cleaner.py
+python cleaners/epicgames_cleaner.py
 ```
 
 ---
 
-## 💰 Sample Price Insights
+## 📊 Quick Data Access
 
-### Cheapest Games (EUR)
-- Townscaper: €1.67
-- The Lion's Song: €2.27
-- Many indie titles: €2-5
+### Load All Datasets
 
-### Most Expensive Games (EUR)
-- Premium AAA titles: €60-99
-- Collector's editions: €50-99
-- Special bundles: €40-79
+```python
+import pandas as pd
 
-### Best Discounts
-- Instant Gaming: up to 80% off
-- Steam sales: 50-75% off seasonal
-- Epic: 0-20% average
+# Load individual datasets
+steam = pd.read_csv('data/cleaned/cleaned_steam.csv')
+epic = pd.read_csv('data/cleaned/cleaned_epicgames.csv')
+instant = pd.read_csv('data/cleaned/cleaned_instantgaming.csv')
+loaded = pd.read_csv('data/cleaned/cleaned_loaded.csv')
+xbox = pd.read_csv('data/cleaned/cleaned_xbox.csv')
 
-### Price by Platform
-- **PC**: €15-30 average
-- **Xbox**: €8-20 average (many Game Pass)
-- **PlayStation**: €20-40 average
-- **Switch**: €15-50 average
+# Combine all
+df = pd.concat([steam, epic, instant, loaded, xbox], ignore_index=True)
+```
+
+### Common Queries
+
+```python
+# Best deals
+df[df['discount_pct'] > 50].sort_values('discount_pct', ascending=False).head(10)
+
+# Average price by source
+df.groupby('source')['price_eur'].mean()
+
+# Platform distribution
+df['platform'].value_counts()
+
+# Free games
+df[df['price_eur'] == 0.0].shape[0]
+
+# Most expensive
+df.nlargest(10, 'price_eur')[['title', 'source', 'price_eur']]
+```
 
 ---
 
-**Status**: ✅ ALL DATASETS READY FOR ANALYSIS
+## 🤖 Quick ML Usage
 
-Last Updated: 2025-11-30
+### Load Deal Classifier
+
+```python
+import pickle
+import numpy as np
+
+model = pickle.load(open('models/best_model_deal_classifier_Gradient_Boosting.pkl', 'rb'))
+scaler = pickle.load(open('models/scaler_deal_classifier.pkl', 'rb'))
+
+# Prepare features (9 features)
+X = np.array([[50, 59.99, 1, 1, 0, 0, 0, 0, 0]])  # discount%, price, etc.
+X_scaled = scaler.transform(X)
+prediction = model.predict(X_scaled)  # 'Good Deal' or 'Not a Deal'
+```
+
+### Load Price Regressor
+
+```python
+model = pickle.load(open('models/best_model_price_regression_clean.pkl', 'rb'))
+scaler = pickle.load(open('models/scaler_price_regression_clean.pkl', 'rb'))
+
+# 8 features (NO original_price)
+X = np.array([[25, 1, 0, 0, 0, 0, 0, 0]])
+X_scaled = scaler.transform(X)
+predicted_price = model.predict(X_scaled)[0]
+```
+
+---
+
+## 📁 Key File Locations
+
+```
+data/cleaned/
+  ├── cleaned_steam.csv           (3,533 games)
+  ├── cleaned_epicgames.csv       (901 games)
+  ├── cleaned_instantgaming.csv   (1,000 games)
+  ├── cleaned_loaded.csv          (132 games)
+  └── cleaned_xbox.csv            (1,502 games)
+
+models/
+  ├── best_model_price_category_Random_Forest.pkl
+  ├── best_model_deal_classifier_Gradient_Boosting.pkl
+  ├── best_model_price_regression_clean.pkl
+  └── *_scaler.pkl & label_encoders.pkl
+
+notebooks/
+  ├── EDA.ipynb
+  └── ML_Pipeline.ipynb
+```
+
+---
+
+## ⚡ Quick Stats
+
+| Metric | Value |
+|--------|-------|
+| Total Games | 7,068 |
+| Data Sources | 6 |
+| Price Range | €0 - €249.99 |
+| Best Discounts | Instant Gaming (66.9% avg) |
+| Deal Classifier Accuracy | 100% |
+| Price Regressor RMSE | €18.84 |
+
+---
+
+## 🔗 Links
+
+- **GitHub:** https://github.com/mddiab/web-scraping-project
+- **Steam:** https://store.steampowered.com
+- **Epic Games:** https://www.epicgames.com/store
+- **GOG:** https://www.gog.com
+- **Xbox:** https://www.xbox.com/store
+- **Instant Gaming:** https://www.instant-gaming.com
+- **Loaded:** https://www.cdkeys.com
+
+---
+
+## ❓ Troubleshooting
+
+### Streamlit Won't Start
+```bash
+# Clear Streamlit cache
+streamlit run dashboard.py --logger.level=debug
+
+# Or reset everything
+streamlit cache clear
+```
+
+### Model Loading Error
+```bash
+# Check model files exist
+ls models/best_model_*.pkl
+
+# Reinstall dependencies
+pip install --upgrade scikit-learn numpy pandas
+```
+
+### Data Loading Error
+```bash
+# Verify data files
+ls data/cleaned/cleaned_*.csv
+
+# Check file paths are correct (relative to working directory)
+```
+
+---
+
+## 🎓 Learn More
+
+- **[README.md](README.md)** - Full project overview
+- **[DATASET_OVERVIEW.md](DATASET_OVERVIEW.md)** - Detailed dataset reference
+- **[EDA_STATUS.md](EDA_STATUS.md)** - Analysis findings
+- **[ML_PIPELINE_FINAL_REPORT.md](ML_PIPELINE_FINAL_REPORT.md)** - ML details
+
+---
+
+**Last Updated:** December 3, 2025

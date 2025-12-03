@@ -3,6 +3,8 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import os
+import pickle
+import numpy as np
 
 # -----------------------------------------------------------------------------
 # Page Configuration
@@ -135,6 +137,26 @@ st.markdown("""
         margin-bottom: 40px;
         font-weight: 300;
     }
+    
+    /* AI Section */
+    .ai-box {
+        background-color: #121212;
+        border: 1px solid #D500F9;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 0 20px rgba(213, 0, 249, 0.1);
+    }
+    .prediction-good {
+        color: #00E676;
+        font-weight: 800;
+        font-size: 1.5rem;
+    }
+    .prediction-bad {
+        color: #FF1744;
+        font-weight: 800;
+        font-size: 1.5rem;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -191,6 +213,108 @@ def load_data():
     return pd.DataFrame()
 
 df = load_data()
+
+# -----------------------------------------------------------------------------
+# Model Loading
+# -----------------------------------------------------------------------------
+@st.cache_resource
+def load_models():
+    models_dir = "models"
+    try:
+        deal_classifier = pickle.load(open(os.path.join(models_dir, "best_model_deal_classifier_Gradient_Boosting.pkl"), "rb"))
+        price_regressor = pickle.load(open(os.path.join(models_dir, "best_model_price_regression_clean.pkl"), "rb"))
+        label_encoders = pickle.load(open(os.path.join(models_dir, "label_encoders.pkl"), "rb"))
+        scaler_deal = pickle.load(open(os.path.join(models_dir, "scaler_deal_classifier.pkl"), "rb"))
+        scaler_price = pickle.load(open(os.path.join(models_dir, "scaler_price_regression_clean.pkl"), "rb"))
+        regression_features = pickle.load(open(os.path.join(models_dir, "regression_features_clean.pkl"), "rb"))
+        
+        return {
+            "deal_classifier": deal_classifier,
+            "price_regressor": price_regressor,
+            "label_encoders": label_encoders,
+            "scaler_deal": scaler_deal,
+            "scaler_price": scaler_price,
+            "regression_features": regression_features
+        }
+    except Exception as e:
+        st.error(f"Error loading models: {e}")
+        return None
+
+models = load_models()
+
+def prepare_features(row, models_dict):
+    """
+    Prepare a single row of data for model prediction.
+    Returns two feature vectors: one for classification (9 features) and one for regression (8 features).
+    """
+    encoders = models_dict["label_encoders"]
+    
+    # 1. Extract Features
+    # Numeric
+    discount_pct = float(row.get('discount_pct', 0))
+    original_price_eur = float(row.get('price_eur', 0)) / (1 - (discount_pct / 100)) if discount_pct < 100 else float(row.get('price_eur', 0))
+    # If discount is 0, original price is same as current price
+    if discount_pct == 0:
+        original_price_eur = float(row.get('price_eur', 0))
+        
+    has_discount = 1 if discount_pct > 0 else 0
+    high_discount = 1 if discount_pct >= 50 else 0 
+    
+    # Categorical
+    source = str(row.get('source_file', 'Unknown'))
+    platform = str(row.get('platform', 'Unknown'))
+    storefront = str(row.get('storefront', 'Unknown')) 
+    category = str(row.get('category', 'Unknown'))     
+    is_preorder = str(row.get('is_preorder', 'False')) 
+    
+    # 2. Encode Categoricals
+    encoded_cats = {}
+    cat_cols = ['source', 'platform', 'storefront', 'category', 'is_preorder']
+    
+    for col in cat_cols:
+        val = locals()[col]
+        encoder = encoders.get(col)
+        if encoder:
+            try:
+                if val in encoder.classes_:
+                    encoded_cats[col] = encoder.transform([val])[0]
+                else:
+                    encoded_cats[col] = encoder.transform([encoder.classes_[0]])[0] 
+            except:
+                 encoded_cats[col] = 0
+        else:
+            encoded_cats[col] = 0
+
+    # 3. Assemble Feature Vectors
+    
+    # Classification Features (9 features)
+    # ['discount_pct', 'original_price_eur', 'has_discount', 'high_discount', 'source', 'platform', 'storefront', 'category', 'is_preorder']
+    features_clf = [
+        discount_pct,
+        original_price_eur,
+        has_discount,
+        high_discount,
+        encoded_cats['source'],
+        encoded_cats['platform'],
+        encoded_cats['storefront'],
+        encoded_cats['category'],
+        encoded_cats['is_preorder']
+    ]
+    
+    # Regression Features (8 features - NO original_price_eur)
+    # ['discount_pct', 'has_discount', 'high_discount', 'source', 'platform', 'storefront', 'category', 'is_preorder']
+    features_reg = [
+        discount_pct,
+        has_discount,
+        high_discount,
+        encoded_cats['source'],
+        encoded_cats['platform'],
+        encoded_cats['storefront'],
+        encoded_cats['category'],
+        encoded_cats['is_preorder']
+    ]
+    
+    return np.array([features_clf]), np.array([features_reg])
 
 # -----------------------------------------------------------------------------
 # Sidebar Filters
@@ -268,6 +392,92 @@ else:
         great_deals = len(filtered_df[filtered_df['discount_pct'] >= 50])
         st.metric("Great Deals (50%+)", f"{great_deals:,}")
 
+    st.markdown("---")
+    
+    # -------------------------------------------------------------------------
+    # AI Deal Predictor Section
+    # -------------------------------------------------------------------------
+    st.markdown('<div class="ai-box">', unsafe_allow_html=True)
+    st.subheader("🤖 AI Deal Predictor")
+    st.markdown("Select a game to let our AI models analyze if it's a good deal and predict its fair market price.")
+    
+    col_ai_1, col_ai_2 = st.columns([2, 1])
+    
+    with col_ai_1:
+        # Game Selector
+        game_options = filtered_df['title'].unique().tolist()
+        selected_game_title = st.selectbox("Select Game to Analyze", game_options)
+    
+    with col_ai_2:
+        st.write("") # Spacer
+        st.write("") # Spacer
+        analyze_btn = st.button("🔮 Analyze Deal", use_container_width=True)
+        
+    if analyze_btn and selected_game_title and models:
+        # Get game data
+        game_row = filtered_df[filtered_df['title'] == selected_game_title].iloc[0]
+        
+        # Prepare features
+        X_clf, X_reg = prepare_features(game_row, models)
+        
+        # Calculate Savings for Transparency (Moved up for logic)
+        discount_pct = float(game_row.get('discount_pct', 0))
+        current_price = float(game_row.get('price_eur', 0))
+        if discount_pct > 0 and discount_pct < 100:
+             original_price = current_price / (1 - (discount_pct / 100))
+        else:
+             original_price = current_price
+        
+        savings = original_price - current_price
+
+        # 1. Deal Classification
+        scaler_deal = models["scaler_deal"]
+        clf = models["deal_classifier"]
+        X_scaled_deal = scaler_deal.transform(X_clf)
+        deal_pred = clf.predict(X_scaled_deal)[0] # 'Good Deal' or 'Not a Deal'
+        deal_prob = clf.predict_proba(X_scaled_deal)[0]
+        
+        # 2. Price Regression
+        scaler_price = models["scaler_price"]
+        reg = models["price_regressor"]
+        X_scaled_price = scaler_price.transform(X_reg)
+        predicted_price = reg.predict(X_scaled_price)[0]
+        
+        # Rule Enforcement: Strictly enforce the stated criteria
+        # Criteria: Discount >= 25% OR Savings >= €10
+        if discount_pct >= 25 or savings >= 10:
+            deal_pred = "Good Deal"
+            deal_prob = [1.0] # 100% confidence for rule-based decision
+        
+        # Display Results
+        st.markdown("---")
+        
+        # Criteria Explanation
+        st.info("ℹ️ **Model Criteria:** A game is considered a 'Good Deal' if the **Discount is ≥ 25%** OR **Savings are ≥ €10**. (Strictly Enforced)")
+        
+        res_col1, res_col2, res_col3 = st.columns(3)
+        
+        with res_col1:
+            st.markdown("#### AI Verdict")
+            if deal_pred == "Good Deal":
+                st.markdown(f'<p class="prediction-good">✅ GOOD DEAL</p>', unsafe_allow_html=True)
+                st.caption(f"Confidence: {max(deal_prob)*100:.1f}%")
+            else:
+                st.markdown(f'<p class="prediction-bad">❌ NOT A DEAL</p>', unsafe_allow_html=True)
+                st.caption(f"Confidence: {max(deal_prob)*100:.1f}%")
+                
+        with res_col2:
+            st.markdown("#### Price Analysis")
+            st.metric("Current Price", f"€{current_price:.2f}")
+            st.metric("AI Fair Price", f"€{predicted_price:.2f}", delta=f"{current_price - predicted_price:.2f}", delta_color="inverse")
+            
+        with res_col3:
+            st.markdown("#### Evidence")
+            st.metric("Discount", f"{discount_pct:.0f}%", delta=f"{discount_pct - 25:.0f}% vs Target", delta_color="normal")
+            st.metric("Savings", f"€{savings:.2f}", delta=f"€{savings - 10:.2f} vs Target", delta_color="normal")
+            st.caption(f"Platform: {game_row['platform']}")
+
+    st.markdown('</div>', unsafe_allow_html=True)
     st.markdown("---")
 
     # -------------------------------------------------------------------------

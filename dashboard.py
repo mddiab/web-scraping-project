@@ -15,90 +15,125 @@ st.set_page_config(
 )
 
 # -----------------------------------------------------------------------------
-# Custom CSS & Styling
+# Custom CSS & Styling (Neon Black/Purple Theme)
 # -----------------------------------------------------------------------------
 st.markdown("""
 <style>
     /* Import Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@500;700;800&display=swap');
 
     /* General App Styling */
     .stApp {
-        background-color: #0E1117;
+        background-color: #000000;
         font-family: 'Inter', sans-serif;
     }
     
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Outfit', sans-serif;
         color: #FFFFFF !important;
+        text-shadow: 0 0 10px rgba(213, 0, 249, 0.3);
     }
     
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
         width: 10px;
-        background: #1E1E1E;
+        background: #121212;
     }
     ::-webkit-scrollbar-thumb {
-        background: #00ADB5;
+        background: #D500F9;
         border-radius: 5px;
+        box-shadow: 0 0 5px #D500F9;
     }
 
     /* Metrics Cards */
     div[data-testid="stMetric"] {
-        background-color: #1E2329;
-        border: 1px solid #2C333D;
+        background-color: #121212;
+        border: 1px solid #333;
         padding: 20px;
         border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: transform 0.2s;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    div[data-testid="stMetric"]::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #D500F9, #651FFF);
     }
     div[data-testid="stMetric"]:hover {
-        transform: translateY(-2px);
-        border-color: #00ADB5;
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(213, 0, 249, 0.2);
+        border-color: #D500F9;
     }
     div[data-testid="stMetricLabel"] {
-        color: #9CA3AF !important;
+        color: #B0B0B0 !important;
         font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
     div[data-testid="stMetricValue"] {
-        color: #00ADB5 !important;
-        font-weight: 700;
+        color: #FFFFFF !important;
+        font-weight: 800;
+        text-shadow: 0 0 10px rgba(213, 0, 249, 0.6);
     }
 
     /* Sidebar Styling */
     section[data-testid="stSidebar"] {
-        background-color: #161B22;
-        border-right: 1px solid #2C333D;
+        background-color: #050505;
+        border-right: 1px solid #333;
     }
     
+    /* Buttons */
+    .stButton > button {
+        background: linear-gradient(45deg, #651FFF, #D500F9);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(213, 0, 249, 0.3);
+    }
+    .stButton > button:hover {
+        box-shadow: 0 0 20px rgba(213, 0, 249, 0.6);
+        transform: scale(1.02);
+    }
+
     /* Expander Styling */
     .streamlit-expanderHeader {
-        background-color: #1E2329 !important;
+        background-color: #121212 !important;
         color: #FFFFFF !important;
+        border: 1px solid #333;
         border-radius: 8px !important;
     }
     
     /* Dataframe Styling */
     div[data-testid="stDataFrame"] {
-        border: 1px solid #2C333D;
+        border: 1px solid #333;
         border-radius: 8px;
-        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
     
     /* Custom Header Gradient */
     .hero-header {
-        background: linear-gradient(90deg, #00ADB5 0%, #007B81 100%);
+        background: linear-gradient(90deg, #D500F9 0%, #651FFF 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 800;
-        font-size: 3rem;
+        font-size: 3.5rem;
         margin-bottom: 0;
+        text-shadow: 0 0 30px rgba(213, 0, 249, 0.3);
     }
     .hero-subheader {
-        color: #9CA3AF;
+        color: #B0B0B0;
         font-size: 1.2rem;
         margin-top: -10px;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+        font-weight: 300;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -235,7 +270,11 @@ else:
 
     st.markdown("---")
 
-    # Visualizations Layout
+    # -------------------------------------------------------------------------
+    # Visualizations
+    # -------------------------------------------------------------------------
+    
+    # Row 1: Price Distribution & Top Discounts
     col_charts_1, col_charts_2 = st.columns([1.5, 1])
 
     with col_charts_1:
@@ -246,7 +285,7 @@ else:
                 x="source_file", 
                 y="price_eur", 
                 color="source_file",
-                color_discrete_sequence=px.colors.qualitative.Bold,
+                color_discrete_sequence=px.colors.qualitative.Bold, # Will be overridden by theme usually, but good fallback
                 labels={"price_eur": "Price (€)", "source_file": "Store"}
             )
             fig_box.update_layout(
@@ -254,8 +293,11 @@ else:
                 paper_bgcolor='rgba(0,0,0,0)',
                 plot_bgcolor='rgba(0,0,0,0)',
                 showlegend=False,
-                margin=dict(l=20, r=20, t=30, b=20)
+                margin=dict(l=20, r=20, t=30, b=20),
+                font=dict(family="Inter", color="#E0E0E0")
             )
+            # Custom marker colors for neon look
+            fig_box.update_traces(marker=dict(color='#D500F9', opacity=0.7))
             st.plotly_chart(fig_box, use_container_width=True)
         else:
             st.info("No data for visualization.")
@@ -268,7 +310,7 @@ else:
                 filtered_df[filtered_df['discount_pct'] > 0],
                 x="discount_pct",
                 nbins=20,
-                color_discrete_sequence=['#00ADB5'],
+                color_discrete_sequence=['#D500F9'],
                 labels={"discount_pct": "Discount (%)"}
             )
             fig_hist.update_layout(
@@ -276,11 +318,87 @@ else:
                 paper_bgcolor='rgba(0,0,0,0)',
                 plot_bgcolor='rgba(0,0,0,0)',
                 bargap=0.1,
-                margin=dict(l=20, r=20, t=30, b=20)
+                margin=dict(l=20, r=20, t=30, b=20),
+                font=dict(family="Inter", color="#E0E0E0")
             )
             st.plotly_chart(fig_hist, use_container_width=True)
         else:
             st.info("No discounts found.")
+
+    # Row 2: New Visualizations
+    col_charts_3, col_charts_4 = st.columns(2)
+    
+    with col_charts_3:
+        st.subheader("💎 Deal Hunter: Price vs. Discount")
+        if not filtered_df.empty:
+            fig_scatter = px.scatter(
+                filtered_df,
+                x="price_eur",
+                y="discount_pct",
+                color="source_file",
+                hover_data=['title'],
+                labels={"price_eur": "Price (€)", "discount_pct": "Discount (%)"},
+                color_discrete_sequence=px.colors.qualitative.Vivid
+            )
+            fig_scatter.update_layout(
+                template="plotly_dark",
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
+                margin=dict(l=20, r=20, t=30, b=20),
+                font=dict(family="Inter", color="#E0E0E0"),
+                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+            )
+            fig_scatter.update_traces(marker=dict(size=8, opacity=0.7, line=dict(width=1, color='white')))
+            st.plotly_chart(fig_scatter, use_container_width=True)
+            
+    with col_charts_4:
+        st.subheader("🍩 Games by Store")
+        if not filtered_df.empty:
+            store_counts = filtered_df['source_file'].value_counts().reset_index()
+            store_counts.columns = ['Store', 'Count']
+            
+            fig_donut = px.pie(
+                store_counts,
+                values='Count',
+                names='Store',
+                hole=0.5,
+                color_discrete_sequence=px.colors.qualitative.Pastel
+            )
+            fig_donut.update_layout(
+                template="plotly_dark",
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
+                margin=dict(l=20, r=20, t=30, b=20),
+                font=dict(family="Inter", color="#E0E0E0"),
+                showlegend=True
+            )
+            fig_donut.update_traces(textposition='inside', textinfo='percent+label')
+            st.plotly_chart(fig_donut, use_container_width=True)
+
+    # Row 3: Platform Comparison
+    st.subheader("🎮 Average Price by Platform")
+    if not filtered_df.empty and 'platform' in filtered_df.columns:
+        # Clean platform data slightly if needed, or just group
+        # Assuming platform column exists and has data
+        platform_stats = filtered_df.groupby('platform')['price_eur'].mean().reset_index().sort_values('price_eur', ascending=False)
+        
+        fig_bar = px.bar(
+            platform_stats,
+            x='platform',
+            y='price_eur',
+            color='price_eur',
+            color_continuous_scale='Purples',
+            labels={'price_eur': 'Avg Price (€)', 'platform': 'Platform'}
+        )
+        fig_bar.update_layout(
+            template="plotly_dark",
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+            margin=dict(l=20, r=20, t=30, b=20),
+            font=dict(family="Inter", color="#E0E0E0")
+        )
+        st.plotly_chart(fig_bar, use_container_width=True)
+
 
     # Detailed Data Table
     st.subheader("📋 Game List")
@@ -310,3 +428,4 @@ else:
         )
     else:
         st.info("No games match your filters.")
+

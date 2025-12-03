@@ -10,7 +10,7 @@
 |----------|---------|-----------|
 | **[README.md](README.md)** | Overview & setup | Getting started |
 | **[DATASET_OVERVIEW.md](DATASET_OVERVIEW.md)** | Dataset details & schema | Understanding data |
-| **[EDA_STATUS.md](EDA_STATUS.md)** | Analysis findings | Key insights |
+| **[EDA.md](EDA.md)** | Analysis findings | Key insights |
 | **[ML_PIPELINE_FINAL_REPORT.md](ML_PIPELINE_FINAL_REPORT.md)** | Model details & validation | ML implementation |
 
 ---
@@ -222,7 +222,7 @@ ls data/cleaned/cleaned_*.csv
 
 - **[README.md](README.md)** - Full project overview
 - **[DATASET_OVERVIEW.md](DATASET_OVERVIEW.md)** - Detailed dataset reference
-- **[EDA_STATUS.md](EDA_STATUS.md)** - Analysis findings
+- **[EDA.md](EDA.md)** - Analysis findings
 - **[ML_PIPELINE_FINAL_REPORT.md](ML_PIPELINE_FINAL_REPORT.md)** - ML details
 
 ---

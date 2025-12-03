@@ -9,9 +9,9 @@
 
 ## 📋 Overview
 
-An advanced web scraping and machine learning platform that aggregates game deals from **6 major gaming platforms**, analyzes pricing trends, and uses **AI models** to identify the best deals. Features a professional **Streamlit dashboard** with real-time analytics and ML-powered deal predictions.
+An advanced web scraping and machine learning platform that aggregates game deals from multiple major gaming sources, analyzes pricing trends, and uses **AI models** to identify the best deals. The analysis and documentation are based on the rebuilt EDA v2 (canonical) and drive the Streamlit dashboard and ML pipeline.
 
-**📊 Dataset:** 7,068+ games | **🤖 ML Models:** 3 production-ready | **🎨 Dashboard:** Interactive Streamlit UI
+**📊 Dataset:** 7,058 games (canonical, per EDA v2) | **🤖 ML Models:** 3 production-ready | **🎨 Dashboard:** Interactive Streamlit UI
 
 ### 🎯 Key Features
 
@@ -68,8 +68,8 @@ The dashboard will open in your browser at `http://localhost:8501`
 
 | Document | Purpose |
 |----------|---------|
-| **[DATASET_OVERVIEW.md](DATASET_OVERVIEW.md)** | Complete dataset reference, schema, and quality metrics |
-| **[EDA_STATUS.md](EDA_STATUS.md)** | Exploratory data analysis findings and insights |
+| **[DATASET_OVERVIEW.md](DATASET_OVERVIEW.md)** | Complete dataset reference, schema, and quality metrics (based on EDA v2) |
+| **[EDA.md](EDA.md)** | Exploratory data analysis findings and insights (canonical EDA) |
 | **[ML_PIPELINE_FINAL_REPORT.md](ML_PIPELINE_FINAL_REPORT.md)** | ML models, validation, and performance metrics |
 | **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** | CLI commands and common operations |
 
@@ -126,16 +126,16 @@ Three production-ready models:
 
 ## 📊 Dataset Summary
 
-**Total:** 7,068 games across 6 platforms
+**Total:** 7,058 games (canonical; see `EDA_V2_SUMMARY.md` and `DATASET_OVERVIEW.md`)
 
 | Source | Games | Platform |
 |--------|-------|----------|
-| Steam | 3,533 | PC |
+| Steam | 3,531 | PC |
 | Xbox | 1,502 | Xbox |
-| Instant Gaming | 1,000 | Multi-platform |
-| Epic Games | 901 | PC |
+| Instant Gaming | 998 | Multi-platform |
+| Epic Games | 899 | PC (analyzed separately due to missing discount data) |
 | GOG | Varies | PC |
-| Loaded/CDKeys | 132 | Multi-platform |
+| Loaded/CDKeys | 128 | Multi-platform |
 
 📖 Full details: [DATASET_OVERVIEW.md](DATASET_OVERVIEW.md)
 

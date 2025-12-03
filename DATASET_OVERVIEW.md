@@ -8,7 +8,7 @@
 
 | Metric | Value |
 |--------|-------|
-| **Total Games** | 7,068 |
+| **Total Games** | 7,058 |
 | **Data Sources** | 6 major gaming retailers |
 | **Unique Platforms** | 5 (PC, Xbox, PlayStation, Switch, Unknown) |
 | **Unique Storefronts** | 6+ |
@@ -17,11 +17,11 @@
 
 ### Source Distribution
 ```
-Steam:            3,533 games (50.0%)
-Xbox:             1,502 games (21.3%)
-Instant Gaming:   1,000 games (14.2%)
-Epic Games:         901 games (12.7%)
-Loaded/CDKeys:      132 games (1.9%)
+Steam:            3,531 games
+Xbox:             1,502 games
+Instant Gaming:   998 games
+Epic Games:         899 games (analyzed separately; discount data normalized)
+Loaded/CDKeys:      128 games
 ```
 
 ---
@@ -253,6 +253,7 @@ print(f"Total games: {len(df_combined)}")
 
 - **[README.md](README.md)** - Project overview and quick start
 - **[EDA_STATUS.md](EDA_STATUS.md)** - Exploratory data analysis findings
+ - **[EDA.md](EDA.md)** - Exploratory data analysis findings
 - **[ML_PIPELINE_FINAL_REPORT.md](ML_PIPELINE_FINAL_REPORT.md)** - ML model details
 - **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - CLI commands and quick links
 

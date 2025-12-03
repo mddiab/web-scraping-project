@@ -141,7 +141,6 @@ st.markdown("""
     /* AI Section */
     .ai-box {
         background-color: #121212;
-        border: 1px solid #D500F9;
         border-radius: 12px;
         padding: 20px;
         margin-top: 20px;
@@ -392,7 +391,7 @@ else:
         great_deals = len(filtered_df[filtered_df['discount_pct'] >= 50])
         st.metric("Great Deals (50%+)", f"{great_deals:,}")
 
-    st.markdown("---")
+
     
     # -------------------------------------------------------------------------
     # AI Deal Predictor Section

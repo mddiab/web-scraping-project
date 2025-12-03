@@ -126,7 +126,7 @@ Three production-ready models:
 
 ## 📊 Dataset Summary
 
-**Total:** 7,058 games (canonical; see `EDA_V2_SUMMARY.md` and `DATASET_OVERVIEW.md`)
+**Total:** 7,058 games (canonical; see `EDA.md` and `DATASET_OVERVIEW.md`)
 
 | Source | Games | Platform |
 |--------|-------|----------|

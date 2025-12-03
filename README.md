@@ -68,7 +68,7 @@ The dashboard will open in your browser at `http://localhost:8501`
 
 | Document | Purpose |
 |----------|---------|
-| **[DATASET_OVERVIEW.md](DATASET_OVERVIEW.md)** | Complete dataset reference, schema, and quality metrics (based on EDA v2) |
+| **[DATASET_OVERVIEW.md](DATASET_OVERVIEW.md)** | Complete dataset reference, schema, and quality metrics (based on EDA) |
 | **[EDA.md](EDA.md)** | Exploratory data analysis findings and insights (canonical EDA) |
 | **[ML_PIPELINE_FINAL_REPORT.md](ML_PIPELINE_FINAL_REPORT.md)** | ML models, validation, and performance metrics |
 | **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** | CLI commands and common operations |

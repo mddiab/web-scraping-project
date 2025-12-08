@@ -20,7 +20,7 @@ class GOGScraper:
         self.scraped_products = set()
         self.load_scraped_ids()
         self.driver = self.setup_driver(headless)
-        
+
     def setup_driver(self, headless):
         options = webdriver.ChromeOptions()
         if headless:
@@ -33,14 +33,14 @@ class GOGScraper:
         options.add_argument("--disable-setuid-sandbox")
         options.add_argument("--remote-debugging-port=9222")
         options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
-        
+
         try:
             service = Service(ChromeDriverManager().install())
             return webdriver.Chrome(service=service, options=options)
         except Exception as e:
             print(f"Failed to initialize Chrome driver: {e}")
             raise
-    
+
     def load_scraped_ids(self):
         if os.path.exists("gog_products.csv"):
             try:
@@ -51,7 +51,7 @@ class GOGScraper:
                             self.scraped_products.add(row["product_id"])
             except:
                 pass
-    
+
     def get_products_from_api(self, page=1, limit=48):
         params = {
             "page": page,
@@ -60,7 +60,7 @@ class GOGScraper:
             "order": "desc",
             "mediaType": "game"
         }
-        
+
         try:
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -75,65 +75,65 @@ class GOGScraper:
         except Exception as e:
             print(f"API request failed: {e}")
         return None
-    
+
     def discover_products_selenium(self, max_scrolls=20):
         products = []
         try:
             self.driver.get(self.games_url)
             time.sleep(5)
-            
+
             last_height = self.driver.execute_script("return document.body.scrollHeight")
             scroll_count = 0
-            
+
             while scroll_count < max_scrolls:
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 time.sleep(3)
                 new_height = self.driver.execute_script("return document.body.scrollHeight")
-                
+
                 if new_height == last_height:
                     time.sleep(2)
                     new_height = self.driver.execute_script("return document.body.scrollHeight")
                     if new_height == last_height:
                         break
-                
+
                 last_height = new_height
                 scroll_count += 1
-            
+
             product_elements = self.driver.find_elements(By.CSS_SELECTOR, "product-tile, .product-tile, [data-product-id]")
-            
+
             for elem in product_elements:
                 try:
                     product_id = elem.get_attribute("data-product-id") or elem.get_attribute("data-id")
                     if not product_id:
                         continue
-                    
+
                     if product_id in self.scraped_products:
                         continue
-                    
+
                     try:
                         title_elem = elem.find_element(By.CSS_SELECTOR, ".product-tile__title, .product-title, h3, h4")
                         title = title_elem.text.strip()
                     except:
                         title = "N/A"
-                    
+
                     try:
                         link_elem = elem.find_element(By.CSS_SELECTOR, "a")
                         url = link_elem.get_attribute("href")
                     except:
                         url = f"{self.base_url}/en/game/{product_id}"
-                    
+
                     try:
                         price_elem = elem.find_element(By.CSS_SELECTOR, ".product-tile__price, .price, [data-price]")
                         price_final = price_elem.text.strip()
                     except:
                         price_final = "N/A"
-                    
+
                     try:
                         cover_elem = elem.find_element(By.CSS_SELECTOR, "img")
                         cover_image = cover_elem.get_attribute("src") or cover_elem.get_attribute("data-src")
                     except:
                         cover_image = "N/A"
-                    
+
                     product_data = {
                         "product_id": product_id,
                         "slug": url.split("/")[-1] if "/" in url else product_id,
@@ -153,35 +153,35 @@ class GOGScraper:
                     }
                     products.append(product_data)
                     self.scraped_products.add(product_id)
-                    
+
                 except Exception as e:
                     continue
-            
+
         except Exception as e:
             print(f"Selenium discovery failed: {e}")
-        
+
         return products
-    
+
     def discover_products(self, max_pages=10, use_api=True):
         products = []
-        
+
         if use_api:
             page = 1
             while page <= max_pages:
                 print(f"Fetching page {page} via API...")
                 data = self.get_products_from_api(page)
-                
+
                 if not data or not data.get("products"):
                     print("API returned no products, trying Selenium...")
                     break
-                
+
                 for product in data["products"]:
                     product_id = str(product.get("id", ""))
                     slug = product.get("slug", "")
-                    
+
                     if product_id and product_id not in self.scraped_products:
                         price_info = product.get("price", {}) if isinstance(product.get("price"), dict) else {}
-                        
+
                         tags_list = []
                         for tag in product.get("tags", []):
                             if isinstance(tag, dict):
@@ -190,7 +190,7 @@ class GOGScraper:
                                 tag_name = str(tag)
                             if tag_name:
                                 tags_list.append(tag_name)
-                        
+
                         genres_list = []
                         for genre in product.get("genres", []):
                             if isinstance(genre, dict):
@@ -199,14 +199,14 @@ class GOGScraper:
                                 genre_name = str(genre)
                             if genre_name:
                                 genres_list.append(genre_name)
-                        
+
                         works_on = product.get("worksOn", {})
                         platforms_list = []
                         if isinstance(works_on, dict):
                             platforms_list = [k for k, v in works_on.items() if v]
                         elif isinstance(works_on, list):
                             platforms_list = [str(p) for p in works_on]
-                        
+
                         product_data = {
                             "product_id": product_id,
                             "slug": slug,
@@ -226,19 +226,19 @@ class GOGScraper:
                         }
                         products.append(product_data)
                         self.scraped_products.add(product_id)
-                
+
                 if len(data.get("products", [])) < 48:
                     break
-                
+
                 page += 1
                 time.sleep(2)
-        
+
         if len(products) == 0:
             print("Using Selenium fallback for product discovery...")
             products = self.discover_products_selenium(max_scrolls=15)
-        
+
         return products
-    
+
     def extract_detail_data(self, product_url):
         detail_data = {
             "description_html": "N/A",
@@ -256,11 +256,11 @@ class GOGScraper:
             "series": "N/A",
             "related_games": "N/A"
         }
-        
+
         try:
             self.driver.get(product_url)
             time.sleep(4)
-            
+
             description_selectors = [
                 ".description",
                 ".product-description",
@@ -276,7 +276,7 @@ class GOGScraper:
                     break
                 except:
                     continue
-            
+
             req_selectors = [
                 ".product-requirements",
                 ".system-requirements",
@@ -297,7 +297,7 @@ class GOGScraper:
                     continue
             if req_text:
                 detail_data["system_requirements"] = " | ".join(req_text[:3])
-            
+
             screenshot_selectors = [
                 ".product-gallery img",
                 ".screenshot img",
@@ -321,7 +321,7 @@ class GOGScraper:
                     continue
             if screenshots:
                 detail_data["screenshots"] = " | ".join(screenshots[:20])
-            
+
             video_selectors = [
                 ".product-video iframe",
                 "video source",
@@ -336,7 +336,7 @@ class GOGScraper:
                         break
                 except:
                     continue
-            
+
             extras_selectors = [
                 ".product-extras .extra-item",
                 ".extras .extra",
@@ -351,7 +351,7 @@ class GOGScraper:
                         break
                 except:
                     continue
-            
+
             lang_selectors = [
                 ".product-languages .language-item",
                 ".languages .language",
@@ -366,7 +366,7 @@ class GOGScraper:
                         break
                 except:
                     continue
-            
+
             publisher_selectors = [
                 ".product-publisher",
                 "[data-testid='publisher']",
@@ -381,7 +381,7 @@ class GOGScraper:
                         break
                 except:
                     continue
-            
+
             developer_selectors = [
                 ".product-developer",
                 "[data-testid='developer']",
@@ -396,7 +396,7 @@ class GOGScraper:
                         break
                 except:
                     continue
-            
+
             rating_selectors = [
                 ".product-rating",
                 "[data-testid='age-rating']",
@@ -411,7 +411,7 @@ class GOGScraper:
                         break
                 except:
                     continue
-            
+
             changelog_selectors = [
                 ".product-changelog",
                 ".changelog",
@@ -425,7 +425,7 @@ class GOGScraper:
                         break
                 except:
                     continue
-            
+
             dlc_selectors = [
                 ".product-dlc .dlc-item",
                 "[data-testid='dlc-item']",
@@ -448,7 +448,7 @@ class GOGScraper:
                     continue
             if dlc_list:
                 detail_data["dlc"] = " | ".join(dlc_list[:10])
-            
+
             series_selectors = [
                 ".product-series",
                 "[data-testid='series']",
@@ -462,7 +462,7 @@ class GOGScraper:
                         break
                 except:
                     continue
-            
+
             related_selectors = [
                 ".related-games .game-item",
                 "[data-testid='related-game']",
@@ -485,24 +485,24 @@ class GOGScraper:
                     continue
             if related_games:
                 detail_data["related_games"] = " | ".join(related_games)
-            
+
         except Exception as e:
             print(f"Error extracting detail data from {product_url}: {e}")
-        
+
         return detail_data
-    
+
     def scrape(self, max_products=100, scrape_details=True):
         print("Starting GOG.com scraper...")
-        
+
         products = self.discover_products(max_pages=50)
         print(f"Discovered {len(products)} new products")
-        
+
         if len(products) == 0:
             print("No new products to scrape")
             return
-        
+
         file_exists = os.path.exists("gog_products.csv")
-        
+
         with open("gog_products.csv", "a", newline="", encoding="utf-8") as csvfile:
             fieldnames = [
                 "timestamp", "product_id", "slug", "title", "url", "price_base", "price_final",
@@ -513,10 +513,10 @@ class GOGScraper:
                 "dlc", "series", "related_games"
             ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            
+
             if not file_exists:
                 writer.writeheader()
-            
+
             scraped_count = 0
             for i, product in enumerate(products[:max_products]):
                 if scrape_details and product.get("url") != "N/A":
@@ -524,27 +524,27 @@ class GOGScraper:
                     detail_data = self.extract_detail_data(product["url"])
                     product.update(detail_data)
                     time.sleep(2)
-                
+
                 product["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 writer.writerow(product)
                 scraped_count += 1
-            
+
             print(f"Successfully scraped {scraped_count} products")
-    
+
     def close(self):
         if self.driver:
             self.driver.quit()
 
 def main():
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="GOG.com Product Scraper")
     parser.add_argument("--max-products", type=int, default=50, help="Maximum products to scrape")
     parser.add_argument("--no-details", action="store_true", help="Skip detail page scraping")
     parser.add_argument("--headless", action="store_true", default=True, help="Run in headless mode")
-    
+
     args = parser.parse_args()
-    
+
     scraper = GOGScraper(headless=args.headless)
     try:
         scraper.scrape(max_products=args.max_products, scrape_details=not args.no_details)

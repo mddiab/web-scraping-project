@@ -3,21 +3,10 @@ from pathlib import Path
 
 import pandas as pd
 
-
-
-
-
 RAW_PATH = Path("data/raw/epicgames.csv")
 CLEAN_PATH = Path("data/cleaned/cleaned_epicgames.csv")
 
-
-
-
-
-
-
 INR_TO_USD = 0.012  
-
 
 def parse_price(x):
     """
@@ -32,21 +21,17 @@ def parse_price(x):
     if not s:
         return (math.nan, None)
 
-    
     if s.lower().startswith("free"):
         return (0.0, None)
 
-    
     currency_chars = "".join(
         ch for ch in s if not ch.isdigit() and ch not in {",", ".", " "}
     )
     currency = currency_chars or None
 
-    
     number = "".join(ch for ch in s if ch.isdigit() or ch == ".")
     value = float(number) if number else math.nan
     return value, currency
-
 
 def parse_percent(x):
     """
@@ -59,7 +44,6 @@ def parse_percent(x):
     s = str(x).strip().replace("%", "")
     return float(s) if s else math.nan
 
-
 def convert_to_usd(value, currency):
     """
     Convert numeric price + currency to USD.
@@ -70,16 +54,13 @@ def convert_to_usd(value, currency):
         return math.nan
 
     if not currency:
-        
+
         return value
 
-    
     if currency == "₹" or str(currency).upper() == "INR":
         return value * INR_TO_USD
 
-    
     return value
-
 
 def map_single_platform(raw: str) -> str | None:
     """
@@ -112,7 +93,6 @@ def map_single_platform(raw: str) -> str | None:
 
     return "Other"
 
-
 def normalize_platform(value):
     """
     Handle multiple platforms like 'Windows, MacOS, Linux' by mapping each
@@ -122,7 +102,7 @@ def normalize_platform(value):
         return "Other"
 
     text = str(value)
-    
+
     parts = [p.strip() for p in text.replace("/", ",").split(",") if p.strip()]
     mapped = []
     for p in parts:
@@ -134,7 +114,6 @@ def normalize_platform(value):
         return "Other"
     return " / ".join(mapped)
 
-
 def clean_epic_games(df_raw: pd.DataFrame) -> pd.DataFrame:
     """
     Clean the Epic Games Store dataset.
@@ -142,51 +121,39 @@ def clean_epic_games(df_raw: pd.DataFrame) -> pd.DataFrame:
 
     df = df_raw.copy()
 
-    
     price_tuples = df["price of game"].apply(parse_price)
     df["price_numeric"], df["currency"] = zip(*price_tuples)
 
-    
     df["price_usd"] = [
         convert_to_usd(v, c) for v, c in zip(df["price_numeric"], df["currency"])
     ]
-    
+
     df["price_usd"] = df["price_usd"].round(2)
 
-    
-    
     df["release_date_parsed"] = pd.to_datetime(
         df["date release"], errors="coerce", format="%m/%d/%y"
     )
-    
+
     df["release_date_str"] = df["release_date_parsed"].dt.strftime("%Y-%m-%d")
 
-    
     df["critics_recommend_percent"] = df["Critics Recommend"].apply(parse_percent)
 
-    
     df["platform_normalized"] = df["platform"].apply(normalize_platform)
 
-    
     df_clean = pd.DataFrame(
         {
             "store": "epic_games_store",  
             "title": df["name"].astype(str).str.strip(),
             "platform": df["platform_normalized"],
-            
+
             "price": df["price_usd"],
             "release_date": df["release_date_str"],
         }
     )
 
-    
     df_clean = df_clean.dropna(subset=["title"]).reset_index(drop=True)
 
     return df_clean
-
-
-
-
 
 def main():
     print("=======================================")
@@ -204,7 +171,6 @@ def main():
     df_clean.to_csv(CLEAN_PATH, index=False, encoding="utf-8")
     print(f"💾 Saved cleaned data to: {CLEAN_PATH}")
     print("✅ Done.")
-
 
 if __name__ == "__main__":
     main()

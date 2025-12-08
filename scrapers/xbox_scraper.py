@@ -21,12 +21,6 @@ from selenium.common.exceptions import (
 )
 from webdriver_manager.chrome import ChromeDriverManager
 
-
-
-
-
-
-
 BASE_URL = "https://www.xbox.com/en-US/games/browse"
 
 MAX_ITEMS = 1000          
@@ -39,14 +33,8 @@ DATA_DIR = PROJECT_ROOT / "data" / "raw"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_CSV = DATA_DIR / "xbox.csv"
 
-
-
-
-
-
 def human_wait(min_s=1.0, max_s=2.5):
     time.sleep(random.uniform(min_s, max_s))
-
 
 def make_driver() -> webdriver.Chrome:
     ua = UserAgent()
@@ -61,7 +49,6 @@ def make_driver() -> webdriver.Chrome:
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     return driver
-
 
 def accept_cookies_if_any(driver, timeout=10):
     """
@@ -87,7 +74,6 @@ def accept_cookies_if_any(driver, timeout=10):
 
     print("ℹ️  No cookies popup clicked (maybe none appeared).")
 
-
 def scroll_slowly(driver, steps=6, pause=1.0):
     """
     Slow scroll down to trigger lazy loading on the current "page".
@@ -98,7 +84,6 @@ def scroll_slowly(driver, steps=6, pause=1.0):
             (i + 1) / steps,
         )
         time.sleep(pause)
-
 
 def click_show_more_if_any(driver, timeout=8) -> bool:
     """
@@ -124,11 +109,6 @@ def click_show_more_if_any(driver, timeout=8) -> bool:
         except (TimeoutException, ElementClickInterceptedException):
             continue
     return False
-
-
-
-
-
 
 def extract_games_from_html(html: str, base_url: str, already_seen: set):
     """
@@ -156,7 +136,6 @@ def extract_games_from_html(html: str, base_url: str, already_seen: set):
         if not title:
             continue
 
-        
         price_text = None
 
         for parent in a.parents:
@@ -169,7 +148,6 @@ def extract_games_from_html(html: str, base_url: str, already_seen: set):
                 price_text = m.group(0)
                 break
 
-        
         if price_text is None and a.parent is not None:
             siblings_text = " ".join(a.parent.stripped_strings)
             m2 = PRICE_REGEX.search(siblings_text)
@@ -188,11 +166,6 @@ def extract_games_from_html(html: str, base_url: str, already_seen: set):
         already_seen.add(full_url)
 
     return rows
-
-
-
-
-
 
 def scrape_xbox_all_games(max_items: int = MAX_ITEMS):
     print("==============================")
@@ -241,7 +214,6 @@ def scrape_xbox_all_games(max_items: int = MAX_ITEMS):
 
             show_more_clicks += 1
 
-        
         all_rows = all_rows[:max_items]
 
         if not all_rows:
@@ -266,12 +238,11 @@ def scrape_xbox_all_games(max_items: int = MAX_ITEMS):
         except Exception:
             pass
 
-
 if __name__ == "__main__":
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="Xbox Scraper")
     parser.add_argument("--limit", type=int, default=1500, help="Maximum number of items to scrape")
     args = parser.parse_args()
-    
+
     scrape_xbox_all_games(max_items=args.limit)

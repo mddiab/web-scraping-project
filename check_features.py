@@ -2,7 +2,6 @@ import pandas as pd
 import pickle
 import os
 
-
 csv_path = "data/cleaned/cleaned_steam.csv"
 if os.path.exists(csv_path):
     df = pd.read_csv(csv_path)
@@ -10,7 +9,6 @@ if os.path.exists(csv_path):
     print(df.columns.tolist())
 else:
     print(f"{csv_path} not found.")
-
 
 encoder_path = "models/label_encoders.pkl"
 if os.path.exists(encoder_path):

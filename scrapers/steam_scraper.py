@@ -12,15 +12,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-
-
-
-
-
 def human_wait(min_s=1.0, max_s=2.5):
     """Wait a random small delay to look human."""
     time.sleep(random.uniform(min_s, max_s))
-
 
 def make_driver() -> webdriver.Chrome:
     ua = UserAgent()
@@ -35,7 +29,6 @@ def make_driver() -> webdriver.Chrome:
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     return driver
-
 
 def scroll_steam_results(
     driver,
@@ -55,11 +48,10 @@ def scroll_steam_results(
     same_height_rounds = 0
 
     for i in range(max_scrolls):
-        
+
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         human_wait(*pause_range)
 
-        
         if desired_count is not None:
             cards = driver.find_elements(By.CSS_SELECTOR, "a.search_result_row")
             count = len(cards)
@@ -68,7 +60,6 @@ def scroll_steam_results(
                 print(f"   ⏹ Reached desired count ({desired_count}); stopping scroll.")
                 return
 
-        
         new_height = driver.execute_script("return document.body.scrollHeight")
         if new_height == last_height:
             same_height_rounds += 1
@@ -81,17 +72,11 @@ def scroll_steam_results(
 
     print(f"   ⏹ Reached max scrolls ({max_scrolls}); stopping to avoid infinite loop.")
 
-
-
-
-
-
 STEAM_LISTING_URLS = {
     "top_sellers": "https://store.steampowered.com/search/?filter=topsellers",
     "specials": "https://store.steampowered.com/search/?specials=1",
     "new_and_trending": "https://store.steampowered.com/search/?filter=popularnew",
 }
-
 
 def parse_steam_search_html(html: str, category: str):
     """
@@ -109,11 +94,9 @@ def parse_steam_search_html(html: str, category: str):
         release_date = a.select_one(".search_released")
         release_date = release_date.get_text(strip=True) if release_date else None
 
-        
-        
         discount_el = a.select_one(".discount_pct")
         if not discount_el:
-            
+
             discount_el = a.select_one(".search_discount span")
 
         discount_raw = discount_el.get_text(strip=True) if discount_el else None
@@ -122,10 +105,9 @@ def parse_steam_search_html(html: str, category: str):
 
         price_el = a.select_one(".discount_final_price")
         if not price_el:
-            
+
             price_el = a.select_one(".search_price")
         price_raw = price_el.get_text(strip=True) if price_el else None
-        
 
         url = a.get("href", "").split("?")[0]
 
@@ -142,7 +124,6 @@ def parse_steam_search_html(html: str, category: str):
         )
 
     return rows
-
 
 def main(limit_per_category: int | None = None):
     print("==============================")
@@ -164,7 +145,7 @@ def main(limit_per_category: int | None = None):
             human_wait()
 
             print("⬇️  Scrolling to load items...")
-            
+
             scroll_steam_results(driver, desired_count=limit_per_category)
 
             html = driver.page_source
@@ -182,7 +163,6 @@ def main(limit_per_category: int | None = None):
 
         df = pd.DataFrame(all_rows)
 
-        
         df.drop_duplicates(subset=["title", "product_url"], inplace=True)
 
         df.to_csv(output_path, index=False, encoding="utf-8-sig")
@@ -194,12 +174,11 @@ def main(limit_per_category: int | None = None):
         print("🧹 Closing browser...")
         driver.quit()
 
-
 if __name__ == "__main__":
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="Steam Scraper")
     parser.add_argument("--limit", type=int, default=2000, help="Maximum number of items to scrape per category")
     args = parser.parse_args()
-    
+
     main(limit_per_category=args.limit)

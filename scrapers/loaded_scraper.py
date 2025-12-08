@@ -19,15 +19,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
-
-
-
-
-
 def human_wait(min_s=1.0, max_s=2.5):
     """Wait a random small delay to look human."""
     time.sleep(random.uniform(min_s, max_s))
-
 
 def accept_cookies(driver, timeout=10):
     """
@@ -55,7 +49,6 @@ def accept_cookies(driver, timeout=10):
     print("ℹ️ No cookies popup clicked (maybe none appeared).")
     return False
 
-
 def scroll_to_bottom(driver):
     """Scroll to the bottom of the page to load all products."""
     print("⬇️  Scrolling to bottom to load all products...")
@@ -67,7 +60,6 @@ def scroll_to_bottom(driver):
         if new_y_offset == y_offset:
             break
     print("✅ Reached bottom of page.")
-
 
 def create_driver():
     """Create and return a configured Chrome WebDriver instance."""
@@ -88,11 +80,6 @@ def create_driver():
     )
     return driver
 
-
-
-
-
-
 TITLE_KEYWORDS_RE = re.compile(
     r"\b(PC|Xbox|PlayStation|Nintendo|Switch|Steam)\b",
     re.IGNORECASE,
@@ -101,7 +88,6 @@ TITLE_KEYWORDS_RE = re.compile(
 PRICE_RE = re.compile(
     r"^[^\d]*\d[\d,]*\.\d{2}\s*[A-Za-z$€£]*$"   
 )
-
 
 def parse_loaded_latest_games(html, base_url, max_items=None):
     """
@@ -138,7 +124,6 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
 
         full_url = urljoin(base_url, href)
 
-        
         price_text = None
 
         steps = 0
@@ -147,19 +132,16 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
                 break
             steps += 1
 
-            
             if isinstance(node, Tag) and node.name == "a":
                 other_text = node.get_text(strip=True)
                 if other_text and TITLE_KEYWORDS_RE.search(other_text) and other_text != title:
                     break
 
-            
             if isinstance(node, Tag) and node.name in ("button", "a"):
                 btn_txt = node.get_text(strip=True)
                 if any(x in btn_txt for x in ("Add", "Buy", "Notify", "Pre-order", "Pre-Order")):
                     break
 
-            
             if isinstance(node, NavigableString):
                 txt = node.strip()
                 if not txt:
@@ -192,11 +174,6 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
     print(f"✅ Parsed {len(items)} unique products from HTML.")
     return items
 
-
-
-
-
-
 def scrape_single_category(label, url, max_items_per_category, loaded_base):
     """
     Scrape a single category (given by URL) and tag all rows with `category=label`.
@@ -208,11 +185,8 @@ def scrape_single_category(label, url, max_items_per_category, loaded_base):
         driver.get(url)
         human_wait(2.5, 4.5)
 
-        
         accept_cookies(driver)
 
-        
-        
         scroll_to_bottom(driver)
 
         html = driver.page_source
@@ -220,7 +194,6 @@ def scrape_single_category(label, url, max_items_per_category, loaded_base):
             html, base_url=loaded_base, max_items=max_items_per_category
         )
 
-        
         for item in items:
             item["category"] = label
 
@@ -234,11 +207,6 @@ def scrape_single_category(label, url, max_items_per_category, loaded_base):
     finally:
         print(f"🧹 Closing browser for category '{label}'...")
         driver.quit()
-
-
-
-
-
 
 def scrape_cdkeys(category_urls, max_items_per_category=50, use_threads=True):
     """
@@ -292,14 +260,13 @@ def scrape_cdkeys(category_urls, max_items_per_category=50, use_threads=True):
                 except Exception as e:
                     print(f"❗ Category '{label}' failed with error: {repr(e)}")
     else:
-        
+
         for label, url in category_urls.items():
             items = scrape_single_category(
                 label, url, max_items_per_category, loaded_base
             )
             all_items.extend(items)
 
-    
     df = pd.DataFrame(all_items)
 
     BASE_DIR = Path(__file__).resolve().parent.parent  
@@ -315,25 +282,20 @@ def scrape_cdkeys(category_urls, max_items_per_category=50, use_threads=True):
 
     return df
 
-
 if __name__ == "__main__":
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="Loaded/CDKeys Scraper")
     parser.add_argument("--limit", type=int, default=500, help="Maximum number of items to scrape per category")
     parser.add_argument("--no-threads", action="store_true", help="Disable multithreading")
     args = parser.parse_args()
 
-    
-    
-    
     CATEGORY_URLS = {
         "latest-games": "https://www.cdkeys.com/latest-games",
         "deals": "https://www.loaded.com/cdkeys-deals",
         "gift-cards": "https://www.loaded.com/gift-cards"
     }
 
-    
     scrape_cdkeys(
         category_urls=CATEGORY_URLS,
         max_items_per_category=args.limit,

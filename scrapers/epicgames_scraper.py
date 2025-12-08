@@ -9,11 +9,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
-
-
-
-
-
 def human_delay(a=1.5, b=3.5):
     time.sleep(random.uniform(a, b))
 
@@ -24,11 +19,6 @@ def human_mouse_move(driver):
         actions.move_by_offset(-random.randint(20, 80), random.randint(20, 80)).perform()
     except:
         pass
-
-
-
-
-
 
 def init_driver():
     options = uc.ChromeOptions()
@@ -45,10 +35,6 @@ def init_driver():
     driver = uc.Chrome(options=options)
     return driver
 
-
-
-
-
 def handle_age_verification(driver):
     """
     Epic Games Age Gate Handler (Fixed for popper-based dropdown menus)
@@ -56,7 +42,6 @@ def handle_age_verification(driver):
 
     time.sleep(1)
 
-    
     try:
         popup = driver.find_elements(By.CSS_SELECTOR, "div[data-testid='AgeSelect'], div[data-testid='age-gate-wrapper']")
         if not popup:
@@ -65,27 +50,21 @@ def handle_age_verification(driver):
 
         wait = WebDriverWait(driver, 10)
 
-        
-        
-        
         def select_from_dropdown(toggle_selector, desired_text):
             """
             toggle_selector = css for the dropdown toggle button
             desired_text = '1990', '01', '12', etc.
             """
 
-            
             toggle = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, toggle_selector)))
             toggle.click()
             time.sleep(0.6)
 
-            
             menu_items = wait.until(EC.presence_of_all_elements_located((
                 By.CSS_SELECTOR,
                 "div[data-popper-placement] ul[role='menu'] li button[data-testid='MenuItemButton']"
             )))
 
-            
             for item in menu_items:
                 if item.text.strip() == desired_text:
                     item.click()
@@ -95,27 +74,14 @@ def handle_age_verification(driver):
             print(f"[AGE-GATE] Could not find: {desired_text}")
             return False
 
-        
-        
-        
         select_from_dropdown("button#year_toggle", "1990")
 
-        
-        
-        
-        
         select_from_dropdown("button#month_toggle", "01")
 
-        
-        
-        
         select_from_dropdown("button#day_toggle", "01")
 
         time.sleep(0.4)
 
-        
-        
-        
         try:
             btn = wait.until(EC.element_to_be_clickable((By.ID, "btn_age_continue")))
             driver.execute_script("arguments[0].removeAttribute('disabled');", btn)
@@ -134,10 +100,6 @@ def handle_age_verification(driver):
     except Exception as e:
         print(f"[AGE-GATE ERROR] {e}")
 
-
-
-
-
 def scrape_game_detail_page(driver, base):
     game = base.copy()
     wait = WebDriverWait(driver, 20)
@@ -150,7 +112,6 @@ def scrape_game_detail_page(driver, base):
     human_delay()
     human_mouse_move(driver)
 
-    
     try:
         game["title"] = driver.find_element(
             By.CSS_SELECTOR, "span[data-testid='pdp-title']"
@@ -158,7 +119,6 @@ def scrape_game_detail_page(driver, base):
     except:
         game["title"] = game.get("title", "")
 
-    
     try:
         game["description"] = driver.find_element(
             By.CSS_SELECTOR, "div.css-1myreog"
@@ -166,7 +126,6 @@ def scrape_game_detail_page(driver, base):
     except:
         game["description"] = ""
 
-    
     try:
         tag_links = driver.find_elements(By.XPATH, "//a[contains(@href, '/en-US/browse?tag=')]")
         tag_texts = [t.text.strip() for t in tag_links if t.text.strip()]
@@ -177,7 +136,6 @@ def scrape_game_detail_page(driver, base):
         game["genres"] = ""
         game["tags"] = ""
 
-    
     try:
         plat_items = driver.find_elements(By.CSS_SELECTOR, "li[data-testid^='metadata-platform-']")
         plats = [p.text.strip() for p in plat_items if p.text.strip()]
@@ -185,7 +143,6 @@ def scrape_game_detail_page(driver, base):
     except:
         game["platforms"] = ""
 
-    
     try:
         game["developer"] = driver.find_element(
             By.CSS_SELECTOR, "span[data-testid='metadata-developer-single']"
@@ -193,7 +150,6 @@ def scrape_game_detail_page(driver, base):
     except:
         game["developer"] = ""
 
-    
     try:
         pub_span = driver.find_element(
             By.XPATH, "//span[normalize-space()='Publisher']/following::span[1]"
@@ -202,7 +158,6 @@ def scrape_game_detail_page(driver, base):
     except:
         game["publisher"] = ""
 
-    
     try:
         time_elem = driver.find_element(
             By.XPATH, "//span[normalize-space()='Initial Release']/following::time[1]"
@@ -217,7 +172,6 @@ def scrape_game_detail_page(driver, base):
         except:
             game["release_date"] = ""
 
-    
     try:
         age = ""
         descs = []
@@ -247,7 +201,6 @@ def scrape_game_detail_page(driver, base):
     except:
         game["rating"] = ""
 
-    
     try:
         req_block = driver.find_element(By.CSS_SELECTOR, "div[data-component='SystemRequirements']")
         game["system_requirements"] = req_block.text.strip()
@@ -255,11 +208,6 @@ def scrape_game_detail_page(driver, base):
         game["system_requirements"] = ""
 
     return game
-
-
-
-
-
 
 def scrape_page(page_url):
     driver = init_driver()
@@ -288,41 +236,33 @@ def scrape_page(page_url):
     for card in cards:
         g = {}
 
-        
         try:
             link = card.find_element(By.CSS_SELECTOR, "a[href*='/en-US/']")
             g["url"] = link.get_attribute("href")
         except:
             continue
 
-        
         try:
             g["title"] = card.text.strip()
         except:
             g["title"] = ""
 
-        
-
-        
         try:
             disc_elem = card.find_element(By.XPATH, ".//span[contains(text(),'%')]")
             g["discount_percent"] = disc_elem.text.strip()
         except:
             g["discount_percent"] = ""
 
-        
         try:
             price_spans = card.find_elements(By.XPATH, ".//span[contains(text(),'$')]")
         except:
             price_spans = []
 
-        
         if price_spans:
             g["discount_price"] = price_spans[0].text.strip()
         else:
             g["discount_price"] = ""
 
-        
         try:
             full_elem = card.find_element(By.XPATH, ".//strong[contains(text(),'$')]")
             g["full_price"] = full_elem.text.strip()
@@ -332,10 +272,8 @@ def scrape_page(page_url):
             except:
                 g["full_price"] = ""
 
-        
         g["is_discounted"] = "yes" if g["discount_percent"] else "no"
 
-        
         def to_numeric(v):
             if not v:
                 return ""
@@ -351,8 +289,6 @@ def scrape_page(page_url):
         g["discount_price"] = to_numeric(g["discount_price"])
 
         listing.append(g)
-
-    
 
     results = []
 
@@ -370,11 +306,6 @@ def scrape_page(page_url):
     driver.quit()
     return results
 
-
-
-
-
-
 def scrape_all_pages(page_urls, max_workers=2):
     all_games = []
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -385,11 +316,6 @@ def scrape_all_pages(page_urls, max_workers=2):
             except Exception as e:
                 print("[THREAD ERROR]", e)
     return all_games
-
-
-
-
-
 
 def save_to_csv(data, filename="epic_games_full.csv"):
     fields = [
@@ -409,27 +335,18 @@ def save_to_csv(data, filename="epic_games_full.csv"):
 
     print(f"[DONE] Saved {len(data)} games → {filename}")
 
-
-
-
-
-
 def main():
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="Epic Games Scraper")
     parser.add_argument("--limit", type=int, default=1000, help="Maximum number of items to scrape")
     parser.add_argument("--max-workers", type=int, default=2, help="Number of worker threads")
     args = parser.parse_args()
 
-    
-    
-    
     num_pages = (args.limit + 39) // 40
-    
-    
+
     num_pages = min(num_pages, 149)
-    
+
     print(f"Scraping {num_pages} pages to get approx {args.limit} items...")
 
     page_urls = [
@@ -439,13 +356,11 @@ def main():
     ]
 
     all_data = scrape_all_pages(page_urls, max_workers=args.max_workers)
-    
-    
+
     if len(all_data) > args.limit:
         all_data = all_data[:args.limit]
-        
-    save_to_csv(all_data)
 
+    save_to_csv(all_data)
 
 if __name__ == "__main__":
     main()

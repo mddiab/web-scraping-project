@@ -22,19 +22,12 @@ from selenium.common.exceptions import (
 )
 from webdriver_manager.chrome import ChromeDriverManager
 
-
 BASE_URL = "https://www.instant-gaming.com/en/pc/trending/"
 OUTPUT_CSV = Path("data/raw/instantgaming.csv")
-
-
-
-
-
 
 def human_wait(min_s: float = 1.0, max_s: float = 2.5):
     """Wait a random small delay to look human."""
     time.sleep(random.uniform(min_s, max_s))
-
 
 def make_driver() -> webdriver.Chrome:
     """Create and configure a Chrome WebDriver."""
@@ -50,7 +43,6 @@ def make_driver() -> webdriver.Chrome:
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     return driver
-
 
 def accept_cookies(driver: webdriver.Chrome, timeout: int = 10):
     """
@@ -81,7 +73,6 @@ def accept_cookies(driver: webdriver.Chrome, timeout: int = 10):
 
     print("ℹ️ No cookies popup clicked (maybe none appeared).")
 
-
 def wait_for_results(driver: webdriver.Chrome, timeout: int = 20):
     """
     Wait until the product list is present (any discount badge).
@@ -92,11 +83,6 @@ def wait_for_results(driver: webdriver.Chrome, timeout: int = 20):
             (By.XPATH, "//a[contains(normalize-space(.), '%')]")
         )
     )
-
-
-
-
-
 
 def parse_trending_page(
     html: str,
@@ -131,7 +117,6 @@ def parse_trending_page(
     rows: list[dict] = []
     titles_captured: set[str] = set()
 
-    
     discount_anchors = []
     for a in soup.find_all("a"):
         txt = a.get_text(strip=True)
@@ -147,7 +132,7 @@ def parse_trending_page(
 
         full_url = urljoin("https://www.instant-gaming.com", href)
         if full_url in seen_urls:
-            
+
             continue
 
         discount_text = a.get_text(strip=True)
@@ -155,10 +140,9 @@ def parse_trending_page(
         price_raw = None
         preorder = None
 
-        
         for node in a.next_elements:
             if isinstance(node, Tag) and node.name == "a":
-                
+
                 txt = node.get_text(strip=True)
                 if discount_any_re.search(txt) and node is not a:
                     break
@@ -168,24 +152,20 @@ def parse_trending_page(
                 if not txt:
                     continue
 
-                
                 if discount_any_re.search(txt):
                     continue
 
-                
                 if title is None:
                     title = txt
                     continue
 
-                
                 if preorder is None and txt.lower().startswith("pre-order"):
                     preorder = txt
                     continue
 
-                
                 if price_raw is None and currency_re.search(txt):
                     price_raw = txt
-                    
+
                     break
 
         rows.append(
@@ -204,8 +184,6 @@ def parse_trending_page(
         if len(rows) >= max_items_page:
             return rows
 
-    
-    
     extra_rows = 0
     title_nodes = soup.find_all(string=title_hint_re)
 
@@ -214,11 +192,10 @@ def parse_trending_page(
         if not title or title in titles_captured:
             continue
 
-        
         price_raw = None
 
         for node in text_node.next_elements:
-            
+
             if isinstance(node, Tag) and node.name == "a":
                 t = node.get_text(strip=True)
                 if discount_any_re.search(t):
@@ -235,10 +212,9 @@ def parse_trending_page(
         if price_raw is None:
             continue
 
-        
         a = text_node.find_parent("a")
         if a is None:
-            
+
             prev = text_node.previous_element
             steps = 0
             while prev is not None and steps < 40:
@@ -281,7 +257,6 @@ def parse_trending_page(
 
     return rows
 
-
 def click_next_page_by_number(
     driver: webdriver.Chrome,
     current_page: int,
@@ -311,11 +286,6 @@ def click_next_page_by_number(
     print(f"➡️  Moved to page {next_page_num}")
     human_wait(1.0, 2.5)
     return True
-
-
-
-
-
 
 def scrape_instantgaming_trending(max_items: int = 200):
     """
@@ -371,7 +341,6 @@ def scrape_instantgaming_trending(max_items: int = 200):
         df = pd.DataFrame(all_rows)
         OUTPUT_CSV.parent.mkdir(parents=True, exist_ok=True)
 
-        
         df = df.drop_duplicates(subset=["product_url"])
 
         df.to_csv(OUTPUT_CSV, index=False)
@@ -393,12 +362,11 @@ def scrape_instantgaming_trending(max_items: int = 200):
             except Exception:
                 pass
 
-
 if __name__ == "__main__":
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="Instant Gaming Scraper")
     parser.add_argument("--limit", type=int, default=1000, help="Maximum number of items to scrape")
     args = parser.parse_args()
-    
+
     scrape_instantgaming_trending(max_items=args.limit)

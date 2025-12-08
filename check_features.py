@@ -2,7 +2,7 @@ import pandas as pd
 import pickle
 import os
 
-# Check CSV columns
+
 csv_path = "data/cleaned/cleaned_steam.csv"
 if os.path.exists(csv_path):
     df = pd.read_csv(csv_path)
@@ -11,7 +11,7 @@ if os.path.exists(csv_path):
 else:
     print(f"{csv_path} not found.")
 
-# Check Encoder Classes
+
 encoder_path = "models/label_encoders.pkl"
 if os.path.exists(encoder_path):
     try:

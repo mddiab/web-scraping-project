@@ -20,9 +20,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-# ---------------------------
-# Helpers
-# ---------------------------
+
+
+
 
 def human_wait(min_s=1.0, max_s=2.5):
     """Wait a random small delay to look human."""
@@ -89,9 +89,9 @@ def create_driver():
     return driver
 
 
-# ---------------------------
-# BeautifulSoup parsing
-# ---------------------------
+
+
+
 
 TITLE_KEYWORDS_RE = re.compile(
     r"\b(PC|Xbox|PlayStation|Nintendo|Switch|Steam)\b",
@@ -99,7 +99,7 @@ TITLE_KEYWORDS_RE = re.compile(
 )
 
 PRICE_RE = re.compile(
-    r"^[^\d]*\d[\d,]*\.\d{2}\s*[A-Za-z$€£]*$"   # e.g. $34.99, 34.99 USD, €34.99
+    r"^[^\d]*\d[\d,]*\.\d{2}\s*[A-Za-z$€£]*$"   
 )
 
 
@@ -138,28 +138,28 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
 
         full_url = urljoin(base_url, href)
 
-        # Walk forward after this title to find price
+        
         price_text = None
 
         steps = 0
         for node in a.next_elements:
-            if steps > 150:  # safety cap
+            if steps > 150:  
                 break
             steps += 1
 
-            # If we see another title-like link, stop (probably next product)
+            
             if isinstance(node, Tag) and node.name == "a":
                 other_text = node.get_text(strip=True)
                 if other_text and TITLE_KEYWORDS_RE.search(other_text) and other_text != title:
                     break
 
-            # Stop at obvious action buttons
+            
             if isinstance(node, Tag) and node.name in ("button", "a"):
                 btn_txt = node.get_text(strip=True)
                 if any(x in btn_txt for x in ("Add", "Buy", "Notify", "Pre-order", "Pre-Order")):
                     break
 
-            # Look for a price-looking text node
+            
             if isinstance(node, NavigableString):
                 txt = node.strip()
                 if not txt:
@@ -193,9 +193,9 @@ def parse_loaded_latest_games(html, base_url, max_items=None):
     return items
 
 
-# ---------------------------
-# Per-category scraper
-# ---------------------------
+
+
+
 
 def scrape_single_category(label, url, max_items_per_category, loaded_base):
     """
@@ -208,11 +208,11 @@ def scrape_single_category(label, url, max_items_per_category, loaded_base):
         driver.get(url)
         human_wait(2.5, 4.5)
 
-        # Accept cookies if any
+        
         accept_cookies(driver)
 
-        # We *could* wait on a specific heading if we know it, but to keep it generic,
-        # just scroll to bottom and parse page source.
+        
+        
         scroll_to_bottom(driver)
 
         html = driver.page_source
@@ -220,7 +220,7 @@ def scrape_single_category(label, url, max_items_per_category, loaded_base):
             html, base_url=loaded_base, max_items=max_items_per_category
         )
 
-        # Add category column
+        
         for item in items:
             item["category"] = label
 
@@ -236,9 +236,9 @@ def scrape_single_category(label, url, max_items_per_category, loaded_base):
         driver.quit()
 
 
-# ---------------------------
-# Main multi-category scraper
-# ---------------------------
+
+
+
 
 def scrape_cdkeys(category_urls, max_items_per_category=50, use_threads=True):
     """
@@ -269,7 +269,7 @@ def scrape_cdkeys(category_urls, max_items_per_category=50, use_threads=True):
     all_items = []
 
     if use_threads and len(category_urls) > 1:
-        max_workers = min(len(category_urls), 4)  # don't spawn *too* many drivers
+        max_workers = min(len(category_urls), 4)  
         print(f"🧵 Using multithreading with {max_workers} workers...")
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -292,17 +292,17 @@ def scrape_cdkeys(category_urls, max_items_per_category=50, use_threads=True):
                 except Exception as e:
                     print(f"❗ Category '{label}' failed with error: {repr(e)}")
     else:
-        # Sequential mode (default if 0 or 1 categories, or use_threads=False)
+        
         for label, url in category_urls.items():
             items = scrape_single_category(
                 label, url, max_items_per_category, loaded_base
             )
             all_items.extend(items)
 
-    # ---------------- Save to data/raw/ ----------------
+    
     df = pd.DataFrame(all_items)
 
-    BASE_DIR = Path(__file__).resolve().parent.parent  # project root
+    BASE_DIR = Path(__file__).resolve().parent.parent  
     raw_dir = BASE_DIR / "data" / "raw"
     raw_dir.mkdir(parents=True, exist_ok=True)
 
@@ -324,16 +324,16 @@ if __name__ == "__main__":
     parser.add_argument("--no-threads", action="store_true", help="Disable multithreading")
     args = parser.parse_args()
 
-    # 🔧 Define the categories you want to scrape here.
-    # Keys = label that will appear in the 'category' column.
-    # Values = full URLs of the category pages.
+    
+    
+    
     CATEGORY_URLS = {
         "latest-games": "https://www.cdkeys.com/latest-games",
         "deals": "https://www.loaded.com/cdkeys-deals",
         "gift-cards": "https://www.loaded.com/gift-cards"
     }
 
-    # Example: scrape all categories with multithreading enabled
+    
     scrape_cdkeys(
         category_urls=CATEGORY_URLS,
         max_items_per_category=args.limit,

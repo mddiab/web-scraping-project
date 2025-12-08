@@ -27,9 +27,9 @@ BASE_URL = "https://www.instant-gaming.com/en/pc/trending/"
 OUTPUT_CSV = Path("data/raw/instantgaming.csv")
 
 
-# ---------------------------
-# Helpers
-# ---------------------------
+
+
+
 
 def human_wait(min_s: float = 1.0, max_s: float = 2.5):
     """Wait a random small delay to look human."""
@@ -94,9 +94,9 @@ def wait_for_results(driver: webdriver.Chrome, timeout: int = 20):
     )
 
 
-# ---------------------------
-# Parsing
-# ---------------------------
+
+
+
 
 def parse_trending_page(
     html: str,
@@ -126,12 +126,12 @@ def parse_trending_page(
     discount_re = re.compile(r"^-\d+%$")
     discount_any_re = re.compile(r"-\d+%")
     currency_re = re.compile(r"(\$|€|£|R\$|zł|kr|₪|₺|руб|PLN|BRL)")
-    title_hint_re = re.compile(r" - PC")  # catches " - PC", " - PC (Steam)", etc.
+    title_hint_re = re.compile(r" - PC")  
 
     rows: list[dict] = []
     titles_captured: set[str] = set()
 
-    # ----- Pass 1: Items WITH discounts -----
+    
     discount_anchors = []
     for a in soup.find_all("a"):
         txt = a.get_text(strip=True)
@@ -147,7 +147,7 @@ def parse_trending_page(
 
         full_url = urljoin("https://www.instant-gaming.com", href)
         if full_url in seen_urls:
-            # already seen on some page
+            
             continue
 
         discount_text = a.get_text(strip=True)
@@ -155,10 +155,10 @@ def parse_trending_page(
         price_raw = None
         preorder = None
 
-        # Walk forward until next discount anchor -> that's next product
+        
         for node in a.next_elements:
             if isinstance(node, Tag) and node.name == "a":
-                # If this is another discount badge, stop (next game)
+                
                 txt = node.get_text(strip=True)
                 if discount_any_re.search(txt) and node is not a:
                     break
@@ -168,24 +168,24 @@ def parse_trending_page(
                 if not txt:
                     continue
 
-                # Skip the discount itself
+                
                 if discount_any_re.search(txt):
                     continue
 
-                # Title = first non-empty string after discount
+                
                 if title is None:
                     title = txt
                     continue
 
-                # Optional preorder line
+                
                 if preorder is None and txt.lower().startswith("pre-order"):
                     preorder = txt
                     continue
 
-                # Price = first currency-like thing
+                
                 if price_raw is None and currency_re.search(txt):
                     price_raw = txt
-                    # after we got price, we can stop for this item
+                    
                     break
 
         rows.append(
@@ -204,8 +204,8 @@ def parse_trending_page(
         if len(rows) >= max_items_page:
             return rows
 
-    # ----- Pass 2: Items WITHOUT discounts -----
-    # Look for lines that look like "Game Name - PC (Steam)" but were not captured.
+    
+    
     extra_rows = 0
     title_nodes = soup.find_all(string=title_hint_re)
 
@@ -214,11 +214,11 @@ def parse_trending_page(
         if not title or title in titles_captured:
             continue
 
-        # Try to find a price after this title
+        
         price_raw = None
 
         for node in text_node.next_elements:
-            # Stop if we hit a new discount -> likely next product block
+            
             if isinstance(node, Tag) and node.name == "a":
                 t = node.get_text(strip=True)
                 if discount_any_re.search(t):
@@ -235,10 +235,10 @@ def parse_trending_page(
         if price_raw is None:
             continue
 
-        # Try to find a nearby <a> with href as product URL
+        
         a = text_node.find_parent("a")
         if a is None:
-            # Fallback: walk backwards a bit to find a link
+            
             prev = text_node.previous_element
             steps = 0
             while prev is not None and steps < 40:
@@ -313,9 +313,9 @@ def click_next_page_by_number(
     return True
 
 
-# ---------------------------
-# Main scraping function
-# ---------------------------
+
+
+
 
 def scrape_instantgaming_trending(max_items: int = 200):
     """
@@ -371,7 +371,7 @@ def scrape_instantgaming_trending(max_items: int = 200):
         df = pd.DataFrame(all_rows)
         OUTPUT_CSV.parent.mkdir(parents=True, exist_ok=True)
 
-        # Optionally de-duplicate by URL
+        
         df = df.drop_duplicates(subset=["product_url"])
 
         df.to_csv(OUTPUT_CSV, index=False)

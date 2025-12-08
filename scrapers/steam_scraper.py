@@ -13,9 +13,9 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-# ---------------------------
-# Helpers
-# ---------------------------
+
+
+
 
 def human_wait(min_s=1.0, max_s=2.5):
     """Wait a random small delay to look human."""
@@ -55,11 +55,11 @@ def scroll_steam_results(
     same_height_rounds = 0
 
     for i in range(max_scrolls):
-        # Scroll to bottom
+        
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         human_wait(*pause_range)
 
-        # Check how many items are currently loaded
+        
         if desired_count is not None:
             cards = driver.find_elements(By.CSS_SELECTOR, "a.search_result_row")
             count = len(cards)
@@ -68,7 +68,7 @@ def scroll_steam_results(
                 print(f"   ⏹ Reached desired count ({desired_count}); stopping scroll.")
                 return
 
-        # Check if we've reached the real bottom (height not changing)
+        
         new_height = driver.execute_script("return document.body.scrollHeight")
         if new_height == last_height:
             same_height_rounds += 1
@@ -82,9 +82,9 @@ def scroll_steam_results(
     print(f"   ⏹ Reached max scrolls ({max_scrolls}); stopping to avoid infinite loop.")
 
 
-# ---------------------------
-# Main Scraper
-# ---------------------------
+
+
+
 
 STEAM_LISTING_URLS = {
     "top_sellers": "https://store.steampowered.com/search/?filter=topsellers",
@@ -109,11 +109,11 @@ def parse_steam_search_html(html: str, category: str):
         release_date = a.select_one(".search_released")
         release_date = release_date.get_text(strip=True) if release_date else None
 
-        # --------- PRICE / DISCOUNT (FIXED) ----------
-        # Steam usually uses .discount_pct like "-50%"
+        
+        
         discount_el = a.select_one(".discount_pct")
         if not discount_el:
-            # Fallback in case markup is slightly different
+            
             discount_el = a.select_one(".search_discount span")
 
         discount_raw = discount_el.get_text(strip=True) if discount_el else None
@@ -122,10 +122,10 @@ def parse_steam_search_html(html: str, category: str):
 
         price_el = a.select_one(".discount_final_price")
         if not price_el:
-            # Some entries only have .search_price
+            
             price_el = a.select_one(".search_price")
         price_raw = price_el.get_text(strip=True) if price_el else None
-        # ---------------------------------------------
+        
 
         url = a.get("href", "").split("?")[0]
 
@@ -164,7 +164,7 @@ def main(limit_per_category: int | None = None):
             human_wait()
 
             print("⬇️  Scrolling to load items...")
-            # Only scroll until we have at least `limit_per_category` items (if provided)
+            
             scroll_steam_results(driver, desired_count=limit_per_category)
 
             html = driver.page_source
@@ -182,7 +182,7 @@ def main(limit_per_category: int | None = None):
 
         df = pd.DataFrame(all_rows)
 
-        # Drop obvious duplicates (same title & URL)
+        
         df.drop_duplicates(subset=["title", "product_url"], inplace=True)
 
         df.to_csv(output_path, index=False, encoding="utf-8-sig")

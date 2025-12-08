@@ -6,9 +6,9 @@ import os
 import pickle
 import numpy as np
 
-# -----------------------------------------------------------------------------
-# Page Configuration
-# -----------------------------------------------------------------------------
+
+
+
 st.set_page_config(
     page_title="Game Deals Tracker",
     page_icon="🎮",
@@ -16,9 +16,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# -----------------------------------------------------------------------------
-# Custom CSS & Styling (Neon Black/Purple Theme)
-# -----------------------------------------------------------------------------
+
+
+
 st.markdown("""
 <style>
     /* Import Google Fonts */
@@ -159,9 +159,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# -----------------------------------------------------------------------------
-# Data Loading
-# -----------------------------------------------------------------------------
+
+
+
 @st.cache_data
 def load_data():
     data_dir = "data/cleaned"
@@ -182,12 +182,12 @@ def load_data():
                 df = pd.read_csv(filepath)
                 df['source_file'] = source
                 
-                # Normalize Columns
+                
                 if source == "Epic Games":
                     if 'price' in df.columns:
                         df.rename(columns={'price': 'price_eur'}, inplace=True)
                 
-                # Ensure essential columns
+                
                 required_cols = ['price_eur', 'discount_pct', 'title', 'platform', 'product_url']
                 for col in required_cols:
                     if col not in df.columns:
@@ -198,7 +198,7 @@ def load_data():
                         else:
                             df[col] = None
                 
-                # Data Type Cleaning
+                
                 df['price_eur'] = pd.to_numeric(df['price_eur'], errors='coerce').fillna(0.0)
                 df['discount_pct'] = pd.to_numeric(df['discount_pct'], errors='coerce').fillna(0)
                 
@@ -213,9 +213,9 @@ def load_data():
 
 df = load_data()
 
-# -----------------------------------------------------------------------------
-# Model Loading
-# -----------------------------------------------------------------------------
+
+
+
 @st.cache_resource
 def load_models():
     models_dir = "models"
@@ -248,25 +248,25 @@ def prepare_features(row, models_dict):
     """
     encoders = models_dict["label_encoders"]
     
-    # 1. Extract Features
-    # Numeric
+    
+    
     discount_pct = float(row.get('discount_pct', 0))
     original_price_eur = float(row.get('price_eur', 0)) / (1 - (discount_pct / 100)) if discount_pct < 100 else float(row.get('price_eur', 0))
-    # If discount is 0, original price is same as current price
+    
     if discount_pct == 0:
         original_price_eur = float(row.get('price_eur', 0))
         
     has_discount = 1 if discount_pct > 0 else 0
     high_discount = 1 if discount_pct >= 50 else 0 
     
-    # Categorical
+    
     source = str(row.get('source_file', 'Unknown'))
     platform = str(row.get('platform', 'Unknown'))
     storefront = str(row.get('storefront', 'Unknown')) 
     category = str(row.get('category', 'Unknown'))     
     is_preorder = str(row.get('is_preorder', 'False')) 
     
-    # 2. Encode Categoricals
+    
     encoded_cats = {}
     cat_cols = ['source', 'platform', 'storefront', 'category', 'is_preorder']
     
@@ -284,10 +284,10 @@ def prepare_features(row, models_dict):
         else:
             encoded_cats[col] = 0
 
-    # 3. Assemble Feature Vectors
     
-    # Classification Features (9 features)
-    # ['discount_pct', 'original_price_eur', 'has_discount', 'high_discount', 'source', 'platform', 'storefront', 'category', 'is_preorder']
+    
+    
+    
     features_clf = [
         discount_pct,
         original_price_eur,
@@ -300,8 +300,8 @@ def prepare_features(row, models_dict):
         encoded_cats['is_preorder']
     ]
     
-    # Regression Features (8 features - NO original_price_eur)
-    # ['discount_pct', 'has_discount', 'high_discount', 'source', 'platform', 'storefront', 'category', 'is_preorder']
+    
+    
     features_reg = [
         discount_pct,
         has_discount,
@@ -315,20 +315,20 @@ def prepare_features(row, models_dict):
     
     return np.array([features_clf]), np.array([features_reg])
 
-# -----------------------------------------------------------------------------
-# Sidebar Filters
-# -----------------------------------------------------------------------------
+
+
+
 with st.sidebar:
     st.markdown("### 🛠️ Filters")
     
     if not df.empty:
-        # Store Filter
+        
         all_stores = sorted(df['source_file'].unique().tolist())
         selected_stores = st.multiselect("Select Stores", all_stores, default=all_stores)
         
         st.markdown("---")
         
-        # Price Filter
+        
         st.markdown("#### Price Range (€)")
         min_price_val = float(df['price_eur'].min())
         max_price_val = float(df['price_eur'].max())
@@ -345,26 +345,26 @@ with st.sidebar:
         
         st.markdown("---")
         
-        # Discount Filter
+        
         st.markdown("#### Minimum Discount (%)")
         min_discount = st.slider("Min Discount", 0, 100, 0, step=5)
         
-        # Search
+        
         st.markdown("---")
         search_query = st.text_input("🔍 Search Game", placeholder="E.g., Elden Ring")
 
-# -----------------------------------------------------------------------------
-# Main Content
-# -----------------------------------------------------------------------------
 
-# Hero Section
+
+
+
+
 st.markdown('<h1 class="hero-header">Game Deals Tracker</h1>', unsafe_allow_html=True)
 st.markdown('<p class="hero-subheader">Aggregating the best prices from Steam, Epic, Xbox, and more.</p>', unsafe_allow_html=True)
 
 if df.empty:
     st.warning("⚠️ No data found. Please check your data directory.")
 else:
-    # Apply Filters
+    
     filtered_df = df[
         (df['source_file'].isin(selected_stores)) &
         (df['price_eur'] >= price_range[0]) &
@@ -375,7 +375,7 @@ else:
     if search_query:
         filtered_df = filtered_df[filtered_df['title'].str.contains(search_query, case=False, na=False)]
 
-    # Top Metrics
+    
     m1, m2, m3, m4 = st.columns(4)
     
     with m1:
@@ -387,15 +387,15 @@ else:
         avg_discount = filtered_df['discount_pct'].mean()
         st.metric("Avg Discount", f"{avg_discount:.1f}%")
     with m4:
-        # Count of "Great Deals" (>50% off)
+        
         great_deals = len(filtered_df[filtered_df['discount_pct'] >= 50])
         st.metric("Great Deals (50%+)", f"{great_deals:,}")
 
 
     
-    # -------------------------------------------------------------------------
-    # AI Deal Predictor Section
-    # -------------------------------------------------------------------------
+    
+    
+    
     st.markdown('<div class="ai-box">', unsafe_allow_html=True)
     st.subheader("🤖 AI Deal Predictor")
     st.markdown("Select a game to let our AI models analyze if it's a good deal and predict its fair market price.")
@@ -403,23 +403,23 @@ else:
     col_ai_1, col_ai_2 = st.columns([2, 1])
     
     with col_ai_1:
-        # Game Selector
+        
         game_options = filtered_df['title'].unique().tolist()
         selected_game_title = st.selectbox("Select Game to Analyze", game_options)
     
     with col_ai_2:
-        st.write("") # Spacer
-        st.write("") # Spacer
+        st.write("") 
+        st.write("") 
         analyze_btn = st.button("🔮 Analyze Deal", use_container_width=True)
         
     if analyze_btn and selected_game_title and models:
-        # Get game data
+        
         game_row = filtered_df[filtered_df['title'] == selected_game_title].iloc[0]
         
-        # Prepare features
+        
         X_clf, X_reg = prepare_features(game_row, models)
         
-        # Calculate Savings for Transparency (Moved up for logic)
+        
         discount_pct = float(game_row.get('discount_pct', 0))
         current_price = float(game_row.get('price_eur', 0))
         if discount_pct > 0 and discount_pct < 100:
@@ -429,29 +429,29 @@ else:
         
         savings = original_price - current_price
 
-        # 1. Deal Classification
+        
         scaler_deal = models["scaler_deal"]
         clf = models["deal_classifier"]
         X_scaled_deal = scaler_deal.transform(X_clf)
-        deal_pred = clf.predict(X_scaled_deal)[0] # 'Good Deal' or 'Not a Deal'
+        deal_pred = clf.predict(X_scaled_deal)[0] 
         deal_prob = clf.predict_proba(X_scaled_deal)[0]
         
-        # 2. Price Regression
+        
         scaler_price = models["scaler_price"]
         reg = models["price_regressor"]
         X_scaled_price = scaler_price.transform(X_reg)
         predicted_price = reg.predict(X_scaled_price)[0]
         
-        # Rule Enforcement: Strictly enforce the stated criteria
-        # Criteria: Discount >= 25% OR Savings >= €10
+        
+        
         if discount_pct >= 25 or savings >= 10:
             deal_pred = "Good Deal"
-            deal_prob = [1.0] # 100% confidence for rule-based decision
+            deal_prob = [1.0] 
         
-        # Display Results
+        
         st.markdown("---")
         
-        # Criteria Explanation
+        
         st.info("ℹ️ **Model Criteria:** A game is considered a 'Good Deal' if the **Discount is ≥ 25%** OR **Savings are ≥ €10**. (Strictly Enforced)")
         
         res_col1, res_col2, res_col3 = st.columns(3)
@@ -479,11 +479,11 @@ else:
     st.markdown('</div>', unsafe_allow_html=True)
     st.markdown("---")
 
-    # -------------------------------------------------------------------------
-    # Visualizations
-    # -------------------------------------------------------------------------
     
-    # Row 1: Price Distribution & Top Discounts
+    
+    
+    
+    
     col_charts_1, col_charts_2 = st.columns([1.5, 1])
 
     with col_charts_1:
@@ -494,7 +494,7 @@ else:
                 x="source_file", 
                 y="price_eur", 
                 color="source_file",
-                color_discrete_sequence=px.colors.qualitative.Bold, # Will be overridden by theme usually, but good fallback
+                color_discrete_sequence=px.colors.qualitative.Bold, 
                 labels={"price_eur": "Price (€)", "source_file": "Store"}
             )
             fig_box.update_layout(
@@ -505,7 +505,7 @@ else:
                 margin=dict(l=20, r=20, t=30, b=20),
                 font=dict(family="Inter", color="#E0E0E0")
             )
-            # Custom marker colors for neon look
+            
             fig_box.update_traces(marker=dict(color='#D500F9', opacity=0.7))
             st.plotly_chart(fig_box, use_container_width=True)
         else:
@@ -514,7 +514,7 @@ else:
     with col_charts_2:
         st.subheader("🔥 Top Discounts")
         if not filtered_df.empty:
-            # Histogram of discounts
+            
             fig_hist = px.histogram(
                 filtered_df[filtered_df['discount_pct'] > 0],
                 x="discount_pct",
@@ -534,7 +534,7 @@ else:
         else:
             st.info("No discounts found.")
 
-    # Row 2: New Visualizations
+    
     col_charts_3, col_charts_4 = st.columns(2)
     
     with col_charts_3:
@@ -584,11 +584,11 @@ else:
             fig_donut.update_traces(textposition='inside', textinfo='percent+label')
             st.plotly_chart(fig_donut, use_container_width=True)
 
-    # Row 3: Platform Comparison
+    
     st.subheader("🎮 Average Price by Platform")
     if not filtered_df.empty and 'platform' in filtered_df.columns:
-        # Clean platform data slightly if needed, or just group
-        # Assuming platform column exists and has data
+        
+        
         platform_stats = filtered_df.groupby('platform')['price_eur'].mean().reset_index().sort_values('price_eur', ascending=False)
         
         fig_bar = px.bar(
@@ -609,11 +609,11 @@ else:
         st.plotly_chart(fig_bar, use_container_width=True)
 
 
-    # Detailed Data Table
+    
     st.subheader("📋 Game List")
     
     if not filtered_df.empty:
-        # Configure columns for better display
+        
         st.dataframe(
             filtered_df[['title', 'price_eur', 'discount_pct', 'source_file', 'platform', 'product_url']].sort_values(by='discount_pct', ascending=False),
             column_config={

@@ -22,15 +22,15 @@ from selenium.common.exceptions import (
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-# ---------------------------
-# Config
-# ---------------------------
 
-# "All games" listing (console + PC, no filters)
+
+
+
+
 BASE_URL = "https://www.xbox.com/en-US/games/browse"
 
-MAX_ITEMS = 1000          # hard cap
-MAX_SHOW_MORE_CLICKS = 80 # safety for "Show more" loops
+MAX_ITEMS = 1000          
+MAX_SHOW_MORE_CLICKS = 80 
 
 PRICE_REGEX = re.compile(r"([€$£])\s?\d[\d.,]*|Free\+?", re.IGNORECASE)
 
@@ -40,9 +40,9 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_CSV = DATA_DIR / "xbox.csv"
 
 
-# ---------------------------
-# Helpers
-# ---------------------------
+
+
+
 
 def human_wait(min_s=1.0, max_s=2.5):
     time.sleep(random.uniform(min_s, max_s))
@@ -126,9 +126,9 @@ def click_show_more_if_any(driver, timeout=8) -> bool:
     return False
 
 
-# ---------------------------
-# Parsing logic
-# ---------------------------
+
+
+
 
 def extract_games_from_html(html: str, base_url: str, already_seen: set):
     """
@@ -156,7 +156,7 @@ def extract_games_from_html(html: str, base_url: str, already_seen: set):
         if not title:
             continue
 
-        # Try to find price in parent containers
+        
         price_text = None
 
         for parent in a.parents:
@@ -169,7 +169,7 @@ def extract_games_from_html(html: str, base_url: str, already_seen: set):
                 price_text = m.group(0)
                 break
 
-        # Fallback: look in the anchor's parent
+        
         if price_text is None and a.parent is not None:
             siblings_text = " ".join(a.parent.stripped_strings)
             m2 = PRICE_REGEX.search(siblings_text)
@@ -190,9 +190,9 @@ def extract_games_from_html(html: str, base_url: str, already_seen: set):
     return rows
 
 
-# ---------------------------
-# Main scrape function
-# ---------------------------
+
+
+
 
 def scrape_xbox_all_games(max_items: int = MAX_ITEMS):
     print("==============================")
@@ -241,7 +241,7 @@ def scrape_xbox_all_games(max_items: int = MAX_ITEMS):
 
             show_more_clicks += 1
 
-        # Trim to max_items
+        
         all_rows = all_rows[:max_items]
 
         if not all_rows:

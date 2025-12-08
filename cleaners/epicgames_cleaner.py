@@ -4,19 +4,19 @@ from pathlib import Path
 import pandas as pd
 
 
-# ---------------------------
-# Paths (adjust if needed)
-# ---------------------------
+
+
+
 RAW_PATH = Path("data/raw/epicgames.csv")
 CLEAN_PATH = Path("data/cleaned/cleaned_epicgames.csv")
 
 
-# ---------------------------
-# Helper functions
-# ---------------------------
 
-# Rough INR -> USD conversion rate
-INR_TO_USD = 0.012  # tweak if you want a more up-to-date rate
+
+
+
+
+INR_TO_USD = 0.012  
 
 
 def parse_price(x):
@@ -32,17 +32,17 @@ def parse_price(x):
     if not s:
         return (math.nan, None)
 
-    # Handle free games
+    
     if s.lower().startswith("free"):
         return (0.0, None)
 
-    # currency chars: everything that is NOT digit / comma / dot / space
+    
     currency_chars = "".join(
         ch for ch in s if not ch.isdigit() and ch not in {",", ".", " "}
     )
     currency = currency_chars or None
 
-    # numeric part: digits + dot
+    
     number = "".join(ch for ch in s if ch.isdigit() or ch == ".")
     value = float(number) if number else math.nan
     return value, currency
@@ -70,14 +70,14 @@ def convert_to_usd(value, currency):
         return math.nan
 
     if not currency:
-        # Assume it's already in USD or no currency symbol
+        
         return value
 
-    # Handle INR (₹) explicitly
+    
     if currency == "₹" or str(currency).upper() == "INR":
         return value * INR_TO_USD
 
-    # Fallback: no conversion
+    
     return value
 
 
@@ -122,7 +122,7 @@ def normalize_platform(value):
         return "Other"
 
     text = str(value)
-    # Treat commas and slashes as separators
+    
     parts = [p.strip() for p in text.replace("/", ",").split(",") if p.strip()]
     mapped = []
     for p in parts:
@@ -142,52 +142,52 @@ def clean_epic_games(df_raw: pd.DataFrame) -> pd.DataFrame:
 
     df = df_raw.copy()
 
-    # --- Price & currency ---
+    
     price_tuples = df["price of game"].apply(parse_price)
     df["price_numeric"], df["currency"] = zip(*price_tuples)
 
-    # Convert to USD
+    
     df["price_usd"] = [
         convert_to_usd(v, c) for v, c in zip(df["price_numeric"], df["currency"])
     ]
-    # Round to 2 decimal places
+    
     df["price_usd"] = df["price_usd"].round(2)
 
-    # --- Release date to proper datetime / date ---
-    # Your file uses MM/DD/YY like 09/03/20
+    
+    
     df["release_date_parsed"] = pd.to_datetime(
         df["date release"], errors="coerce", format="%m/%d/%y"
     )
-    # Save as ISO string so it shows clearly in CSV
+    
     df["release_date_str"] = df["release_date_parsed"].dt.strftime("%Y-%m-%d")
 
-    # --- Critics recommend to numeric percent (kept for later use if needed) ---
+    
     df["critics_recommend_percent"] = df["Critics Recommend"].apply(parse_percent)
 
-    # --- Normalize platform labels ---
+    
     df["platform_normalized"] = df["platform"].apply(normalize_platform)
 
-    # --- Build a cleaned dataframe with unified columns ---
+    
     df_clean = pd.DataFrame(
         {
-            "store": "epic_games_store",  # constant
+            "store": "epic_games_store",  
             "title": df["name"].astype(str).str.strip(),
             "platform": df["platform_normalized"],
-            # final price column is now in USD (rounded to 2 decimals)
+            
             "price": df["price_usd"],
             "release_date": df["release_date_str"],
         }
     )
 
-    # Optional: drop rows with completely missing title
+    
     df_clean = df_clean.dropna(subset=["title"]).reset_index(drop=True)
 
     return df_clean
 
 
-# ---------------------------
-# Main
-# ---------------------------
+
+
+
 def main():
     print("=======================================")
     print("🎮  Epic Games CLEANER STARTED")
